@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Size Guides | Aus Ecom Admin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+
+    <style>
+      .table-clickable-row {
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+      }
+      .table-clickable-row:hover {
+        background-color: rgba(126, 91, 68, 0.04) !important;
+      }
+      .size-pill-tag {
+        display: inline-block;
+        padding: 2px 7px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        border-radius: 4px;
+        background-color: var(--beige-primary-light);
+        color: var(--beige-primary-accent);
+        border: 1px solid var(--beige-border-subtle);
+        margin: 1px 2px;
+      }
+      .attr-badge-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 0.75rem;
+        background-color: #F7F4EE;
+        border: 1px solid var(--beige-border-subtle);
+        color: var(--beige-text-secondary);
+        padding: 2px 6px;
+        border-radius: 4px;
+        margin: 1px 2px;
+      }
+      .stat-card-beige {
+        background-color: #FFFFFF;
+        border: 1px solid var(--beige-border-subtle);
+        border-radius: 8px;
+        padding: 1.15rem;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .stat-card-beige:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(126, 91, 68, 0.08);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <!-- Dashboard -->
+            <li class="menu-item">
+              <a href="index.html" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i>
+                <div>Dashboard</div>
+              </a>
+            </li>
+
+            <!-- Catalog -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i>
+                <div>Catalog</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="products.html" class="menu-link"><div>Products</div></a></li>
+                <li class="menu-item"><a href="categories.html" class="menu-link"><div>Categories</div></a></li>
+                <li class="menu-item"><a href="subcategories.html" class="menu-link"><div>Subcategories</div></a></li>
+                <li class="menu-item"><a href="brands.html" class="menu-link"><div>Brands</div></a></li>
+                <li class="menu-item active"><a href="size-guides.html" class="menu-link"><div>Size Guides</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Sales -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-cart-outline"></i>
+                <div>Sales</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="orders.html" class="menu-link"><div>Orders</div></a></li>
+                <li class="menu-item"><a href="customers.html" class="menu-link"><div>Customers</div></a></li>
+                <li class="menu-item"><a href="abandoned-carts.html" class="menu-link"><div>Abandoned Carts</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Requests -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-hand-shake-outline"></i>
+                <div>Requests</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="sourcing-requests.html" class="menu-link"><div>Sourcing Requests</div></a></li>
+                <li class="menu-item"><a href="bulk-orders.html" class="menu-link"><div>Bulk Orders</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Marketing -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-bullhorn-outline"></i>
+                <div>Marketing</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="offers.html" class="menu-link"><div>Offers / Discounts</div></a></li>
+                <li class="menu-item"><a href="coupons.html" class="menu-link"><div>Coupons</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Content -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-web"></i>
+                <div>Content</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="banners.html" class="menu-link"><div>Banners</div></a></li>
+                <li class="menu-item"><a href="homepage.html" class="menu-link"><div>Homepage</div></a></li>
+                <li class="menu-item"><a href="pages.html" class="menu-link"><div>Pages</div></a></li>
+                <li class="menu-item"><a href="navigation.html" class="menu-link"><div>Navigation</div></a></li>
+                <li class="menu-item"><a href="site-contents.html" class="menu-link"><div>Site Content</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Engagement -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-star-outline"></i>
+                <div>Engagement</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="reviews.html" class="menu-link"><div>Reviews</div></a></li>
+                <li class="menu-item"><a href="wishlists.html" class="menu-link"><div>Wishlist</div></a></li>
+                <li class="menu-item"><a href="subscribers.html" class="menu-link"><div>Subscribers</div></a></li>
+                <li class="menu-item"><a href="contacts.html" class="menu-link"><div>Contacts</div></a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="products.html">Catalog</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Size Guides</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Header Bar -->
+              <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                <div>
+                  <h4 class="fw-bold mb-1" style="color: var(--beige-text-primary);">Size Guides</h4>
+                  <p class="text-secondary mb-0 fs-7">Manage dynamic measurement charts, attributes, and size standards for catalog products.</p>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <a href="size-guide-add.html" class="btn btn-primary d-flex align-items-center gap-1">
+                    <i class="mdi mdi-plus fs-5"></i> Add Size Guide
+                  </a>
+                </div>
+              </div>
+
+              <!-- Stat Metrics Cards -->
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-lg-3">
+                  <div class="stat-card-beige d-flex align-items-center gap-3">
+                    <div class="rounded-circle p-2 d-flex align-items-center justify-content-center" style="background-color: #F2EBE4; width: 44px; height: 44px;">
+                      <i class="mdi mdi-tape-measure fs-4" style="color: #7E5B44;"></i>
+                    </div>
+                    <div>
+                      <div class="fs-8 text-secondary">Total Guides</div>
+                      <div class="fs-5 fw-bold text-dark" id="statTotalGuides">0</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="stat-card-beige d-flex align-items-center gap-3">
+                    <div class="rounded-circle p-2 d-flex align-items-center justify-content-center" style="background-color: #F0F6F2; width: 44px; height: 44px;">
+                      <i class="mdi mdi-check-circle-outline fs-4 text-success"></i>
+                    </div>
+                    <div>
+                      <div class="fs-8 text-secondary">Active Guides</div>
+                      <div class="fs-5 fw-bold text-dark" id="statActiveGuides">0</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="stat-card-beige d-flex align-items-center gap-3">
+                    <div class="rounded-circle p-2 d-flex align-items-center justify-content-center" style="background-color: #F2F0F7; width: 44px; height: 44px;">
+                      <i class="mdi mdi-tshirt-crew-outline fs-4" style="color: #6A5B82;"></i>
+                    </div>
+                    <div>
+                      <div class="fs-8 text-secondary">Apparel Specs</div>
+                      <div class="fs-5 fw-bold text-dark" id="statApparelGuides">0</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="stat-card-beige d-flex align-items-center gap-3">
+                    <div class="rounded-circle p-2 d-flex align-items-center justify-content-center" style="background-color: #FDF6E9; width: 44px; height: 44px;">
+                      <i class="mdi mdi-package-variant-closed fs-4" style="color: #9C6F1E;"></i>
+                    </div>
+                    <div>
+                      <div class="fs-8 text-secondary">Assigned Products</div>
+                      <div class="fs-5 fw-bold text-dark" id="statAssignedProducts">0</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Filter & Search Toolbar -->
+              <div class="card mb-4">
+                <div class="card-body p-3">
+                  <div class="row g-3">
+                    <div class="col-12 col-md-5">
+                      <div class="input-group input-group-merge">
+                        <span class="input-group-text bg-white border-end-0"><i class="mdi mdi-magnify"></i></span>
+                        <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Search by title, key slug, or category..." />
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                      <select id="filterUnit" class="form-select">
+                        <option value="">All Units</option>
+                        <option value="cm">Metric (cm)</option>
+                        <option value="inch">Imperial (inch)</option>
+                      </select>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                      <select id="filterStatus" class="form-select">
+                        <option value="">All Statuses</option>
+                        <option value="Active">Active</option>
+                        <option value="Draft">Draft</option>
+                        <option value="Inactive">Inactive</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12 col-md-1 d-flex align-items-center justify-content-end">
+                      <button id="resetFiltersBtn" class="btn btn-outline-secondary w-100" title="Reset Filters">
+                        <i class="mdi mdi-refresh"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Size Guides Table Card -->
+              <div class="card">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Guide Title & Key</th>
+                        <th>Category</th>
+                        <th>Measurement Attributes</th>
+                        <th>Available Sizes</th>
+                        <th>Assigned</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="sizeGuideTableBody">
+                      <!-- Dynamically Populated by size-guide-store.js -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Card Footer / Pagination -->
+                <div class="card-footer border-top py-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                  <div class="text-secondary fs-8" id="paginationInfo">Showing 0 to 0 of 0 entries</div>
+                  <nav aria-label="Table navigation">
+                    <ul class="pagination pagination-sm mb-0" id="paginationNav">
+                      <!-- Generated Dynamically -->
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Catalog Foundation.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DELETE CONFIRMATION MODAL -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header border-bottom py-3">
+            <h5 class="modal-title fs-6 fw-bold text-danger"><i class="mdi mdi-alert-circle-outline me-1"></i> Delete Guide</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center py-4">
+            <div class="mb-2"><i class="mdi mdi-trash-can-outline fs-1 text-danger"></i></div>
+            <p class="mb-1 text-dark fw-medium">Are you sure you want to delete this size guide?</p>
+            <small class="text-muted">Assigned products will no longer display this sizing table.</small>
+          </div>
+          <div class="modal-footer border-top py-2 d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-sm btn-danger" id="confirmDeleteBtn">Delete Guide</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+
+    <!-- Size Guide Store -->
+    <script src="assets/js/size-guide-store.js"></script>
+
+    <!-- Page Controller Logic -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const tableBody = document.getElementById('sizeGuideTableBody');
+        const searchInput = document.getElementById('searchInput');
+        const filterUnit = document.getElementById('filterUnit');
+        const filterStatus = document.getElementById('filterStatus');
+        const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        const deleteModalEl = document.getElementById('deleteModal');
+        const deleteModal = new bootstrap.Modal(deleteModalEl);
+
+        let targetDeleteId = null;
+        let currentPage = 1;
+        const pageSize = 8;
+
+        function updateStats(items) {
+          document.getElementById('statTotalGuides').innerText = items.length;
+          document.getElementById('statActiveGuides').innerText = items.filter(i => i.status === 'Active').length;
+          document.getElementById('statApparelGuides').innerText = items.filter(i => (i.category || '').toLowerCase().includes('apparel')).length;
+          const assignedSum = items.reduce((acc, curr) => acc + (curr.assignedProductCount || 0), 0);
+          document.getElementById('statAssignedProducts').innerText = assignedSum;
+        }
+
+        function loadTable() {
+          let items = SizeGuideStore.getAll();
+          updateStats(items);
+
+          // Filtering
+          const searchVal = searchInput.value.toLowerCase().trim();
+          const unitVal = filterUnit.value;
+          const statusVal = filterStatus.value;
+
+          if (searchVal) {
+            items = items.filter(g => 
+              g.title.toLowerCase().includes(searchVal) || 
+              g.key.toLowerCase().includes(searchVal) ||
+              (g.category || '').toLowerCase().includes(searchVal)
+            );
+          }
+
+          if (unitVal) {
+            items = items.filter(g => (g.attributes || []).some(a => a.unit === unitVal));
+          }
+
+          if (statusVal) {
+            items = items.filter(g => g.status === statusVal);
+          }
+
+          const totalCount = items.length;
+          const totalPages = Math.ceil(totalCount / pageSize) || 1;
+          if (currentPage > totalPages) currentPage = totalPages;
+
+          const startIndex = (currentPage - 1) * pageSize;
+          const pagedItems = items.slice(startIndex, startIndex + pageSize);
+
+          tableBody.innerHTML = '';
+
+          if (pagedItems.length === 0) {
+            tableBody.innerHTML = `
+              <tr>
+                <td colspan="7" class="text-center py-5">
+                  <div class="text-muted">
+                    <i class="mdi mdi-tape-measure fs-1 d-block mb-2" style="color: var(--beige-border-medium);"></i>
+                    <p class="mb-2 fw-medium">No size guides found matching your search.</p>
+                    <a href="size-guide-add.html" class="btn btn-sm btn-outline-primary">Create New Guide</a>
+                  </div>
+                </td>
+              </tr>
+            `;
+          } else {
+            pagedItems.forEach(guide => {
+              const tr = document.createElement('tr');
+              tr.className = 'table-clickable-row';
+
+              // Status badge styling
+              let statusBadgeClass = 'bg-label-secondary';
+              if (guide.status === 'Active') statusBadgeClass = 'bg-label-success';
+              else if (guide.status === 'Draft') statusBadgeClass = 'bg-label-warning';
+
+              // Attributes badges
+              const attrBadges = (guide.attributes || []).slice(0, 3).map(a => 
+                `<span class="attr-badge-item"><span>${a.name}</span> <small class="text-muted">(${a.unit})</small></span>`
+              ).join('');
+              const extraAttrs = (guide.attributes || []).length > 3 ? `<span class="badge bg-label-secondary fs-9">+${(guide.attributes || []).length - 3}</span>` : '';
+
+              // Sizes pills
+              const sizePills = (guide.sizes || []).slice(0, 5).map(s => 
+                `<span class="size-pill-tag">${s.size}</span>`
+              ).join('');
+              const extraSizes = (guide.sizes || []).length > 5 ? `<span class="badge bg-label-secondary fs-9">+${(guide.sizes || []).length - 5}</span>` : '';
+
+              tr.innerHTML = `
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="rounded border p-1 bg-white" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-color: var(--beige-border-subtle) !important;">
+                      <i class="mdi mdi-tape-measure fs-3" style="color: var(--beige-primary-accent);"></i>
+                    </div>
+                    <div>
+                      <a href="size-guide-details.html?id=${guide.id}" class="fw-bold text-dark fs-8 hover-underline">${guide.title}</a>
+                      <div class="d-flex align-items-center gap-1 mt-1">
+                        <code>${guide.key}</code>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span class="fw-medium text-dark fs-8">${guide.category || 'General'}</span>
+                </td>
+                <td>
+                  <div class="d-flex flex-wrap align-items-center">
+                    ${attrBadges} ${extraAttrs}
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-wrap align-items-center">
+                    ${sizePills} ${extraSizes}
+                  </div>
+                </td>
+                <td>
+                  <span class="badge bg-label-info fs-8">${guide.assignedProductCount || 0} Products</span>
+                </td>
+                <td>
+                  <span class="badge ${statusBadgeClass} fs-8">${guide.status}</span>
+                </td>
+                <td class="text-end">
+                  <div class="d-flex align-items-center justify-content-end gap-1">
+                    <a href="size-guide-details.html?id=${guide.id}" class="btn btn-sm btn-icon btn-outline-beige" title="View Guide">
+                      <i class="mdi mdi-eye-outline fs-6"></i>
+                    </a>
+                    <a href="size-guide-edit.html?id=${guide.id}" class="btn btn-sm btn-icon btn-outline-beige" title="Edit Guide">
+                      <i class="mdi mdi-pencil-outline fs-6"></i>
+                    </a>
+                    <button type="button" class="btn btn-sm btn-icon btn-outline-beige btn-toggle-status" data-id="${guide.id}" title="Toggle Active/Inactive">
+                      <i class="mdi mdi-sync fs-6"></i>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger btn-delete" data-id="${guide.id}" title="Delete Guide">
+                      <i class="mdi mdi-trash-can-outline fs-6"></i>
+                    </button>
+                  </div>
+                </td>
+              `;
+
+              tr.addEventListener('click', (e) => {
+                if (e.target.closest('a') || e.target.closest('button')) return;
+                window.location.href = `size-guide-details.html?id=${guide.id}`;
+              });
+
+              tableBody.appendChild(tr);
+            });
+          }
+
+          const endObjIndex = Math.min(startIndex + pageSize, totalCount);
+          document.getElementById('paginationInfo').innerText = totalCount === 0 
+            ? 'Showing 0 to 0 of 0 entries'
+            : `Showing ${startIndex + 1} to ${endObjIndex} of ${totalCount} entries`;
+
+          renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+          const nav = document.getElementById('paginationNav');
+          nav.innerHTML = '';
+          if (totalPages <= 1) return;
+
+          const prevLi = document.createElement('li');
+          prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+          prevLi.innerHTML = `<a class="page-link" href="javascript:void(0)"><i class="mdi mdi-chevron-left"></i></a>`;
+          prevLi.addEventListener('click', () => { if (currentPage > 1) { currentPage--; loadTable(); } });
+          nav.appendChild(prevLi);
+
+          for (let i = 1; i <= totalPages; i++) {
+            const pageLi = document.createElement('li');
+            pageLi.className = `page-item ${i === currentPage ? 'active' : ''}`;
+            pageLi.innerHTML = `<a class="page-link" href="javascript:void(0)">${i}</a>`;
+            pageLi.addEventListener('click', () => { currentPage = i; loadTable(); });
+            nav.appendChild(pageLi);
+          }
+
+          const nextLi = document.createElement('li');
+          nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+          nextLi.innerHTML = `<a class="page-link" href="javascript:void(0)"><i class="mdi mdi-chevron-right"></i></a>`;
+          nextLi.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; loadTable(); } });
+          nav.appendChild(nextLi);
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', () => { currentPage = 1; loadTable(); });
+        filterUnit.addEventListener('change', () => { currentPage = 1; loadTable(); });
+        filterStatus.addEventListener('change', () => { currentPage = 1; loadTable(); });
+        resetFiltersBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          filterUnit.value = '';
+          filterStatus.value = '';
+          currentPage = 1;
+          loadTable();
+        });
+
+        tableBody.addEventListener('click', (e) => {
+          const toggleBtn = e.target.closest('.btn-toggle-status');
+          const deleteBtn = e.target.closest('.btn-delete');
+
+          if (toggleBtn) {
+            e.stopPropagation();
+            const id = toggleBtn.getAttribute('data-id');
+            SizeGuideStore.toggleStatus(id);
+            loadTable();
+          } else if (deleteBtn) {
+            e.stopPropagation();
+            targetDeleteId = deleteBtn.getAttribute('data-id');
+            deleteModal.show();
+          }
+        });
+
+        confirmDeleteBtn.addEventListener('click', () => {
+          if (targetDeleteId) {
+            SizeGuideStore.delete(targetDeleteId);
+            deleteModal.hide();
+            targetDeleteId = null;
+            loadTable();
+          }
+        });
+
+        loadTable();
+      });
+    </script>
+  </body>
+</html>

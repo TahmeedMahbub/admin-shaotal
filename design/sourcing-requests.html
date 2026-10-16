@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Sourcing Requests | Aus Ecom Admin</title>
+    <meta name="description" content="Sourcing Requests Management" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #211C17; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item"><a href="orders.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cart-outline"></i><div>Sales</div></a></li>
+            
+            <!-- Requests -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-hand-shake-outline"></i>
+                <div>Requests</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item active"><a href="sourcing-requests.html" class="menu-link"><div>Sourcing Requests</div></a></li>
+                <li class="menu-item"><a href="bulk-orders.html" class="menu-link"><div>Bulk Orders</div></a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-star-outline"></i><div>Reviews</div></a></li>
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Requests</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sourcing Requests</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Header -->
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <div>
+                  <h4 class="fw-bold mb-1" style="color: var(--beige-text-primary);">Sourcing Requests</h4>
+                  <p class="text-secondary mb-0 fs-7">Manage custom product sourcing inquiries submitted by customers.</p>
+                </div>
+              </div>
+
+              <!-- Filter Controls Card -->
+              <div class="card mb-4">
+                <div class="card-body p-3">
+                  <div class="row g-3">
+                    
+                    <div class="col-12 col-md-4">
+                      <div class="input-group input-group-merge">
+                        <span class="input-group-text bg-white border-end-0"><i class="mdi mdi-magnify"></i></span>
+                        <input type="text" class="form-control border-start-0 ps-0" placeholder="Search by Request ID, customer, item...">
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-md-2">
+                      <select class="form-select">
+                        <option value="">Status</option>
+                        <option value="New">New</option>
+                        <option value="Reviewing">Reviewing</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Rejected">Rejected</option>
+                      </select>
+                    </div>
+
+                    <div class="col-6 col-md-2">
+                      <select class="form-select">
+                        <option value="">Priority</option>
+                        <option value="Urgent">Urgent</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                      </select>
+                    </div>
+
+                    <div class="col-6 col-md-2">
+                      <select class="form-select">
+                        <option value="">Category</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Home & Living">Home & Living</option>
+                        <option value="Textiles">Textiles</option>
+                        <option value="Decor">Decor</option>
+                      </select>
+                    </div>
+
+                    <div class="col-6 col-md-2">
+                      <select class="form-select">
+                        <option value="newest">Newest First</option>
+                        <option value="budget_desc">Highest Budget</option>
+                      </select>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sourcing Requests Table Card -->
+              <div class="card">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Request ID</th>
+                        <th>Customer / Company</th>
+                        <th>Requested Item</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <!-- Row 1 -->
+                      <tr>
+                        <td>
+                          <a href="sourcing-request-details.html" class="fw-bold fs-8" style="color: var(--beige-primary-accent);">#REQ-2041</a>
+                        </td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="avatar avatar-xs">
+                              <span class="avatar-initial rounded-circle bg-label-secondary">EV</span>
+                            </div>
+                            <div>
+                              <a href="customer-details.html" class="fw-bold text-dark fs-8 hover-underline">Eleanor Vance</a>
+                              <div class="text-secondary fs-9">Aura Living Studio</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="fw-bold text-dark fs-8">Custom Solid Oak Executive Desk</div>
+                          <small class="text-secondary">Qty: 5 units &bull; Budget: $3,500.00</small>
+                        </td>
+                        <td><span class="badge bg-label-secondary fs-8">Furniture</span></td>
+                        <td>
+                          <div class="fs-8 text-dark fw-medium">Oct 07, 2026</div>
+                          <small class="text-muted">09:30 AM</small>
+                        </td>
+                        <td><span class="badge bg-label-danger fs-8">High Priority</span></td>
+                        <td><span class="badge bg-label-primary fs-8">New Request</span></td>
+                        <td class="text-end">
+                          <a href="sourcing-request-details.html" class="btn btn-sm btn-icon btn-outline-beige" title="View Request Details"><i class="mdi mdi-eye-outline fs-6"></i></a>
+                        </td>
+                      </tr>
+
+                      <!-- Row 2 -->
+                      <tr>
+                        <td>
+                          <a href="sourcing-request-details.html" class="fw-bold fs-8" style="color: var(--beige-primary-accent);">#REQ-2038</a>
+                        </td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="avatar avatar-xs">
+                              <span class="avatar-initial rounded-circle bg-label-secondary">DM</span>
+                            </div>
+                            <div>
+                              <a href="customer-details.html" class="fw-bold text-dark fs-8 hover-underline">David Miller</a>
+                              <div class="text-secondary fs-9">Habitat Craft Inc.</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="fw-bold text-dark fs-8">Handwoven Jute Rugs (Custom 3x4m)</div>
+                          <small class="text-secondary">Qty: 12 units &bull; Budget: $2,400.00</small>
+                        </td>
+                        <td><span class="badge bg-label-secondary fs-8">Textiles</span></td>
+                        <td>
+                          <div class="fs-8 text-dark fw-medium">Oct 05, 2026</div>
+                          <small class="text-muted">02:15 PM</small>
+                        </td>
+                        <td><span class="badge bg-label-info fs-8">Medium</span></td>
+                        <td><span class="badge bg-label-warning fs-8">Reviewing</span></td>
+                        <td class="text-end">
+                          <a href="sourcing-request-details.html" class="btn btn-sm btn-icon btn-outline-beige" title="View Request Details"><i class="mdi mdi-eye-outline fs-6"></i></a>
+                        </td>
+                      </tr>
+
+                      <!-- Row 3 -->
+                      <tr>
+                        <td>
+                          <a href="sourcing-request-details.html" class="fw-bold fs-8" style="color: var(--beige-primary-accent);">#REQ-2035</a>
+                        </td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="avatar avatar-xs">
+                              <span class="avatar-initial rounded-circle bg-label-secondary">CO</span>
+                            </div>
+                            <div>
+                              <a href="customer-details.html" class="fw-bold text-dark fs-8 hover-underline">Clara Oswald</a>
+                              <div class="text-secondary fs-9">Nordic Interiors Co.</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="fw-bold text-dark fs-8">Brass Pendant Lights (Brushed Finish)</div>
+                          <small class="text-secondary">Qty: 30 units &bull; Budget: $4,500.00</small>
+                        </td>
+                        <td><span class="badge bg-label-secondary fs-8">Decor</span></td>
+                        <td>
+                          <div class="fs-8 text-dark fw-medium">Oct 01, 2026</div>
+                          <small class="text-muted">11:00 AM</small>
+                        </td>
+                        <td><span class="badge bg-label-danger fs-8">Urgent</span></td>
+                        <td><span class="badge bg-label-info fs-8">In Progress</span></td>
+                        <td class="text-end">
+                          <a href="sourcing-request-details.html" class="btn btn-sm btn-icon btn-outline-beige" title="View Request Details"><i class="mdi mdi-eye-outline fs-6"></i></a>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Footer Pagination -->
+                <div class="card-footer d-flex align-items-center justify-content-between border-top py-3">
+                  <div class="fs-8 text-muted">Showing 1 to 3 of 18 requests</div>
+                  <nav>
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><a class="page-link" href="#">Prev</a></li>
+                      <li class="page-item active"><a class="page-link" href="#" style="background-color: var(--beige-primary-accent); border-color: var(--beige-primary-accent);">1</a></li>
+                      <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme" style="background-color: var(--beige-bg-main) !important; border-top: 1px solid var(--beige-border-subtle);">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Requests.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <!-- CORE JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

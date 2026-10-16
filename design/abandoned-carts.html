@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Abandoned Carts | Aus Ecom Admin</title>
+    <meta name="description" content="Abandoned Carts Tracking" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            
+            <!-- Sales -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-cart-outline"></i>
+                <div>Sales</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="orders.html" class="menu-link"><div>Orders</div></a></li>
+                <li class="menu-item"><a href="customers.html" class="menu-link"><div>Customers</div></a></li>
+                <li class="menu-item active"><a href="abandoned-carts.html" class="menu-link"><div>Abandoned Carts</div></a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-star-outline"></i><div>Reviews</div></a></li>
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Sales</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Abandoned Carts</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Header -->
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <div>
+                  <h4 class="fw-bold mb-1" style="color: var(--beige-text-dark);">Abandoned Carts</h4>
+                  <p class="text-muted mb-0 fs-7">Track uncompleted cart sessions where items were left without order completion.</p>
+                </div>
+              </div>
+
+              <!-- Filter Controls Card -->
+              <div class="card mb-4">
+                <div class="card-body p-3">
+                  <div class="row g-3">
+                    
+                    <div class="col-12 col-md-4">
+                      <div class="input-group input-group-merge">
+                        <span class="input-group-text bg-white border-end-0"><i class="mdi mdi-magnify"></i></span>
+                        <input type="text" class="form-control border-start-0 ps-0" placeholder="Search cart ID, customer, email...">
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-md-2">
+                      <select class="form-select">
+                        <option value="">Customer Type</option>
+                        <option value="Registered">Registered</option>
+                        <option value="Guest">Guest</option>
+                      </select>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                      <select class="form-select">
+                        <option value="">Cart Value</option>
+                        <option value="under_100">Under $100</option>
+                        <option value="100_500">$100 - $500</option>
+                        <option value="over_500">Over $500</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12 col-md-3">
+                      <select class="form-select">
+                        <option value="recent">Most Recent Abandoned</option>
+                        <option value="highest_val">Highest Cart Value</option>
+                      </select>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Abandoned Carts Table Card -->
+              <div class="card">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Cart ID</th>
+                        <th>Customer</th>
+                        <th>Customer Type</th>
+                        <th>Products</th>
+                        <th>Total Value</th>
+                        <th>Abandoned Time</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <!-- Cart 1 -->
+                      <tr>
+                        <td>
+                          <a href="cart-details.html" class="fw-bold fs-8" style="color: var(--beige-primary-accent);">#CRT-7750</a>
+                        </td>
+                        <td>
+                          <div>
+                            <a href="customer-details.html" class="fw-bold text-dark fs-8 hover-underline">Aura Design Studio</a>
+                            <div class="text-muted fs-9">contact@auradesign.com.au</div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-label-primary fs-8">Registered</span></td>
+                        <td><span class="badge bg-label-secondary fs-8">3 Items (2 Oak Tables, 1 Chair)</span></td>
+                        <td><span class="fw-bold text-dark fs-8">$1,240.00</span></td>
+                        <td>
+                          <div class="fs-8 text-dark fw-medium">Oct 07, 2026</div>
+                          <small class="text-muted">2 hours ago (10:45 AM)</small>
+                        </td>
+                        <td><span class="badge bg-label-warning fs-8">Abandoned</span></td>
+                        <td class="text-end">
+                          <a href="cart-details.html" class="btn btn-sm btn-icon btn-outline-beige" title="View Cart Details"><i class="mdi mdi-eye-outline fs-6"></i></a>
+                        </td>
+                      </tr>
+
+                      <!-- Cart 2 -->
+                      <tr>
+                        <td>
+                          <a href="cart-details.html" class="fw-bold fs-8" style="color: var(--beige-primary-accent);">#CRT-7749</a>
+                        </td>
+                        <td>
+                          <div>
+                            <a href="customer-details.html" class="fw-bold text-dark fs-8 hover-underline">Sophia Chen</a>
+                            <div class="text-muted fs-9">sophia.c@example.com</div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-label-primary fs-8">Registered</span></td>
+                        <td><span class="badge bg-label-secondary fs-8">2 Items (Linen Blanket, Tea Set)</span></td>
+                        <td><span class="fw-bold text-dark fs-8">$410.00</span></td>
+                        <td>
+                          <div class="fs-8 text-dark fw-medium">Oct 06, 2026</div>
+                          <small class="text-muted">1 day ago (03:20 PM)</small>
+                        </td>
+                        <td><span class="badge bg-label-warning fs-8">Abandoned</span></td>
+                        <td class="text-end">
+                          <a href="cart-details.html" class="btn btn-sm btn-icon btn-outline-beige" title="View Cart Details"><i class="mdi mdi-eye-outline fs-6"></i></a>
+                        </td>
+                      </tr>
+
+                      <!-- Cart 3 -->
+                      <tr>
+                        <td>
+                          <a href="cart-details.html" class="fw-bold fs-8" style="color: var(--beige-primary-accent);">#CRT-7745</a>
+                        </td>
+                        <td>
+                          <div>
+                            <div class="fw-bold text-dark fs-8">Guest Visitor (#8491)</div>
+                            <div class="text-muted fs-9">guest8491@gmail.com</div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-label-secondary fs-8">Guest</span></td>
+                        <td><span class="badge bg-label-secondary fs-8">1 Item (Scandinavia Lounge Chair)</span></td>
+                        <td><span class="fw-bold text-dark fs-8">$350.00</span></td>
+                        <td>
+                          <div class="fs-8 text-dark fw-medium">Oct 05, 2026</div>
+                          <small class="text-muted">2 days ago (06:10 PM)</small>
+                        </td>
+                        <td><span class="badge bg-label-warning fs-8">Abandoned</span></td>
+                        <td class="text-end">
+                          <a href="cart-details.html" class="btn btn-sm btn-icon btn-outline-beige" title="View Cart Details"><i class="mdi mdi-eye-outline fs-6"></i></a>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Footer Pagination -->
+                <div class="card-footer d-flex align-items-center justify-content-between border-top py-3">
+                  <div class="fs-8 text-muted">Showing 1 to 3 of 48 abandoned carts</div>
+                  <nav>
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><a class="page-link" href="#">Prev</a></li>
+                      <li class="page-item active"><a class="page-link" href="#" style="background-color: var(--beige-primary-accent); border-color: var(--beige-primary-accent);">1</a></li>
+                      <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme" style="background-color: var(--beige-bg-main) !important; border-top: 1px solid var(--beige-border-subtle);">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Sales.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <!-- CORE JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

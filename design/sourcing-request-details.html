@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Sourcing Request Details #REQ-2041 | Aus Ecom Admin</title>
+    <meta name="description" content="Sourcing Request Details View" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #211C17; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item"><a href="orders.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cart-outline"></i><div>Sales</div></a></li>
+            
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-hand-shake-outline"></i>
+                <div>Requests</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item active"><a href="sourcing-requests.html" class="menu-link"><div>Sourcing Requests</div></a></li>
+                <li class="menu-item"><a href="bulk-orders.html" class="menu-link"><div>Bulk Orders</div></a></li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="sourcing-requests.html">Sourcing Requests</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Request #REQ-2041</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-2">
+                <a href="sourcing-requests.html" class="btn btn-sm btn-outline-secondary"><i class="mdi mdi-arrow-left me-1"></i> Back to Requests</a>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y pb-5">
+              
+              <!-- Request Header & Action Bar -->
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <h4 class="fw-bold mb-0" style="color: var(--beige-text-primary);">Sourcing Request #REQ-2041</h4>
+                    <span class="badge bg-label-primary fs-8">New Request</span>
+                    <span class="badge bg-label-danger fs-8">High Priority</span>
+                  </div>
+                  <p class="text-secondary mb-0 fs-7">Submitted on <span class="fw-medium text-dark">Oct 07, 2026 at 09:30 AM</span> by <span class="fw-bold text-dark">Aura Living Studio</span></p>
+                </div>
+                
+                <div class="d-flex align-items-center gap-2">
+                  <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#rejectModal"><i class="mdi mdi-close-circle-outline me-1"></i> Reject Request</button>
+                </div>
+              </div>
+
+              <div class="row g-4">
+                
+                <!-- Left Main Column (Requested Item Specs, Description, Images, Notes, Timeline) -->
+                <div class="col-12 col-lg-8">
+                  
+                  <!-- Requested Item Specifications -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-cube-outline me-2 text-primary"></i> Requested Product Specifications</h5>
+                    </div>
+                    <div class="card-body pt-3">
+                      
+                      <div class="mb-3">
+                        <label class="text-secondary fw-semibold d-block fs-8 mb-1">Requested Product / Item Name</label>
+                        <div class="fw-bold text-dark fs-6">Custom Solid Oak Executive Desk (200x90cm)</div>
+                      </div>
+
+                      <div class="row g-3 mb-3">
+                        <div class="col-12 col-md-4">
+                          <label class="text-secondary fw-semibold d-block fs-8 mb-1">Category</label>
+                          <span class="badge bg-label-secondary fs-8">Furniture</span>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <label class="text-secondary fw-semibold d-block fs-8 mb-1">Required Quantity</label>
+                          <span class="fw-bold text-dark fs-7">5 Units</span>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <label class="text-secondary fw-semibold d-block fs-8 mb-1">Target Budget</label>
+                          <span class="fw-bold fs-7" style="color: var(--beige-primary-accent);">$3,500.00 Total</span>
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="text-secondary fw-semibold d-block fs-8 mb-1">Detailed Requirements & Specifications</label>
+                        <div class="p-3 rounded border fs-8" style="background-color: var(--beige-bg-alt); color: var(--beige-text-primary);">
+                          We are looking to source 5 solid white oak executive desks with matte oil finish and integrated cable management channels for our office redesign project. Desks should measure 200cm in length by 90cm in width, featuring heavy-duty legs and soft-close drawer storage.
+                        </div>
+                      </div>
+
+                      <!-- Reference Images -->
+                      <div>
+                        <label class="text-secondary fw-semibold d-block fs-8 mb-2">Customer Reference Images</label>
+                        <div class="d-flex flex-wrap gap-2">
+                          <div class="rounded border p-2 bg-white" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                            <i class="mdi mdi-image-outline fs-1 text-primary"></i>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!-- Internal Admin Notes Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-notebook-edit-outline me-2 text-primary"></i> Internal Admin Notes</h5>
+                      <span class="text-muted fs-8">Visible to admins only</span>
+                    </div>
+                    <div class="card-body pt-3">
+                      <div class="mb-3">
+                        <textarea class="form-control" rows="3" placeholder="Add internal sourcing notes, supplier quotes, lead times...">Contacted supplier for timber availability. Waiting for formal quote from Sydney Woodworks.</textarea>
+                      </div>
+                      <button type="button" class="btn btn-beige btn-sm" onclick="alert('Admin note saved!')"><i class="mdi mdi-content-save me-1"></i> Save Note</button>
+                    </div>
+                  </div>
+
+                  <!-- Activity Timeline -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-timeline-clock-outline me-2 text-primary"></i> Sourcing Request Timeline</h5>
+                    </div>
+                    <div class="card-body pt-4">
+                      <div class="timeline-stepper">
+                        <div class="d-flex gap-3 mb-3">
+                          <div class="rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 28px; height: 28px; background-color: var(--beige-primary-accent); flex-shrink: 0;">
+                            <i class="mdi mdi-file-document-outline fs-7"></i>
+                          </div>
+                          <div>
+                            <div class="fw-bold text-dark fs-8">Sourcing Request Received</div>
+                            <small class="text-muted">Oct 07, 2026 at 09:30 AM &bull; Submitted via customer online portal</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Right Column (Status & Priority Controls, Customer Info, Delivery) -->
+                <div class="col-12 col-lg-4">
+                  
+                  <!-- Status & Priority Controls -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-tune-vertical me-2 text-primary"></i> Manage Status & Priority</h5>
+                    </div>
+                    <div class="card-body pt-3">
+                      <div class="mb-3">
+                        <label class="form-label fw-bold fs-8">Request Status</label>
+                        <select class="form-select">
+                          <option value="New" selected>New</option>
+                          <option value="Reviewing">Reviewing</option>
+                          <option value="In Progress">In Progress</option>
+                          <option value="Completed">Completed</option>
+                          <option value="Rejected">Rejected</option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label fw-bold fs-8">Priority Level</label>
+                        <select class="form-select">
+                          <option value="Low">Low</option>
+                          <option value="Medium">Medium</option>
+                          <option value="High" selected>High</option>
+                          <option value="Urgent">Urgent</option>
+                        </select>
+                      </div>
+
+                      <button type="button" class="btn btn-beige w-100" onclick="alert('Status and Priority updated!')"><i class="mdi mdi-content-save me-1"></i> Update Request</button>
+                    </div>
+                  </div>
+
+                  <!-- Customer Information Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-account-outline me-2 text-primary"></i> Customer</h5>
+                      <a href="customer-details.html" class="btn btn-sm btn-outline-beige">View Profile</a>
+                    </div>
+                    <div class="card-body pt-3">
+                      <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="avatar avatar-md">
+                          <span class="avatar-initial rounded-circle bg-label-secondary fw-bold">EV</span>
+                        </div>
+                        <div>
+                          <a href="customer-details.html" class="fw-bold text-dark fs-7 hover-underline">Eleanor Vance</a>
+                          <div class="text-secondary fs-8">Aura Living Studio</div>
+                        </div>
+                      </div>
+
+                      <div class="fs-8 d-flex flex-column gap-2 border-top pt-3" style="border-top-color: var(--beige-border-subtle) !important;">
+                        <div><i class="mdi mdi-email-outline me-2 text-muted"></i> eleanor@example.com</div>
+                        <div><i class="mdi mdi-phone-outline me-2 text-muted"></i> +61 412 345 678</div>
+                        <div><i class="mdi mdi-map-marker-outline me-2 text-muted"></i> South Yarra, VIC 3141</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Delivery & Contact Info -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-truck-delivery-outline me-2 text-primary"></i> Target Delivery Info</h5>
+                    </div>
+                    <div class="card-body pt-3 fs-8">
+                      <div class="mb-2"><span class="text-secondary fw-semibold">Destination:</span> South Yarra, VIC 3141</div>
+                      <div><span class="text-secondary fw-semibold">Target Lead Time:</span> 4-6 Weeks</div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme" style="background-color: var(--beige-bg-main) !important; border-top: 1px solid var(--beige-border-subtle);">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Requests.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <!-- Reject Confirmation Modal -->
+    <div class="modal fade" id="rejectModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header border-bottom pb-2">
+            <h5 class="modal-title fs-6 fw-bold">Reject Sourcing Request?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body py-3 fs-8 text-muted">
+            Are you sure you want to mark Sourcing Request #REQ-2041 as Rejected?
+          </div>
+          <div class="modal-footer border-top pt-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal" onclick="alert('Request Rejected!')">Reject Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORE JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

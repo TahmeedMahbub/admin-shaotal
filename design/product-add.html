@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Add Product | Aus Ecom Admin</title>
+    <meta name="description" content="Create New Product" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i>
+                <div>Catalog</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item active"><a href="products.html" class="menu-link"><div>Products</div></a></li>
+                <li class="menu-item"><a href="categories.html" class="menu-link"><div>Categories</div></a></li>
+                <li class="menu-item"><a href="subcategories.html" class="menu-link"><div>Subcategories</div></a></li>
+                <li class="menu-item"><a href="brands.html" class="menu-link"><div>Brands</div></a></li>
+                <li class="menu-item"><a href="size-guides.html" class="menu-link"><div>Size Guides</div></a></li>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link menu-toggle"><i class="menu-icon tf-icons mdi mdi-cart-outline"></i><div>Sales</div></a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="admin/orders.html" class="menu-link"><div>Orders</div></a></li>
+                <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><div>Customers</div></a></li>
+                <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><div>Abandoned Carts</div></a></li>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-star-outline"></i><div>Reviews</div></a></li>
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+        <!-- / SIDEBAR -->
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <a href="products.html" class="btn btn-sm btn-outline-secondary">Back to Products</a>
+              </div>
+            </div>
+          </nav>
+          <!-- / FIXED TOP BAR -->
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y pb-5">
+              
+              <form id="productForm">
+                
+                <!-- Page Header -->
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <div>
+                    <h4 class="fw-bold mb-1" style="color: var(--beige-text-dark);">Create New Product</h4>
+                    <p class="text-muted mb-0 fs-7">Configure product specifications, media, pricing, colors, sizes, and variants.</p>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <a href="products.html" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-beige"><i class="mdi mdi-check me-1"></i> Save & Publish Product</button>
+                  </div>
+                </div>
+
+                <div class="row g-4">
+                  
+                  <!-- Left Main Column (Cards 1-7) -->
+                  <div class="col-12 col-lg-8">
+                    
+                    <!-- 1. Basic Information -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3">
+                        <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-information-outline me-2 text-primary"></i> Basic Information</h5>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="mb-3">
+                          <label class="form-label fw-bold fs-8">Product Name <span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" placeholder="e.g. Minimalist Oak Dining Table" required id="productName">
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                          <div class="col-12 col-md-4">
+                            <label class="form-label fw-bold fs-8">Category <span class="text-danger">*</span></label>
+                            <select class="form-select" required id="productCategory">
+                              <option value="">Select Category</option>
+                              <option value="Furniture" selected>Furniture</option>
+                              <option value="Home & Living">Home & Living</option>
+                              <option value="Textiles">Textiles</option>
+                              <option value="Decor">Decor</option>
+                              <option value="Apparel">Apparel</option>
+                            </select>
+                          </div>
+                          <div class="col-12 col-md-4">
+                            <label class="form-label fw-bold fs-8">Subcategory</label>
+                            <select class="form-select" id="productSubcategory">
+                              <option value="">Select Subcategory</option>
+                              <option value="Dining Tables" selected>Dining Tables</option>
+                              <option value="Chairs">Chairs</option>
+                              <option value="Tea Sets">Tea Sets</option>
+                              <option value="Blankets">Blankets</option>
+                              <option value="Lighting">Lighting</option>
+                            </select>
+                          </div>
+                          <div class="col-12 col-md-4">
+                            <label class="form-label fw-bold fs-8">Brand</label>
+                            <select class="form-select" id="productBrand">
+                              <option value="">Select Brand</option>
+                              <option value="Aus Living" selected>Aus Living</option>
+                              <option value="Craft & Co">Craft & Co</option>
+                              <option value="Nordic Studio">Nordic Studio</option>
+                              <option value="Artisan Heritage">Artisan Heritage</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label fw-bold fs-8">Short Description</label>
+                          <textarea class="form-control" rows="2" placeholder="Brief 1-2 sentence overview shown in product summary..."></textarea>
+                        </div>
+
+                        <div>
+                          <label class="form-label fw-bold fs-8">Full Description</label>
+                          <textarea class="form-control" rows="5" placeholder="Detailed product story, craftsmanship, and specs..."></textarea>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 2. Product Media -->
+                    <div class="card mb-4" id="cardProductMedia">
+                      <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                        <div>
+                          <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-image-multiple-outline me-2 text-primary"></i> Product Media</h5>
+                          <small class="text-muted fs-9">Upload product imagery. These can be assigned to color variants below.</small>
+                        </div>
+                        <button type="button" class="btn btn-xs btn-outline-secondary" id="btnQuickSampleMedia" title="Load sample imagery"><i class="mdi mdi-image-filter-vintage me-1"></i> Add Sample Photos</button>
+                      </div>
+                      <div class="card-body pt-3">
+                        <!-- Separate Main Image Field -->
+                        <div class="mb-4">
+                          <div class="d-flex align-items-center justify-content-between mb-2">
+                            <label class="form-label fw-bold fs-8 mb-0">Main Image <span class="text-danger">*</span></label>
+                            <small class="text-muted fs-9">Primary storefront cover photo</small>
+                          </div>
+                          <div id="mainImageContainer">
+                            <!-- Dynamically rendered by catalog.js -->
+                          </div>
+                          <input type="file" id="mainImageFileInput" accept="image/*" class="d-none">
+                        </div>
+
+                        <!-- Separate Additional Images Field -->
+                        <div>
+                          <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div>
+                              <label class="form-label fw-bold fs-8 mb-0">Additional Images</label>
+                              <small class="text-muted fs-9 d-block">Secondary gallery shots, details, and color angles</small>
+                            </div>
+                            <span class="badge bg-label-secondary fs-9" id="additionalImagesCountBadge">0 images</span>
+                          </div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center mb-1" id="additionalImagesContainer">
+                            <!-- Dynamically rendered by catalog.js -->
+                          </div>
+                          <input type="file" id="additionalImagesFileInput" multiple accept="image/*" class="d-none">
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 3. Colors & Swatches -->
+                    <div class="card mb-4" id="cardColors">
+                      <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                        <div>
+                          <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-palette-outline me-2 text-primary"></i> Colors & Swatches</h5>
+                          <small class="text-muted fs-9">Assign color swatches and multiple gallery images per color</small>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-beige" id="btnAddColor"><i class="mdi mdi-plus me-1"></i> Add Color</button>
+                      </div>
+                      <div class="card-body pt-3">
+                        <p class="fs-8 text-muted mb-3">Define visual color swatches. Multiple images assigned to a color are automatically reused across all sizes of that color.</p>
+                        
+                        <div id="colorsContainer">
+                          <!-- Dynamically rendered by catalog.js -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 4. Sizes -->
+                    <div class="card mb-4" id="cardSizes">
+                      <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                        <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-ruler-square me-2 text-primary"></i> Size Options</h5>
+                        <small class="text-muted fs-9">Select preset sizes or add custom</small>
+                      </div>
+                      <div class="card-body pt-3">
+                        <p class="fs-8 text-muted mb-3">Select active sizes available for this product or type custom dimensions.</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3" id="sizesContainer">
+                          <label class="btn btn-sm btn-outline-beige d-flex align-items-center gap-1">
+                            <input type="checkbox" class="form-check-input size-chip-checkbox" value="6-Seater" checked> 6-Seater (180cm)
+                          </label>
+                          <label class="btn btn-sm btn-outline-beige d-flex align-items-center gap-1">
+                            <input type="checkbox" class="form-check-input size-chip-checkbox" value="8-Seater" checked> 8-Seater (220cm)
+                          </label>
+                          <label class="btn btn-sm btn-outline-beige d-flex align-items-center gap-1">
+                            <input type="checkbox" class="form-check-input size-chip-checkbox" value="10-Seater"> 10-Seater (260cm)
+                          </label>
+                          <label class="btn btn-sm btn-outline-beige d-flex align-items-center gap-1">
+                            <input type="checkbox" class="form-check-input size-chip-checkbox" value="XS"> XS
+                          </label>
+                          <label class="btn btn-sm btn-outline-beige d-flex align-items-center gap-1">
+                            <input type="checkbox" class="form-check-input size-chip-checkbox" value="S"> S
+                          </label>
+                          <label class="btn btn-sm btn-outline-beige d-flex align-items-center gap-1">
+                            <input type="checkbox" class="form-check-input size-chip-checkbox" value="M"> M
+                          </label>
+                          <label class="btn btn-sm btn-outline-beige d-flex align-items-center gap-1">
+                            <input type="checkbox" class="form-check-input size-chip-checkbox" value="L"> L
+                          </label>
+                          <label class="btn btn-sm btn-outline-beige d-flex align-items-center gap-1">
+                            <input type="checkbox" class="form-check-input size-chip-checkbox" value="XL"> XL
+                          </label>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 pt-2 border-top" style="border-color: var(--beige-border-subtle) !important;">
+                          <input type="text" class="form-control form-control-sm" id="customSizeInput" placeholder="Add custom size (e.g. 12-Seater, XXL)" style="max-width: 260px;">
+                          <button type="button" class="btn btn-sm btn-outline-beige" id="btnAddCustomSize"><i class="mdi mdi-plus me-1"></i> Add Size</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 5. Variants Matrix -->
+                    <div class="card mb-4" id="cardVariants">
+                      <div class="card-header border-bottom py-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
+                        <div class="d-flex align-items-center gap-2">
+                          <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-grid me-2 text-primary"></i> Product Variants Matrix</h5>
+                          <span class="badge bg-label-primary fs-8" id="variantScenarioBadge">Scenario: Color + Size</span>
+                          <span class="badge bg-label-info fs-8" id="totalVariantStockBadge" style="display: none;">Total Stock: <strong id="totalVariantStockCount">0</strong> units</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                          <button type="button" class="btn btn-xs btn-outline-beige" id="btnEnableAllVariants"><i class="mdi mdi-check-all me-1"></i> Enable All</button>
+                          <button type="button" class="btn btn-xs btn-outline-secondary" id="btnDisableAllVariants"><i class="mdi mdi-close-circle-outline me-1"></i> Disable All</button>
+                          <button type="button" class="btn btn-sm btn-outline-beige" id="btnGenerateVariants"><i class="mdi mdi-refresh me-1"></i> Regenerate Matrix</button>
+                        </div>
+                      </div>
+                      <div class="card-body p-0">
+                        <div class="table-responsive">
+                          <table class="table align-middle mb-0 fs-8">
+                            <thead>
+                              <tr>
+                                <th id="thColor">Color & Media</th>
+                                <th id="thSize">Size</th>
+                                <th>SKU</th>
+                                <th>Regular Price ($)</th>
+                                <th id="thSalePrice" class="sale-price-field">Sale Price ($)</th>
+                                <th>Stock</th>
+                                <th>Active</th>
+                                <th class="text-end">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody id="variantsTableBody">
+                              <!-- Dynamically generated by catalog.js -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 6. Size Guide Assignment Card -->
+                    <div class="card mb-4" id="cardSizeGuide">
+                      <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                          <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-ruler-square me-2 text-primary"></i> Size Guide</h5>
+                          <span class="badge bg-label-secondary fs-9" id="assignedGuideBadge">None Assigned</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                          <a href="size-guides.html" target="_blank" class="btn btn-xs btn-outline-beige"><i class="mdi mdi-open-in-new me-1"></i> Manage Guides</a>
+                        </div>
+                      </div>
+                      <div class="card-body pt-3">
+                        <p class="fs-8 text-muted mb-3">
+                          Assign a standardized size & measurement guide from your Catalog to help customers choose their best fit on the storefront.
+                        </p>
+
+                        <div class="row g-3 mb-3">
+                          <div class="col-12 col-md-8">
+                            <label class="form-label fw-bold fs-8" for="productSizeGuideSelect">Assigned Catalog Guide</label>
+                            <div class="input-group">
+                              <span class="input-group-text bg-white"><i class="mdi mdi-format-list-bulleted-type text-primary"></i></span>
+                              <select class="form-select" id="productSizeGuideSelect">
+                                <option value="">-- No Size Guide Assigned --</option>
+                              </select>
+                              <button type="button" class="btn btn-outline-secondary btn-sm" id="btnClearSizeGuide">Clear</button>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 d-flex align-items-end">
+                            <button type="button" class="btn btn-outline-beige w-100" id="btnOpenGuideModalPreview" disabled>
+                              <i class="mdi mdi-eye-outline me-1"></i> Storefront Preview
+                            </button>
+                          </div>
+                        </div>
+
+                        <!-- Storefront Privacy Disclaimer -->
+                        <div class="d-flex align-items-center justify-content-between p-2 rounded mb-3 bg-label-secondary fs-9">
+                          <span><i class="mdi mdi-shield-check-outline text-success me-1"></i> <strong>Storefront Privacy:</strong> Only customer measurements and notes are published. Internal admin notes remain private.</span>
+                          <span class="badge bg-label-primary fs-9" id="guideUnitIndicator" style="display: none;">Unit: cm</span>
+                        </div>
+
+                        <!-- Dynamic Measurement Preview Container -->
+                        <div id="productSizeGuidePreviewContainer">
+                          <!-- Populated dynamically by catalog.js -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 7. Product Attributes & Specs -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                        <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-tune-vertical me-2 text-primary"></i> Product Attributes & Details</h5>
+                        <button type="button" class="btn btn-sm btn-outline-beige" id="btnAddAttribute"><i class="mdi mdi-plus me-1"></i> Add Custom Attribute</button>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="row g-3 mb-3">
+                          <div class="col-12 col-md-6">
+                            <label class="form-label fs-8 fw-bold">Material</label>
+                            <input type="text" class="form-control" value="Solid Natural Oak Wood">
+                          </div>
+                          <div class="col-12 col-md-6">
+                            <label class="form-label fs-8 fw-bold">Finish</label>
+                            <input type="text" class="form-control" value="Matte Oil Finish">
+                          </div>
+                          <div class="col-12 col-md-6">
+                            <label class="form-label fs-8 fw-bold">Weight</label>
+                            <input type="text" class="form-control" value="48 kg">
+                          </div>
+                          <div class="col-12 col-md-6">
+                            <label class="form-label fs-8 fw-bold">Care Instructions</label>
+                            <input type="text" class="form-control" value="Wipe clean with soft damp cloth. Avoid harsh chemicals.">
+                          </div>
+                        </div>
+
+                        <!-- Dynamic Attributes Container -->
+                        <div id="attributesContainer">
+                          <!-- Row 1 -->
+                          <div class="row g-2 mb-2 align-items-center attribute-row">
+                            <div class="col-5">
+                              <input type="text" class="form-control form-control-sm" value="What's Included">
+                            </div>
+                            <div class="col-6">
+                              <input type="text" class="form-control form-control-sm" value="1x Dining Table, Assembly Hardware & Manual">
+                            </div>
+                            <div class="col-1 text-end">
+                              <button type="button" class="btn btn-sm btn-icon text-danger btn-remove-attr"><i class="mdi mdi-trash-can-outline fs-5"></i></button>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Right Sidebar Column (Toggles, Base Price, Inventory, Pre-order) -->
+                  <div class="col-12 col-lg-4">
+                    
+                    <!-- Feature Toggles Card -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3">
+                        <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-toggle-switch-outline me-2 text-primary"></i> Feature Switches</h5>
+                      </div>
+                      <div class="card-body pt-3 d-flex flex-column gap-3">
+                        
+                        <!-- Toggle Has Variants -->
+                        <div>
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                              <div class="fw-bold fs-8 text-dark">Has Variants</div>
+                              <small class="text-muted">Color & Size combinations</small>
+                            </div>
+                            <div class="form-check form-switch mb-0">
+                              <input class="form-check-input" type="checkbox" id="toggleVariants" checked>
+                            </div>
+                          </div>
+
+                          <!-- Variant Scenario Selector -->
+                          <div id="variantTypeSelectorContainer" class="mt-2 pt-2 border-top" style="border-color: var(--beige-border-subtle) !important;">
+                            <label class="form-label fw-bold fs-8 mb-2 d-block">Variant Scenario</label>
+                            <div class="btn-group w-100 variant-mode-group" role="group">
+                              <input type="radio" class="btn-check" name="variantMode" id="modeColorSize" value="color-size" checked>
+                              <label class="btn btn-sm btn-outline-beige fs-9 py-1 px-2" for="modeColorSize">Color + Size</label>
+
+                              <input type="radio" class="btn-check" name="variantMode" id="modeColorOnly" value="color-only">
+                              <label class="btn btn-sm btn-outline-beige fs-9 py-1 px-2" for="modeColorOnly">Color-only</label>
+
+                              <input type="radio" class="btn-check" name="variantMode" id="modeSizeOnly" value="size-only">
+                              <label class="btn btn-sm btn-outline-beige fs-9 py-1 px-2" for="modeSizeOnly">Size-only</label>
+                            </div>
+                            <small class="text-muted fs-9 mt-1 d-block">Switch between Color + Size, Color-only, or Size-only combinations.</small>
+                          </div>
+                        </div>
+
+                        <!-- Toggle Stock Tracking -->
+                        <div class="d-flex align-items-center justify-content-between">
+                          <div>
+                            <div class="fw-bold fs-8 text-dark">Stock Tracking</div>
+                            <small class="text-muted">Track available inventory count</small>
+                          </div>
+                          <div class="form-check form-switch mb-0">
+                            <input class="form-check-input" type="checkbox" id="toggleStock" checked>
+                          </div>
+                        </div>
+
+                        <!-- Toggle Sale Offer -->
+                        <div class="d-flex align-items-center justify-content-between">
+                          <div>
+                            <div class="fw-bold fs-8 text-dark">On Sale / Offer</div>
+                            <small class="text-muted">Enable promotional discount pricing</small>
+                          </div>
+                          <div class="form-check form-switch mb-0">
+                            <input class="form-check-input" type="checkbox" id="toggleSale" checked>
+                          </div>
+                        </div>
+
+                        <!-- Toggle Pre-order -->
+                        <div class="d-flex align-items-center justify-content-between">
+                          <div>
+                            <div class="fw-bold fs-8 text-dark">Pre-order</div>
+                            <small class="text-muted">Accept advance reservations</small>
+                          </div>
+                          <div class="form-check form-switch mb-0">
+                            <input class="form-check-input" type="checkbox" id="togglePreorder">
+                          </div>
+                        </div>
+
+                        <!-- Toggle Size Guide -->
+                        <div class="d-flex align-items-center justify-content-between">
+                          <div>
+                            <div class="fw-bold fs-8 text-dark">Size Guide</div>
+                            <small class="text-muted">Show measurement table to customers</small>
+                          </div>
+                          <div class="form-check form-switch mb-0">
+                            <input class="form-check-input" type="checkbox" id="toggleSizeGuide" checked>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <!-- Base Pricing Card -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3">
+                        <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-currency-usd me-2 text-primary"></i> Base Pricing</h5>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div id="pricingInheritHint" class="alert alert-secondary py-2 px-3 fs-9 mb-3" style="background-color: var(--beige-bg-alt); border: 1px solid var(--beige-border-subtle);">
+                          <i class="mdi mdi-information-outline text-primary me-1"></i> Variants inherit these prices by default unless overridden in the matrix below.
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label fw-bold fs-8">Regular Price ($) <span class="text-danger">*</span></label>
+                          <input type="number" step="0.01" class="form-control" value="400.00" id="regularPrice" required>
+                        </div>
+
+                        <div class="mb-3 sale-price-field">
+                          <label class="form-label fw-bold fs-8">Sale / Offer Price ($)</label>
+                          <input type="number" step="0.01" class="form-control" value="340.00" id="baseSalePrice">
+                          <small class="text-muted fs-9">Automatically displays 15% OFF badge</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Base Inventory Card -->
+                    <div class="card mb-4" id="cardStock">
+                      <div class="card-header border-bottom py-3">
+                        <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-clipboard-text-outline me-2 text-primary"></i> Inventory & SKU</h5>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="mb-3">
+                          <label class="form-label fw-bold fs-8">Base SKU <span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" value="FUR-OAK-01" id="productSku" required>
+                        </div>
+
+                        <!-- Variant Stock Summary (visible when variants enabled) -->
+                        <div id="variantStockSummary" class="p-3 rounded mb-3" style="background-color: var(--beige-bg-alt); border: 1px solid var(--beige-border-subtle);">
+                          <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="fs-8 fw-semibold text-dark"><i class="mdi mdi-layers-outline text-primary me-1"></i> Variant Inventory</span>
+                            <span class="badge bg-label-success fs-9"><span id="activeVariantsCount">4</span> active</span>
+                          </div>
+                          <div class="fs-7 fw-bold text-dark mb-1">Total Stock: <span id="sidebarTotalStock">42</span> units</div>
+                          <small class="text-muted fs-9 d-block">Calculated from enabled variant rows in matrix.</small>
+                        </div>
+
+                        <!-- Base Stock Field (visible when NO variants) -->
+                        <div class="mb-3" id="baseStockField" style="display: none;">
+                          <label class="form-label fw-bold fs-8">Base Stock Quantity <span class="text-danger">*</span></label>
+                          <input type="number" class="form-control" value="42" id="baseStockInput" min="0">
+                          <small class="text-muted fs-9">Product-level inventory for products without variants.</small>
+                        </div>
+
+                        <div>
+                          <label class="form-label fw-bold fs-8">Stock Availability Status</label>
+                          <select class="form-select">
+                            <option value="In Stock" selected>In Stock</option>
+                            <option value="Low Stock">Low Stock Alert</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Pre-order Card (Hidden by default unless enabled) -->
+                    <div class="card mb-4" id="cardPreorder" style="display: none;">
+                      <div class="card-header border-bottom py-3">
+                        <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-clock-fast me-2 text-primary"></i> Pre-order Settings</h5>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="mb-3">
+                          <label class="form-label fw-bold fs-8">Estimated Dispatch Date</label>
+                          <input type="date" class="form-control" value="2026-11-15">
+                        </div>
+                        <div>
+                          <label class="form-label fw-bold fs-8">Pre-order Banner Notice</label>
+                          <input type="text" class="form-control" value="Pre-order item: Ships in 3-4 weeks from order placement.">
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Product Status Card -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3">
+                        <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-check-circle-outline me-2 text-primary"></i> Publishing Status</h5>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="mb-3">
+                          <label class="form-label fw-bold fs-8">Status</label>
+                          <select class="form-select">
+                            <option value="Active" selected>Active (Published)</option>
+                            <option value="Draft">Draft (Hidden)</option>
+                            <option value="Archived">Archived</option>
+                          </select>
+                        </div>
+                        <button type="submit" class="btn btn-beige w-100"><i class="mdi mdi-content-save me-1"></i> Save Product</button>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </form>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme" style="background-color: var(--beige-bg-main) !important; border-top: 1px solid var(--beige-border-subtle);">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Catalog. Built with Materialize Foundation.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <!-- Storefront Customer Size Guide Modal Preview -->
+    <div class="modal fade" id="modalCustomerSizeGuide" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 12px; border: 1px solid var(--beige-border-subtle);">
+          <div class="modal-header border-bottom py-3">
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge bg-label-primary p-2 rounded"><i class="mdi mdi-ruler-square fs-5"></i></span>
+              <div>
+                <h5 class="modal-title fs-6 fw-bold mb-0 text-dark" id="previewModalGuideTitle">Size & Measurement Guide</h5>
+                <small class="text-muted fs-9" id="previewModalSubtitle">Storefront Customer View</small>
+              </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4" id="previewModalBody">
+            <!-- Dynamic Public Content -->
+          </div>
+          <div class="modal-footer border-top py-2 px-4 d-flex justify-content-between">
+            <span class="text-muted fs-9"><i class="mdi mdi-shield-check-outline text-success me-1"></i> 🔒 Private admin notes excluded</span>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORE JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- SIZE GUIDE STORE -->
+    <script src="assets/js/size-guide-store.js"></script>
+
+    <!-- CATALOG SPECIFIC JS -->
+    <script src="assets/js/catalog.js"></script>
+  </body>
+</html>

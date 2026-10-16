@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Add Size Guide | Aus Ecom Admin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+
+    <style>
+      .attr-card-item {
+        background: #FDFBF8;
+        border: 1px solid var(--beige-border-subtle);
+        border-radius: 6px;
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+        transition: border-color 0.15s ease;
+      }
+      .attr-card-item:hover {
+        border-color: var(--beige-primary-accent);
+      }
+      .preview-modal-table th {
+        background-color: #F7F4EE !important;
+        font-weight: 600;
+        color: #211C17;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <!-- Dashboard -->
+            <li class="menu-item">
+              <a href="index.html" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i>
+                <div>Dashboard</div>
+              </a>
+            </li>
+
+            <!-- Catalog -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i>
+                <div>Catalog</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="products.html" class="menu-link"><div>Products</div></a></li>
+                <li class="menu-item"><a href="categories.html" class="menu-link"><div>Categories</div></a></li>
+                <li class="menu-item"><a href="subcategories.html" class="menu-link"><div>Subcategories</div></a></li>
+                <li class="menu-item"><a href="brands.html" class="menu-link"><div>Brands</div></a></li>
+                <li class="menu-item active"><a href="size-guides.html" class="menu-link"><div>Size Guides</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Sales -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-cart-outline"></i>
+                <div>Sales</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="orders.html" class="menu-link"><div>Orders</div></a></li>
+                <li class="menu-item"><a href="customers.html" class="menu-link"><div>Customers</div></a></li>
+                <li class="menu-item"><a href="abandoned-carts.html" class="menu-link"><div>Abandoned Carts</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Requests -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-hand-shake-outline"></i>
+                <div>Requests</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="sourcing-requests.html" class="menu-link"><div>Sourcing Requests</div></a></li>
+                <li class="menu-item"><a href="bulk-orders.html" class="menu-link"><div>Bulk Orders</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Marketing -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-bullhorn-outline"></i>
+                <div>Marketing</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="offers.html" class="menu-link"><div>Offers / Discounts</div></a></li>
+                <li class="menu-item"><a href="coupons.html" class="menu-link"><div>Coupons</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Content -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-web"></i>
+                <div>Content</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="banners.html" class="menu-link"><div>Banners</div></a></li>
+                <li class="menu-item"><a href="homepage.html" class="menu-link"><div>Homepage</div></a></li>
+                <li class="menu-item"><a href="pages.html" class="menu-link"><div>Pages</div></a></li>
+                <li class="menu-item"><a href="navigation.html" class="menu-link"><div>Navigation</div></a></li>
+                <li class="menu-item"><a href="site-contents.html" class="menu-link"><div>Site Content</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Engagement -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-star-outline"></i>
+                <div>Engagement</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="reviews.html" class="menu-link"><div>Reviews</div></a></li>
+                <li class="menu-item"><a href="wishlists.html" class="menu-link"><div>Wishlist</div></a></li>
+                <li class="menu-item"><a href="subscribers.html" class="menu-link"><div>Subscribers</div></a></li>
+                <li class="menu-item"><a href="contacts.html" class="menu-link"><div>Contacts</div></a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="products.html">Catalog</a></li>
+                    <li class="breadcrumb-item"><a href="size-guides.html">Size Guides</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Size Guide</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y pb-5">
+              
+              <form id="sizeGuideForm">
+                <!-- Action Header Bar -->
+                <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                  <div>
+                    <h4 class="fw-bold mb-1" style="color: var(--beige-text-primary);">Create Size Guide</h4>
+                    <p class="text-secondary mb-0 fs-7">Configure measurement parameters, attributes, and sizes for storefront display.</p>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <a href="size-guides.html" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="button" class="btn btn-outline-primary" id="btnOpenPreview">
+                      <i class="mdi mdi-eye-outline me-1"></i> Preview Customer View
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      <i class="mdi mdi-check me-1"></i> Save Size Guide
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row g-4">
+                  <!-- Left Main Column (8 cols) -->
+                  <div class="col-12 col-lg-8">
+                    
+                    <!-- 1. Basic Information -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3">
+                        <h5 class="card-title mb-0 fs-6">
+                          <i class="mdi mdi-information-outline me-2 text-primary"></i> Basic Information
+                        </h5>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="row g-3">
+                          <div class="col-12 col-md-7">
+                            <label class="form-label fw-bold fs-8" for="guideTitle">Guide Title <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="guideTitle" placeholder="e.g. Men's Relaxed Linen Shirts" required />
+                            <small class="text-muted fs-9">Displayed prominently as the header in the storefront sizing modal.</small>
+                          </div>
+
+                          <div class="col-12 col-md-5">
+                            <label class="form-label fw-bold fs-8" for="guideKey">Unique Key <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="guideKey" placeholder="e.g. mens-linen-shirt" required />
+                            <small class="text-muted fs-9">Unique slug identifier used in product assignments.</small>
+                          </div>
+
+                          <div class="col-12">
+                            <label class="form-label fw-bold fs-8" for="guideCategory">Catalog Category / Type</label>
+                            <input type="text" class="form-control" id="guideCategory" placeholder="e.g. Apparel — Tops, Apparel — Bottoms, Furniture" value="Apparel — Tops" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 2. Customer Instructions -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3">
+                        <h5 class="card-title mb-0 fs-6">
+                          <i class="mdi mdi-account-voice me-2 text-primary"></i> Customer Sizing Instructions (Storefront Visible)
+                        </h5>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="mb-2">
+                          <label class="form-label fw-bold fs-8" for="customerDetails">Fit & Measurement Notes for Shoppers</label>
+                          <textarea class="form-control" id="customerDetails" rows="3" placeholder="Provide advice on how to measure (e.g. All measurements are taken flat in centimetres. If between sizes, we recommend sizing up)...">All measurements are taken flat in centimetres (cm). Our apparel is tailored for a relaxed Australian fit. If you prefer a tighter fit, we recommend sizing down.</textarea>
+                          <small class="text-muted fs-9 d-block mt-1">
+                            <i class="mdi mdi-information-outline text-info"></i> This text is shown directly to shoppers on product pages.
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 3. Dynamic Measurement Attributes Builder -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <div>
+                          <h5 class="card-title mb-0 fs-6">
+                            <i class="mdi mdi-ruler me-2 text-primary"></i> Measurement Attributes
+                          </h5>
+                          <small class="text-muted fs-9">Define the measurement columns for this chart (e.g. Chest, Waist, Inseam).</small>
+                        </div>
+                        <div class="d-flex align-items-center gap-1">
+                          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="mdi mdi-lightning-bolt-outline me-1"></i> Quick Presets
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="javascript:void(0)" id="presetTshirt">👕 T-Shirts / Tops (Chest, Length, Shoulder)</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0)" id="presetPants">👖 Pants / Trousers (Waist, Inseam, Hip)</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0)" id="presetFurniture">🪑 Furniture / Tables (Length, Width, Height)</a></li>
+                          </ul>
+                          <button type="button" class="btn btn-sm btn-outline-primary" id="btnAddAttribute">
+                            <i class="mdi mdi-plus me-1"></i> Add Attribute
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div id="attributesListContainer">
+                          <!-- Dynamically rendered attribute inputs -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 4. Available Sizes & Measurement Values Matrix -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <div>
+                          <h5 class="card-title mb-0 fs-6">
+                            <i class="mdi mdi-table-furniture me-2 text-primary"></i> Size & Measurement Matrix
+                          </h5>
+                          <small class="text-muted fs-9">Define sizes and their respective measurement values or ranges.</small>
+                        </div>
+                        <div>
+                          <button type="button" class="btn btn-sm btn-outline-primary" id="btnAddSizeRow">
+                            <i class="mdi mdi-plus me-1"></i> Add Size Row
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="table-responsive">
+                          <table class="table table-bordered align-middle fs-8 mb-0" id="matrixTable">
+                            <thead class="bg-light" id="matrixThead">
+                              <!-- Dynamically generated header based on attributes -->
+                            </thead>
+                            <tbody id="matrixTbody">
+                              <!-- Dynamically generated rows -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Right Sidebar Column (4 cols) -->
+                  <div class="col-12 col-lg-4">
+                    
+                    <!-- Status & Publication -->
+                    <div class="card mb-4">
+                      <div class="card-header border-bottom py-3">
+                        <h5 class="card-title mb-0 fs-6">
+                          <i class="mdi mdi-check-circle-outline me-2 text-primary"></i> Status & Publication
+                        </h5>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="mb-3">
+                          <label class="form-label fw-bold fs-8" for="guideStatus">Publication Status</label>
+                          <select class="form-select" id="guideStatus">
+                            <option value="Active" selected>Active (Available for Storefront)</option>
+                            <option value="Draft">Draft (In Review)</option>
+                            <option value="Inactive">Inactive (Disabled)</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Admin-Only Private Details (Strictly Hidden from Storefront) -->
+                    <div class="card mb-4 border-warning" style="border-width: 1px;">
+                      <div class="card-header border-bottom py-3" style="background-color: #FDF9F2;">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h5 class="card-title mb-0 fs-6 text-dark">
+                            <i class="mdi mdi-lock-outline me-1 text-warning"></i> Admin-Only Details
+                          </h5>
+                          <span class="badge bg-label-warning fs-9">Private</span>
+                        </div>
+                      </div>
+                      <div class="card-body pt-3">
+                        <div class="alert alert-warning py-2 px-3 fs-9 mb-3 d-flex align-items-start gap-2">
+                          <i class="mdi mdi-shield-lock-outline fs-5 mt-1"></i>
+                          <div>
+                            <strong>Strict Privacy:</strong> These notes are internal only. They are never exposed to storefront APIs, customer modals, or public responses.
+                          </div>
+                        </div>
+
+                        <div>
+                          <label class="form-label fw-bold fs-8" for="adminDetails">Pattern & Supplier Notes</label>
+                          <textarea class="form-control fs-8" id="adminDetails" rows="4" placeholder="Enter supplier tolerances, factory shrinkage rules, sample pattern revisions, or manufacturer notes..."></textarea>
+                          <small class="text-muted fs-9 d-block mt-1">Example: Grading base: Size M. ±1.5cm supplier tolerance. Shrinkage pre-tested.</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Quick Storefront Preview Card -->
+                    <div class="card mb-4 bg-light">
+                      <div class="card-body text-center p-4">
+                        <div class="mb-2"><i class="mdi mdi-monitor-cellphone fs-2 text-primary"></i></div>
+                        <h6 class="fw-bold mb-1 text-dark">Shopper Experience</h6>
+                        <p class="text-muted fs-8 mb-3">Inspect how this size guide appears to customers inside the storefront modal.</p>
+                        <button type="button" class="btn btn-sm btn-outline-primary w-100" id="btnCardPreview">
+                          <i class="mdi mdi-eye-outline me-1"></i> Preview Customer View
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </form>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Catalog Foundation.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STOREFRONT CUSTOMER MODAL PREVIEW -->
+    <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header border-bottom py-3" style="background-color: #FAF7F2;">
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge bg-label-success fs-9">Storefront Shopper View</span>
+              <h5 class="modal-title fs-6 fw-bold mb-0 text-dark" id="previewModalTitle">Size Guide</h5>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-4">
+            <p class="text-secondary fs-8 mb-3" id="previewModalDesc"></p>
+
+            <div class="table-responsive border rounded mb-3">
+              <table class="table table-bordered align-middle fs-8 mb-0 preview-modal-table">
+                <thead id="previewModalThead"></thead>
+                <tbody id="previewModalTbody"></tbody>
+              </table>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between p-2 bg-light rounded text-muted fs-9">
+              <span><i class="mdi mdi-check-decagram-outline text-success me-1"></i> Verified Australian Standard Fit</span>
+              <span class="text-danger fw-medium"><i class="mdi mdi-lock me-1"></i> Admin private notes are omitted</span>
+            </div>
+          </div>
+          <div class="modal-footer border-top py-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Close Preview</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+
+    <!-- Size Guide Store -->
+    <script src="assets/js/size-guide-store.js"></script>
+
+    <!-- Page Logic -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const guideTitleInput = document.getElementById('guideTitle');
+        const guideKeyInput = document.getElementById('guideKey');
+        const guideCategoryInput = document.getElementById('guideCategory');
+        const customerDetailsInput = document.getElementById('customerDetails');
+        const adminDetailsInput = document.getElementById('adminDetails');
+        const guideStatusInput = document.getElementById('guideStatus');
+
+        const attributesListContainer = document.getElementById('attributesListContainer');
+        const btnAddAttribute = document.getElementById('btnAddAttribute');
+        const matrixThead = document.getElementById('matrixThead');
+        const matrixTbody = document.getElementById('matrixTbody');
+        const btnAddSizeRow = document.getElementById('btnAddSizeRow');
+
+        const presetTshirt = document.getElementById('presetTshirt');
+        const presetPants = document.getElementById('presetPants');
+        const presetFurniture = document.getElementById('presetFurniture');
+
+        const previewModal = new bootstrap.Modal(document.getElementById('previewModal'));
+        const btnOpenPreview = document.getElementById('btnOpenPreview');
+        const btnCardPreview = document.getElementById('btnCardPreview');
+
+        // State variables
+        let attributes = [
+          { name: "Chest Width", key: "chest", unit: "cm", sortOrder: 1 },
+          { name: "Body Length", key: "length", unit: "cm", sortOrder: 2 },
+          { name: "Shoulder Width", key: "shoulder", unit: "cm", sortOrder: 3 }
+        ];
+
+        let sizes = [
+          { size: "S", measurements: { chest: "96 - 100", length: "70", shoulder: "44" } },
+          { size: "M", measurements: { chest: "101 - 106", length: "72", shoulder: "46" } },
+          { size: "L", measurements: { chest: "107 - 112", length: "74", shoulder: "48" } },
+          { size: "XL", measurements: { chest: "113 - 118", length: "76", shoulder: "50" } }
+        ];
+
+        // Slug auto-generation with manual override detection
+        let manualKeyEdit = false;
+        guideTitleInput.addEventListener('input', function () {
+          if (!manualKeyEdit) {
+            guideKeyInput.value = this.value
+              .toLowerCase()
+              .trim()
+              .replace(/[^a-z0-9_-]/g, '-')
+              .replace(/-+/g, '-');
+          }
+        });
+        guideKeyInput.addEventListener('input', function () {
+          manualKeyEdit = this.value.length > 0;
+        });
+
+        // Render Attributes List
+        function renderAttributesList() {
+          attributesListContainer.innerHTML = '';
+          if (attributes.length === 0) {
+            attributesListContainer.innerHTML = `
+              <div class="text-center py-4 text-muted border rounded" style="border-style: dashed !important;">
+                <i class="mdi mdi-ruler fs-2 d-block mb-1 text-secondary"></i>
+                <p class="mb-2 fw-medium">No measurement attributes defined yet.</p>
+                <button type="button" class="btn btn-sm btn-outline-primary" id="btnEmptyAddAttr">Add First Attribute</button>
+              </div>
+            `;
+            const emptyBtn = document.getElementById('btnEmptyAddAttr');
+            if (emptyBtn) emptyBtn.addEventListener('click', addNewAttribute);
+          } else {
+            attributes.forEach((attr, idx) => {
+              const div = document.createElement('div');
+              div.className = 'attr-card-item';
+              div.innerHTML = `
+                <div class="row g-2 align-items-center">
+                  <div class="col-12 col-md-4">
+                    <label class="form-label fs-9 mb-1 text-secondary">Attribute Name</label>
+                    <input type="text" class="form-control form-control-sm input-attr-name" data-index="${idx}" value="${attr.name}" placeholder="e.g. Waist, Chest" required />
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <label class="form-label fs-9 mb-1 text-secondary">Key / Field</label>
+                    <input type="text" class="form-control form-control-sm input-attr-key" data-index="${idx}" value="${attr.key}" placeholder="e.g. waist" required />
+                  </div>
+                  <div class="col-4 col-md-2">
+                    <label class="form-label fs-9 mb-1 text-secondary">Unit</label>
+                    <select class="form-select form-select-sm select-attr-unit" data-index="${idx}">
+                      <option value="cm" ${attr.unit === 'cm' ? 'selected' : ''}>cm</option>
+                      <option value="inch" ${attr.unit === 'inch' ? 'selected' : ''}>inch</option>
+                    </select>
+                  </div>
+                  <div class="col-2 col-md-2">
+                    <label class="form-label fs-9 mb-1 text-secondary">Order</label>
+                    <input type="number" class="form-control form-control-sm input-attr-order" data-index="${idx}" value="${attr.sortOrder || idx + 1}" min="1" />
+                  </div>
+                  <div class="col-12 col-md-1 text-end mt-md-4">
+                    <button type="button" class="btn btn-sm btn-icon text-danger btn-remove-attr" data-index="${idx}" title="Remove Attribute">
+                      <i class="mdi mdi-trash-can-outline fs-5"></i>
+                    </button>
+                  </div>
+                </div>
+              `;
+              attributesListContainer.appendChild(div);
+            });
+
+            // Bind Attribute Change Events
+            attributesListContainer.querySelectorAll('.input-attr-name').forEach(inp => {
+              inp.addEventListener('input', function () {
+                const idx = parseInt(this.dataset.index, 10);
+                attributes[idx].name = this.value;
+                if (!attributes[idx].manualKey) {
+                  const slug = this.value.toLowerCase().replace(/[^a-z0-9]/g, '');
+                  attributes[idx].key = slug || `attr_${idx + 1}`;
+                  const keyInp = attributesListContainer.querySelector(`.input-attr-key[data-index="${idx}"]`);
+                  if (keyInp) keyInp.value = attributes[idx].key;
+                }
+                renderMatrix();
+              });
+            });
+
+            attributesListContainer.querySelectorAll('.input-attr-key').forEach(inp => {
+              inp.addEventListener('input', function () {
+                const idx = parseInt(this.dataset.index, 10);
+                attributes[idx].key = this.value.trim().toLowerCase();
+                attributes[idx].manualKey = true;
+                renderMatrix();
+              });
+            });
+
+            attributesListContainer.querySelectorAll('.select-attr-unit').forEach(sel => {
+              sel.addEventListener('change', function () {
+                const idx = parseInt(this.dataset.index, 10);
+                attributes[idx].unit = this.value;
+                renderMatrix();
+              });
+            });
+
+            attributesListContainer.querySelectorAll('.input-attr-order').forEach(inp => {
+              inp.addEventListener('change', function () {
+                const idx = parseInt(this.dataset.index, 10);
+                attributes[idx].sortOrder = parseInt(this.value, 10) || idx + 1;
+                renderMatrix();
+              });
+            });
+
+            attributesListContainer.querySelectorAll('.btn-remove-attr').forEach(btn => {
+              btn.addEventListener('click', function () {
+                const idx = parseInt(this.dataset.index, 10);
+                const removedKey = attributes[idx].key;
+                attributes.splice(idx, 1);
+                // Clean up measurements in sizes
+                sizes.forEach(s => {
+                  if (s.measurements && s.measurements[removedKey]) {
+                    delete s.measurements[removedKey];
+                  }
+                });
+                renderAttributesList();
+                renderMatrix();
+              });
+            });
+          }
+        }
+
+        function addNewAttribute() {
+          const nextIdx = attributes.length + 1;
+          attributes.push({
+            name: `Measurement ${nextIdx}`,
+            key: `attr_${nextIdx}`,
+            unit: 'cm',
+            sortOrder: nextIdx
+          });
+          renderAttributesList();
+          renderMatrix();
+        }
+
+        // Render Matrix Table
+        function renderMatrix() {
+          // Build Thead
+          let theadHTML = `
+            <tr>
+              <th style="min-width: 120px;">Size</th>
+          `;
+          attributes.forEach(attr => {
+            theadHTML += `<th>${attr.name || 'Attr'} <span class="text-muted fw-normal">(${attr.unit})</span></th>`;
+          });
+          theadHTML += `
+              <th style="width: 50px;" class="text-end">Action</th>
+            </tr>
+          `;
+          matrixThead.innerHTML = theadHTML;
+
+          // Build Tbody
+          matrixTbody.innerHTML = '';
+          if (sizes.length === 0) {
+            matrixTbody.innerHTML = `
+              <tr>
+                <td colspan="${attributes.length + 2}" class="text-center py-4 text-muted">
+                  No sizes defined. Click "Add Size Row" to start adding measurements.
+                </td>
+              </tr>
+            `;
+          } else {
+            sizes.forEach((s, rowIdx) => {
+              const tr = document.createElement('tr');
+              let cellsHTML = `
+                <td>
+                  <input type="text" class="form-control form-control-sm fw-bold input-size-label" data-row="${rowIdx}" value="${s.size}" placeholder="e.g. S, 32" required />
+                </td>
+              `;
+              attributes.forEach(attr => {
+                const val = (s.measurements && s.measurements[attr.key] !== undefined) ? s.measurements[attr.key] : '';
+                cellsHTML += `
+                  <td>
+                    <input type="text" class="form-control form-control-sm input-measurement-val" data-row="${rowIdx}" data-attr="${attr.key}" value="${val}" placeholder="e.g. 96 - 100" />
+                  </td>
+                `;
+              });
+              cellsHTML += `
+                <td class="text-end">
+                  <button type="button" class="btn btn-sm btn-icon text-danger btn-remove-size" data-row="${rowIdx}" title="Remove Size">
+                    <i class="mdi mdi-trash-can-outline fs-5"></i>
+                  </button>
+                </td>
+              `;
+              tr.innerHTML = cellsHTML;
+              matrixTbody.appendChild(tr);
+            });
+
+            // Bind Matrix Inputs
+            matrixTbody.querySelectorAll('.input-size-label').forEach(inp => {
+              inp.addEventListener('input', function () {
+                const row = parseInt(this.dataset.row, 10);
+                sizes[row].size = this.value;
+              });
+            });
+
+            matrixTbody.querySelectorAll('.input-measurement-val').forEach(inp => {
+              inp.addEventListener('input', function () {
+                const row = parseInt(this.dataset.row, 10);
+                const attrKey = this.dataset.attr;
+                if (!sizes[row].measurements) sizes[row].measurements = {};
+                sizes[row].measurements[attrKey] = this.value;
+              });
+            });
+
+            matrixTbody.querySelectorAll('.btn-remove-size').forEach(btn => {
+              btn.addEventListener('click', function () {
+                const row = parseInt(this.dataset.row, 10);
+                sizes.splice(row, 1);
+                renderMatrix();
+              });
+            });
+          }
+        }
+
+        function addNewSize() {
+          const defaultSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
+          let nextSize = defaultSizes[sizes.length] || `Size ${sizes.length + 1}`;
+          const newMeasurements = {};
+          attributes.forEach(attr => { newMeasurements[attr.key] = ''; });
+          sizes.push({ size: nextSize, measurements: newMeasurements });
+          renderMatrix();
+        }
+
+        // Quick Presets
+        presetTshirt.addEventListener('click', () => {
+          attributes = [
+            { name: "Chest Width", key: "chest", unit: "cm", sortOrder: 1 },
+            { name: "Body Length", key: "length", unit: "cm", sortOrder: 2 },
+            { name: "Shoulder Width", key: "shoulder", unit: "cm", sortOrder: 3 },
+            { name: "Sleeve Length", key: "sleeve", unit: "cm", sortOrder: 4 }
+          ];
+          sizes = [
+            { size: "S", measurements: { chest: "96 - 100", length: "70", shoulder: "44", sleeve: "21" } },
+            { size: "M", measurements: { chest: "101 - 106", length: "72", shoulder: "46", sleeve: "22" } },
+            { size: "L", measurements: { chest: "107 - 112", length: "74", shoulder: "48", sleeve: "23" } },
+            { size: "XL", measurements: { chest: "113 - 118", length: "76", shoulder: "50", sleeve: "24" } }
+          ];
+          guideCategoryInput.value = "Apparel — Tops";
+          renderAttributesList();
+          renderMatrix();
+        });
+
+        presetPants.addEventListener('click', () => {
+          attributes = [
+            { name: "Waist Circumference", key: "waist", unit: "inch", sortOrder: 1 },
+            { name: "Inseam Length", key: "inseam", unit: "inch", sortOrder: 2 },
+            { name: "Hip Circumference", key: "hip", unit: "inch", sortOrder: 3 }
+          ];
+          sizes = [
+            { size: "30", measurements: { waist: "30 - 31", inseam: "31", hip: "38" } },
+            { size: "32", measurements: { waist: "32 - 33", inseam: "32", hip: "40" } },
+            { size: "34", measurements: { waist: "34 - 35", inseam: "32", hip: "42" } },
+            { size: "36", measurements: { waist: "36 - 37", inseam: "33", hip: "44" } }
+          ];
+          guideCategoryInput.value = "Apparel — Bottoms";
+          renderAttributesList();
+          renderMatrix();
+        });
+
+        presetFurniture.addEventListener('click', () => {
+          attributes = [
+            { name: "Table Length", key: "length", unit: "cm", sortOrder: 1 },
+            { name: "Table Width", key: "width", unit: "cm", sortOrder: 2 },
+            { name: "Table Height", key: "height", unit: "cm", sortOrder: 3 },
+            { name: "Seating Capacity", key: "capacity", unit: "cm", sortOrder: 4 }
+          ];
+          sizes = [
+            { size: "4-Seater", measurements: { length: "140", width: "85", height: "76", capacity: "4 Persons" } },
+            { size: "6-Seater", measurements: { length: "180", width: "90", height: "76", capacity: "6 Persons" } },
+            { size: "8-Seater", measurements: { length: "220", width: "100", height: "76", capacity: "8 Persons" } }
+          ];
+          guideCategoryInput.value = "Furniture — Living";
+          renderAttributesList();
+          renderMatrix();
+        });
+
+        btnAddAttribute.addEventListener('click', addNewAttribute);
+        btnAddSizeRow.addEventListener('click', addNewSize);
+
+        // Storefront Shopper Preview Modal
+        function showStorefrontPreview() {
+          const title = guideTitleInput.value.trim() || 'Untitled Size Guide';
+          const desc = customerDetailsInput.value.trim();
+
+          document.getElementById('previewModalTitle').innerText = title;
+          document.getElementById('previewModalDesc').innerText = desc || 'All measurements are provided in centimetres.';
+
+          let pThead = '<tr><th>Size</th>';
+          attributes.forEach(attr => {
+            pThead += `<th>${attr.name} (${attr.unit})</th>`;
+          });
+          pThead += '</tr>';
+          document.getElementById('previewModalThead').innerHTML = pThead;
+
+          let pTbody = '';
+          sizes.forEach(s => {
+            pTbody += `<tr><td class="fw-bold">${s.size}</td>`;
+            attributes.forEach(attr => {
+              const val = (s.measurements && s.measurements[attr.key]) ? s.measurements[attr.key] : '—';
+              pTbody += `<td>${val}</td>`;
+            });
+            pTbody += '</tr>';
+          });
+          document.getElementById('previewModalTbody').innerHTML = pTbody;
+
+          previewModal.show();
+        }
+
+        btnOpenPreview.addEventListener('click', showStorefrontPreview);
+        btnCardPreview.addEventListener('click', showStorefrontPreview);
+
+        // Form Submit
+        document.getElementById('sizeGuideForm').addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          const title = guideTitleInput.value.trim();
+          const key = guideKeyInput.value.trim();
+
+          if (!title || !key) {
+            alert('Please provide both Title and Unique Key.');
+            return;
+          }
+
+          if (attributes.length === 0) {
+            alert('Please add at least one measurement attribute.');
+            return;
+          }
+
+          if (sizes.length === 0) {
+            alert('Please define at least one size in the measurement matrix.');
+            return;
+          }
+
+          const guideData = {
+            title: title,
+            key: key,
+            category: guideCategoryInput.value.trim() || 'General',
+            customerDetails: customerDetailsInput.value.trim(),
+            adminDetails: adminDetailsInput.value.trim(),
+            status: guideStatusInput.value,
+            attributes: attributes,
+            sizes: sizes
+          };
+
+          const newGuide = SizeGuideStore.create(guideData);
+          if (newGuide) {
+            window.location.href = `size-guide-details.html?id=${newGuide.id}`;
+          } else {
+            alert('Failed to save size guide.');
+          }
+        });
+
+        // Initialize UI
+        renderAttributesList();
+        renderMatrix();
+      });
+    </script>
+  </body>
+</html>

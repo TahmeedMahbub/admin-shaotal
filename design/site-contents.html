@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Predefined Site Content | Aus Ecom Admin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+
+    <style>
+      .table-clickable-row {
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+      }
+      .table-clickable-row:hover {
+        background-color: rgba(204, 122, 63, 0.05) !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item"><a href="orders.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cart-outline"></i><div>Sales</div></a></li>
+            
+            <!-- Marketing -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-bullhorn-outline"></i>
+                <div>Marketing</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="offers.html" class="menu-link"><div>Offers / Discounts</div></a></li>
+                <li class="menu-item"><a href="coupons.html" class="menu-link"><div>Coupons</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Content -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-web"></i>
+                <div>Content</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="banners.html" class="menu-link"><div>Banners</div></a></li>
+                <li class="menu-item"><a href="homepage.html" class="menu-link"><div>Homepage</div></a></li>
+                <li class="menu-item"><a href="pages.html" class="menu-link"><div>Pages</div></a></li>
+                <li class="menu-item"><a href="navigation.html" class="menu-link"><div>Navigation</div></a></li>
+                <li class="menu-item active"><a href="site-contents.html" class="menu-link"><div>Site Content</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Engagement -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-star-outline"></i>
+                <div>Engagement</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="reviews.html" class="menu-link"><div>Reviews</div></a></li>
+                <li class="menu-item"><a href="wishlists.html" class="menu-link"><div>Wishlist</div></a></li>
+                <li class="menu-item"><a href="subscribers.html" class="menu-link"><div>Subscribers</div></a></li>
+                <li class="menu-item"><a href="contacts.html" class="menu-link"><div>Contacts</div></a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Content</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Site Content</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Header -->
+              <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                <div>
+                  <h4 class="fw-bold mb-1" style="color: var(--beige-text-primary);">Predefined Site Content Locations</h4>
+                  <p class="text-secondary mb-0 fs-7">Manage global site text sections, footer info blocks, and announcement notices. Slugs are predefined.</p>
+                </div>
+              </div>
+
+              <!-- Info Notice Alert -->
+              <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
+                <i class="mdi mdi-information-outline fs-4 me-2"></i>
+                <div class="fs-7">
+                  <strong>Predefined Slugs Notice:</strong> Site Content locations correspond to fixed frontend layout blocks. You can edit the Title, CKEditor HTML content, and Status.
+                </div>
+              </div>
+
+              <!-- Filter Controls Card -->
+              <div class="card mb-4">
+                <div class="card-body p-3">
+                  <div class="row g-3">
+                    
+                    <div class="col-12 col-md-7">
+                      <div class="input-group input-group-merge">
+                        <span class="input-group-text bg-white border-end-0"><i class="mdi mdi-magnify"></i></span>
+                        <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Search by slug, title, content snippet...">
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                      <select id="filterStatus" class="form-select">
+                        <option value="">All Statuses</option>
+                        <option value="Enabled">Enabled</option>
+                        <option value="Disabled">Disabled</option>
+                      </select>
+                    </div>
+
+                    <div class="col-6 col-md-2">
+                      <button id="resetFiltersBtn" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-1">
+                        <i class="mdi mdi-refresh"></i> Reset
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Table Card -->
+              <div class="card">
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Location Slug (Read-Only)</th>
+                        <th>Title</th>
+                        <th>Content Preview</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="siteContentTableBody">
+                      <!-- Render JS -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Core JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Marketing Store -->
+    <script src="assets/js/marketing-content-store.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const tableBody = document.getElementById('siteContentTableBody');
+        const searchInput = document.getElementById('searchInput');
+        const filterStatus = document.getElementById('filterStatus');
+        const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+
+        function loadTable() {
+          const allItems = MarketingContentStore.getSiteContents();
+          const query = searchInput.value.toLowerCase().trim();
+          const statusVal = filterStatus.value;
+
+          let filtered = allItems.filter(sc => {
+            const matchesQuery = !query ||
+              sc.slug.toLowerCase().includes(query) ||
+              sc.title.toLowerCase().includes(query) ||
+              (sc.content && sc.content.toLowerCase().includes(query));
+
+            const matchesStatus = !statusVal || sc.status === statusVal;
+
+            return matchesQuery && matchesStatus;
+          });
+
+          tableBody.innerHTML = '';
+
+          if (filtered.length === 0) {
+            tableBody.innerHTML = `
+              <tr>
+                <td colspan="5" class="text-center py-5">
+                  <div class="text-muted mb-2"><i class="mdi mdi-text-box-remove-outline fs-1"></i></div>
+                  <h6 class="fw-bold mb-1">No Site Content Found</h6>
+                  <p class="text-secondary fs-7 mb-0">Try changing your search terms or status filter.</p>
+                </td>
+              </tr>
+            `;
+          } else {
+            filtered.forEach(sc => {
+              const tr = document.createElement('tr');
+              tr.className = 'table-clickable-row';
+
+              const statusBadge = sc.status === 'Enabled'
+                ? '<span class="badge bg-label-success fw-bold px-2 py-1"><i class="mdi mdi-check-circle me-1"></i>Enabled</span>'
+                : '<span class="badge bg-label-secondary fw-bold px-2 py-1"><i class="mdi mdi-close-circle me-1"></i>Disabled</span>';
+
+              // Strip HTML for table preview snippet
+              const tmp = document.createElement('DIV');
+              tmp.innerHTML = sc.content || '';
+              const plainText = tmp.textContent || tmp.innerText || '';
+
+              tr.innerHTML = `
+                <td>
+                  <span class="badge bg-label-primary font-monospace fs-7 px-2 py-1">${sc.slug}</span>
+                </td>
+                <td class="fw-bold text-dark fs-7">${sc.title}</td>
+                <td>
+                  <div class="text-secondary fs-8 text-truncate" style="max-width: 320px;" title="${plainText}">
+                    ${plainText}
+                  </div>
+                </td>
+                <td>${statusBadge}</td>
+                <td class="text-end" onclick="event.stopPropagation();">
+                  <div class="d-inline-flex gap-1">
+                    <a href="site-content-details.html?slug=${sc.slug}" class="btn btn-sm btn-icon btn-outline-secondary" title="View Details">
+                      <i class="mdi mdi-eye-outline"></i>
+                    </a>
+                    <a href="site-content-edit.html?slug=${sc.slug}" class="btn btn-sm btn-icon btn-outline-primary" title="Edit Site Content">
+                      <i class="mdi mdi-pencil-outline"></i>
+                    </a>
+                    <button class="btn btn-sm btn-icon ${sc.status === 'Enabled' ? 'btn-outline-warning' : 'btn-outline-success'} btn-toggle-status" data-slug="${sc.slug}" title="${sc.status === 'Enabled' ? 'Disable' : 'Enable'}">
+                      <i class="mdi ${sc.status === 'Enabled' ? 'mdi-pause' : 'mdi-play'}"></i>
+                    </button>
+                  </div>
+                </td>
+              `;
+
+              tr.addEventListener('click', () => {
+                window.location.href = `site-content-details.html?slug=${sc.slug}`;
+              });
+
+              tableBody.appendChild(tr);
+            });
+          }
+        }
+
+        // Listeners
+        searchInput.addEventListener('input', loadTable);
+        filterStatus.addEventListener('change', loadTable);
+        resetFiltersBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          filterStatus.value = '';
+          loadTable();
+        });
+
+        tableBody.addEventListener('click', (e) => {
+          const toggleBtn = e.target.closest('.btn-toggle-status');
+          if (toggleBtn) {
+            e.stopPropagation();
+            const slug = toggleBtn.getAttribute('data-slug');
+            MarketingContentStore.toggleSiteContentStatus(slug);
+            loadTable();
+          }
+        });
+
+        loadTable();
+      });
+    </script>
+  </body>
+</html>

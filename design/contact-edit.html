@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Edit Contact Inquiry | Aus Ecom Admin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item"><a href="orders.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cart-outline"></i><div>Sales</div></a></li>
+            
+            <!-- Engagement -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-star-outline"></i>
+                <div>Engagement</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="reviews.html" class="menu-link"><div>Reviews</div></a></li>
+                <li class="menu-item"><a href="wishlists.html" class="menu-link"><div>Wishlist</div></a></li>
+                <li class="menu-item"><a href="subscribers.html" class="menu-link"><div>Subscribers</div></a></li>
+                <li class="menu-item active"><a href="contacts.html" class="menu-link"><div>Contacts</div></a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="contacts.html">Contacts</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbContactId">Edit Contact</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Header Bar -->
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <div class="d-flex align-items-center gap-3">
+                  <a id="cancelLinkTop" href="contacts.html" class="btn btn-outline-secondary btn-icon">
+                    <i class="mdi mdi-arrow-left"></i>
+                  </a>
+                  <div>
+                    <h4 class="fw-bold mb-1" style="color: var(--beige-text-primary);" id="pageHeaderTitle">Edit Contact Inquiry</h4>
+                    <p class="text-secondary mb-0 fs-7">Modify contact details, status, and message body.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form Card -->
+              <div class="card">
+                <div class="card-body p-4">
+                  <form id="editContactForm">
+                    <div class="row g-4">
+                      
+                      <!-- Sender Details -->
+                      <div class="col-12"><h6 class="fw-bold mb-0 text-primary border-bottom pb-2"><i class="mdi mdi-account-outline me-1"></i>Sender Details</h6></div>
+                      
+                      <div class="col-12 col-md-4">
+                        <label class="form-label fw-semibold text-dark">Sender Full Name <span class="text-danger">*</span></label>
+                        <input type="text" id="name" class="form-control" required />
+                      </div>
+
+                      <div class="col-12 col-md-4">
+                        <label class="form-label fw-semibold text-dark">Email Address <span class="text-danger">*</span></label>
+                        <input type="email" id="email" class="form-control" required />
+                      </div>
+
+                      <div class="col-12 col-md-4">
+                        <label class="form-label fw-semibold text-dark">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" />
+                      </div>
+
+                      <!-- Message Details -->
+                      <div class="col-12 mt-4"><h6 class="fw-bold mb-0 text-primary border-bottom pb-2"><i class="mdi mdi-email-outline me-1"></i>Message Details</h6></div>
+
+                      <div class="col-12 col-md-8">
+                        <label class="form-label fw-semibold text-dark">Subject <span class="text-danger">*</span></label>
+                        <input type="text" id="subject" class="form-control" required />
+                      </div>
+
+                      <div class="col-12 col-md-4">
+                        <label class="form-label fw-semibold text-dark">Inquiry Status <span class="text-danger">*</span></label>
+                        <select id="status" class="form-select" required>
+                          <option value="New">New</option>
+                          <option value="In Progress">In Progress</option>
+                          <option value="Resolved">Resolved</option>
+                          <option value="Closed">Closed</option>
+                        </select>
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label fw-semibold text-dark">Inquiry Message Text <span class="text-danger">*</span></label>
+                        <textarea id="message" class="form-control" rows="5" required></textarea>
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label fw-semibold text-dark">Admin Resolution Notes</label>
+                        <textarea id="adminNote" class="form-control" rows="2"></textarea>
+                      </div>
+
+                      <!-- Form Actions -->
+                      <div class="col-12 pt-3 border-top d-flex align-items-center justify-content-end gap-2">
+                        <a id="cancelBtn" href="contacts.html" class="btn btn-outline-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary d-flex align-items-center gap-1">
+                          <i class="mdi mdi-check"></i> Update Contact Message
+                        </button>
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Core JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Engagement Store -->
+    <script src="assets/js/engagement-store.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const contactId = urlParams.get('id') || 'CON-4001';
+        let contact = EngagementStore.getContact(contactId);
+
+        if (!contact) {
+          alert('Contact inquiry not found!');
+          window.location.href = 'contacts.html';
+          return;
+        }
+
+        document.getElementById('breadcrumbContactId').innerText = `Edit ${contact.id}`;
+        document.getElementById('pageHeaderTitle').innerText = `Edit Contact #${contact.id}`;
+        document.getElementById('cancelLinkTop').href = `contact-details.html?id=${contact.id}`;
+        document.getElementById('cancelBtn').href = `contact-details.html?id=${contact.id}`;
+
+        // Prefill
+        document.getElementById('name').value = contact.name || '';
+        document.getElementById('email').value = contact.email || '';
+        document.getElementById('phone').value = contact.phone || '';
+        document.getElementById('subject').value = contact.subject || '';
+        document.getElementById('status').value = contact.status || 'New';
+        document.getElementById('message').value = contact.message || '';
+        document.getElementById('adminNote').value = contact.adminNote || '';
+
+        // Submit
+        const form = document.getElementById('editContactForm');
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          contact.name = document.getElementById('name').value.trim();
+          contact.email = document.getElementById('email').value.trim();
+          contact.phone = document.getElementById('phone').value.trim();
+          contact.subject = document.getElementById('subject').value.trim();
+          contact.status = document.getElementById('status').value;
+          contact.message = document.getElementById('message').value.trim();
+          contact.adminNote = document.getElementById('adminNote').value.trim();
+
+          EngagementStore.saveContact(contact);
+          window.location.href = `contact-details.html?id=${contact.id}`;
+        });
+      });
+    </script>
+  </body>
+</html>

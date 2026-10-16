@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Products | Aus Ecom Admin</title>
+    <meta name="description" content="Manage Product Catalog" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            
+            <!-- Dashboard -->
+            <li class="menu-item">
+              <a href="index.html" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i>
+                <div>Dashboard</div>
+              </a>
+            </li>
+
+            <!-- Catalog -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i>
+                <div>Catalog</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item active">
+                  <a href="products.html" class="menu-link">
+                    <div>Products</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="categories.html" class="menu-link">
+                    <div>Categories</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="subcategories.html" class="menu-link">
+                    <div>Subcategories</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="brands.html" class="menu-link">
+                    <div>Brands</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="size-guides.html" class="menu-link">
+                    <div>Size Guides</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Sales -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-cart-outline"></i>
+                <div>Sales</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="admin/orders.html" class="menu-link">
+                    <div>Orders</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link">
+                    <div>Customers</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link">
+                    <div>Abandoned Carts</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Requests -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-hand-shake-outline"></i>
+                <div>Requests</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="sourcing-requests.html" class="menu-link">
+                    <div>Sourcing Requests</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="bulk-orders.html" class="menu-link">
+                    <div>Bulk Orders</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Marketing -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-bullhorn-outline"></i>
+                <div>Marketing</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><div>Banners</div></a></li>
+                <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><div>Collections</div></a></li>
+                <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><div>Offers / Discounts</div></a></li>
+                <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><div>Coupons</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Content -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-web"></i>
+                <div>Content</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><div>Homepage</div></a></li>
+                <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><div>Pages</div></a></li>
+                <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><div>Navigation</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Reviews -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-star-outline"></i>
+                <div>Reviews</div>
+              </a>
+            </li>
+
+            <!-- Wishlist -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-heart-outline"></i>
+                <div>Wishlist</div>
+              </a>
+            </li>
+
+            <!-- Settings -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-cog-outline"></i>
+                <div>Settings</div>
+              </a>
+            </li>
+
+          </ul>
+        </aside>
+        <!-- / SIDEBAR -->
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              
+              <!-- Left Side -->
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-xl-4 d-xl-none layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <a class="nav-item nav-link px-0 me-3 d-none d-xl-block layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <div class="d-none d-sm-flex align-items-center">
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                      <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                      <li class="breadcrumb-item"><a href="javascript:void(0);">Catalog</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Products</li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+
+              <!-- Right Side -->
+              <div class="d-flex align-items-center gap-3">
+                <div class="dropdown">
+                  <a class="nav-link position-relative p-1" href="javascript:void(0)" data-bs-toggle="dropdown">
+                    <i class="mdi mdi-bell-outline fs-4"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-warning border border-light rounded-circle" style="width: 8px; height: 8px;"></span>
+                  </a>
+                </div>
+
+                <div class="dropdown">
+                  <a class="nav-link d-flex align-items-center gap-2 p-0" href="javascript:void(0)" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                    </div>
+                    <div class="d-none d-lg-block text-start">
+                      <span class="user-avatar-text d-block lh-1">Admin User</span>
+                      <span class="user-role-text">Store Manager</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </nav>
+          <!-- / FIXED TOP BAR -->
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Page Title & Header Actions -->
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <div>
+                  <h4 class="fw-bold mb-1" style="color: var(--beige-text-dark);">Products Catalog</h4>
+                  <p class="text-muted mb-0 fs-7">Manage your store products, pricing, stock, colors, and variant options.</p>
+                </div>
+                <div>
+                  <a href="product-add.html" class="btn btn-beige d-flex align-items-center gap-1">
+                    <i class="mdi mdi-plus fs-5"></i> Add New Product
+                  </a>
+                </div>
+              </div>
+
+              <!-- Filters Card -->
+              <div class="card mb-4">
+                <div class="card-body p-3">
+                  <div class="row g-3">
+                    
+                    <!-- Search Input -->
+                    <div class="col-12 col-md-4">
+                      <div class="input-group input-group-merge">
+                        <span class="input-group-text bg-white border-end-0"><i class="mdi mdi-magnify"></i></span>
+                        <input type="text" class="form-control border-start-0 ps-0" placeholder="Search by name, SKU..." id="searchProduct">
+                      </div>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="col-6 col-md-2">
+                      <select class="form-select" id="filterCategory">
+                        <option value="">All Categories</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Home & Living">Home & Living</option>
+                        <option value="Textiles">Textiles</option>
+                        <option value="Decor">Decor</option>
+                        <option value="Apparel">Apparel</option>
+                      </select>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="col-6 col-md-2">
+                      <select class="form-select" id="filterBrand">
+                        <option value="">All Brands</option>
+                        <option value="Aus Living">Aus Living</option>
+                        <option value="Craft & Co">Craft & Co</option>
+                        <option value="Nordic Studio">Nordic Studio</option>
+                        <option value="Artisan Heritage">Artisan Heritage</option>
+                      </select>
+                    </div>
+
+                    <!-- Status Filter -->
+                    <div class="col-6 col-md-2">
+                      <select class="form-select" id="filterStatus">
+                        <option value="">All Statuses</option>
+                        <option value="Active">Active</option>
+                        <option value="Draft">Draft</option>
+                        <option value="Archived">Archived</option>
+                      </select>
+                    </div>
+
+                    <!-- Stock Filter -->
+                    <div class="col-6 col-md-2">
+                      <select class="form-select" id="filterStock">
+                        <option value="">All Stock</option>
+                        <option value="In Stock">In Stock</option>
+                        <option value="Low Stock">Low Stock</option>
+                        <option value="Out of Stock">Out of Stock</option>
+                      </select>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Products Table Card -->
+              <div class="card">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th style="width: 40px;"><input type="checkbox" class="form-check-input"></th>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                        <th>Variants</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <!-- Row 1 -->
+                      <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-3">
+                            <div class="rounded border p-1 bg-white" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                              <i class="mdi mdi-chair-rolling fs-3" style="color: var(--beige-primary-accent);"></i>
+                            </div>
+                            <div>
+                              <a href="product-edit.html" class="fw-bold text-dark fs-8 hover-underline">Minimalist Oak Dining Table</a>
+                              <div class="text-muted fs-8">SKU: <span class="fw-medium">FUR-OAK-01</span></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="fw-medium text-dark fs-8">Furniture</div>
+                          <small class="text-muted">Dining Tables</small>
+                        </td>
+                        <td><span class="badge bg-label-secondary fs-8">Aus Living</span></td>
+                        <td>
+                          <div>
+                            <span class="fw-bold text-dark">$340.00</span>
+                            <small class="text-muted text-decoration-line-through me-1">$400.00</small>
+                            <span class="badge bg-label-danger fs-9">15% OFF</span>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="badge bg-label-primary fs-8">6 Variants</span>
+                          <div class="fs-9 text-muted">2 Colors, 3 Sizes</div>
+                        </td>
+                        <td><span class="badge bg-label-success fs-8">42 in stock</span></td>
+                        <td><span class="badge bg-label-success fs-8">Active</span></td>
+                        <td class="text-end">
+                          <div class="d-flex align-items-center justify-content-end gap-1">
+                            <a href="product-edit.html" class="btn btn-sm btn-icon btn-outline-beige" title="Edit"><i class="mdi mdi-pencil-outline fs-6"></i></a>
+                            <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="mdi mdi-trash-can-outline fs-6"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- Row 2 -->
+                      <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-3">
+                            <div class="rounded border p-1 bg-white" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                              <i class="mdi mdi-cup-outline fs-3" style="color: var(--beige-primary-accent);"></i>
+                            </div>
+                            <div>
+                              <a href="product-edit.html" class="fw-bold text-dark fs-8 hover-underline">Ceramic Artisan Tea Set</a>
+                              <div class="text-muted fs-8">SKU: <span class="fw-medium">HOM-TEA-04</span></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="fw-medium text-dark fs-8">Home & Living</div>
+                          <small class="text-muted">Tea Sets</small>
+                        </td>
+                        <td><span class="badge bg-label-secondary fs-8">Craft & Co</span></td>
+                        <td><span class="fw-bold text-dark">$60.00</span></td>
+                        <td>
+                          <span class="badge bg-label-primary fs-8">3 Colors</span>
+                          <div class="fs-9 text-muted">No sizes</div>
+                        </td>
+                        <td><span class="badge bg-label-success fs-8">15 in stock</span></td>
+                        <td><span class="badge bg-label-success fs-8">Active</span></td>
+                        <td class="text-end">
+                          <div class="d-flex align-items-center justify-content-end gap-1">
+                            <a href="product-edit.html" class="btn btn-sm btn-icon btn-outline-beige" title="Edit"><i class="mdi mdi-pencil-outline fs-6"></i></a>
+                            <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="mdi mdi-trash-can-outline fs-6"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- Row 3 -->
+                      <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-3">
+                            <div class="rounded border p-1 bg-white" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                              <i class="mdi mdi-texture fs-3" style="color: var(--beige-primary-accent);"></i>
+                            </div>
+                            <div>
+                              <a href="product-edit.html" class="fw-bold text-dark fs-8 hover-underline">Linen Throw Blanket (Beige)</a>
+                              <div class="text-muted fs-8">SKU: <span class="fw-medium">TEX-BLN-12</span></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="fw-medium text-dark fs-8">Textiles</div>
+                          <small class="text-muted">Blankets & Throws</small>
+                        </td>
+                        <td><span class="badge bg-label-secondary fs-8">Nordic Studio</span></td>
+                        <td><span class="fw-bold text-dark">$50.00</span></td>
+                        <td>
+                          <span class="badge bg-label-primary fs-8">8 Variants</span>
+                          <div class="fs-9 text-muted">4 Colors, 2 Sizes</div>
+                        </td>
+                        <td><span class="badge bg-label-success fs-8">88 in stock</span></td>
+                        <td><span class="badge bg-label-success fs-8">Active</span></td>
+                        <td class="text-end">
+                          <div class="d-flex align-items-center justify-content-end gap-1">
+                            <a href="product-edit.html" class="btn btn-sm btn-icon btn-outline-beige" title="Edit"><i class="mdi mdi-pencil-outline fs-6"></i></a>
+                            <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="mdi mdi-trash-can-outline fs-6"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- Row 4 -->
+                      <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-3">
+                            <div class="rounded border p-1 bg-white" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                              <i class="mdi mdi-flower-outline fs-3" style="color: var(--beige-primary-accent);"></i>
+                            </div>
+                            <div>
+                              <a href="product-edit.html" class="fw-bold text-dark fs-8 hover-underline">Artisan Brass Candle Holder</a>
+                              <div class="text-muted fs-8">SKU: <span class="fw-medium">DEC-BRS-02</span></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="fw-medium text-dark fs-8">Decor</div>
+                          <small class="text-muted">Lighting</small>
+                        </td>
+                        <td><span class="badge bg-label-secondary fs-8">Artisan Heritage</span></td>
+                        <td><span class="fw-bold text-dark">$45.00</span></td>
+                        <td><span class="text-muted fs-8">No variants</span></td>
+                        <td><span class="badge bg-label-danger fs-8">2 left (Low)</span></td>
+                        <td><span class="badge bg-label-success fs-8">Active</span></td>
+                        <td class="text-end">
+                          <div class="d-flex align-items-center justify-content-end gap-1">
+                            <a href="product-edit.html" class="btn btn-sm btn-icon btn-outline-beige" title="Edit"><i class="mdi mdi-pencil-outline fs-6"></i></a>
+                            <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="mdi mdi-trash-can-outline fs-6"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- Row 5 -->
+                      <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-3">
+                            <div class="rounded border p-1 bg-white" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                              <i class="mdi mdi-seat-recline-extra fs-3" style="color: var(--beige-primary-accent);"></i>
+                            </div>
+                            <div>
+                              <a href="product-edit.html" class="fw-bold text-dark fs-8 hover-underline">Scandinavia Lounge Chair</a>
+                              <div class="text-muted fs-8">SKU: <span class="fw-medium">FUR-CHR-09</span></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="fw-medium text-dark fs-8">Furniture</div>
+                          <small class="text-muted">Chairs</small>
+                        </td>
+                        <td><span class="badge bg-label-secondary fs-8">Aus Living</span></td>
+                        <td><span class="fw-bold text-dark">$350.00</span></td>
+                        <td><span class="badge bg-label-info fs-8">Pre-order</span></td>
+                        <td><span class="badge bg-label-secondary fs-8">0 (Pre-order)</span></td>
+                        <td><span class="badge bg-label-secondary fs-8">Draft</span></td>
+                        <td class="text-end">
+                          <div class="d-flex align-items-center justify-content-end gap-1">
+                            <a href="product-edit.html" class="btn btn-sm btn-icon btn-outline-beige" title="Edit"><i class="mdi mdi-pencil-outline fs-6"></i></a>
+                            <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="mdi mdi-trash-can-outline fs-6"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Pagination Card Footer -->
+                <div class="card-footer d-flex align-items-center justify-content-between border-top py-3">
+                  <div class="fs-8 text-muted">Showing 1 to 5 of 486 products</div>
+                  <nav aria-label="Products Pagination">
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><a class="page-link" href="#">Prev</a></li>
+                      <li class="page-item active"><a class="page-link" href="#" style="background-color: var(--beige-primary-accent); border-color: var(--beige-primary-accent);">1</a></li>
+                      <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme" style="background-color: var(--beige-bg-main) !important; border-top: 1px solid var(--beige-border-subtle);">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Catalog. Built with Materialize Foundation.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <!-- Small Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header border-bottom pb-2">
+            <h5 class="modal-title fs-6 fw-bold">Delete Product?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-3 fs-8 text-muted">
+            Are you sure you want to remove this product from your catalog? This action cannot be undone.
+          </div>
+          <div class="modal-footer border-top pt-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORE JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

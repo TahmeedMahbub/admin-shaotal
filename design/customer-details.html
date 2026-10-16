@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Customer Profile | Eleanor Vance | Aus Ecom Admin</title>
+    <meta name="description" content="Customer Profile Details" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-cart-outline"></i>
+                <div>Sales</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="orders.html" class="menu-link"><div>Orders</div></a></li>
+                <li class="menu-item active"><a href="customers.html" class="menu-link"><div>Customers</div></a></li>
+                <li class="menu-item"><a href="abandoned-carts.html" class="menu-link"><div>Abandoned Carts</div></a></li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="customers.html">Customers</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Eleanor Vance</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-2">
+                <a href="customers.html" class="btn btn-sm btn-outline-secondary"><i class="mdi mdi-arrow-left me-1"></i> Back to Customers</a>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y pb-5">
+              
+              <!-- Profile Header Card -->
+              <div class="card mb-4">
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="avatar avatar-xl">
+                        <span class="avatar-initial rounded-circle bg-label-secondary fw-bold fs-3">EV</span>
+                      </div>
+                      <div>
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                          <h4 class="fw-bold mb-0" style="color: var(--beige-text-dark);">Eleanor Vance</h4>
+                          <span class="badge bg-label-success fs-8">Active Customer</span>
+                        </div>
+                        <p class="text-muted mb-0 fs-8">Customer ID: <code class="text-dark">CUST-1001</code> &bull; Member since <span class="fw-medium text-dark">Jan 12, 2025</span></p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2">
+                      <a href="customer-edit.html" class="btn btn-beige"><i class="mdi mdi-pencil me-1"></i> Edit Profile</a>
+                      <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#statusModal"><i class="mdi mdi-account-off-outline me-1"></i> Disable Account</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Metrics Overview Cards (4 Grid) -->
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-3">
+                  <div class="card overview-card h-100">
+                    <span class="card-metric-label mb-1">Total Orders</span>
+                    <h3 class="fw-bold mb-0" style="color: var(--beige-text-primary);">6 Orders</h3>
+                    <small class="text-success fs-9 mt-1"><i class="mdi mdi-check-circle-outline"></i> All delivered</small>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                  <div class="card overview-card h-100">
+                    <span class="card-metric-label mb-1">Total Spent</span>
+                    <h3 class="fw-bold mb-0" style="color: var(--beige-primary-accent);">$1,840.00</h3>
+                    <small class="text-muted fs-9 mt-1">Lifetime customer value</small>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                  <div class="card overview-card h-100">
+                    <span class="card-metric-label mb-1">Average Order Value</span>
+                    <h3 class="fw-bold mb-0" style="color: var(--beige-text-primary);">$306.66</h3>
+                    <small class="text-muted fs-9 mt-1">Per transaction average</small>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                  <div class="card overview-card h-100">
+                    <span class="card-metric-label mb-1">Last Purchase</span>
+                    <h3 class="fw-bold mb-0 fs-5" style="color: var(--beige-text-primary);">Oct 07, 2026</h3>
+                    <small class="text-muted fs-9 mt-1">Order #ORD-9482 ($340.00)</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-4">
+                
+                <!-- Left Column: Order History & Activity -->
+                <div class="col-12 col-lg-8">
+                  
+                  <!-- Recent Orders Table -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-cart-outline me-2 text-primary"></i> Order History</h5>
+                      <span class="badge bg-label-secondary">6 Orders</span>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table table-hover align-middle mb-0 fs-8">
+                        <thead>
+                          <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Payment</th>
+                            <th>Order Status</th>
+                            <th class="text-end">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><a href="order-details.html" class="fw-bold" style="color: var(--beige-primary-accent);">#ORD-9482</a></td>
+                            <td class="text-secondary fw-medium">Oct 07, 2026</td>
+                            <td class="fw-bold text-dark">$340.00</td>
+                            <td><span class="badge bg-label-success fs-9">Paid</span></td>
+                            <td><span class="badge bg-label-success fs-9">Delivered</span></td>
+                            <td class="text-end">
+                              <a href="order-details.html" class="btn btn-sm btn-icon btn-outline-beige"><i class="mdi mdi-eye-outline fs-6"></i></a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="order-details.html" class="fw-bold" style="color: var(--beige-primary-accent);">#ORD-9120</a></td>
+                            <td class="text-secondary fw-medium">Aug 14, 2026</td>
+                            <td class="fw-bold text-dark">$420.00</td>
+                            <td><span class="badge bg-label-success fs-9">Paid</span></td>
+                            <td><span class="badge bg-label-success fs-9">Delivered</span></td>
+                            <td class="text-end">
+                              <a href="order-details.html" class="btn btn-sm btn-icon btn-outline-beige"><i class="mdi mdi-eye-outline fs-6"></i></a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="order-details.html" class="fw-bold" style="color: var(--beige-primary-accent);">#ORD-8850</a></td>
+                            <td class="text-secondary fw-medium">May 02, 2026</td>
+                            <td class="fw-bold text-dark">$280.00</td>
+                            <td><span class="badge bg-label-success fs-9">Paid</span></td>
+                            <td><span class="badge bg-label-success fs-9">Delivered</span></td>
+                            <td class="text-end">
+                              <a href="order-details.html" class="btn btn-sm btn-icon btn-outline-beige"><i class="mdi mdi-eye-outline fs-6"></i></a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!-- Wishlist Items -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-heart-outline me-2 text-primary"></i> Saved Wishlist Items (2)</h5>
+                    </div>
+                    <div class="card-body pt-3">
+                      <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                          <div class="d-flex align-items-center gap-3 p-2 rounded border" style="background-color: var(--beige-bg-alt);">
+                            <div class="rounded border p-1 bg-white" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                              <i class="mdi mdi-seat-recline-extra fs-3 text-primary"></i>
+                            </div>
+                            <div>
+                              <a href="product-edit.html" class="fw-bold text-dark fs-8 hover-underline">Scandinavia Lounge Chair</a>
+                              <div class="fw-bold fs-8" style="color: var(--beige-primary-accent);">$350.00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="d-flex align-items-center gap-3 p-2 rounded border" style="background-color: var(--beige-bg-alt);">
+                            <div class="rounded border p-1 bg-white" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                              <i class="mdi mdi-flower-outline fs-3 text-primary"></i>
+                            </div>
+                            <div>
+                              <a href="product-edit.html" class="fw-bold text-dark fs-8 hover-underline">Artisan Brass Candle Holder</a>
+                              <div class="fw-bold fs-8" style="color: var(--beige-primary-accent);">$45.00</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Request History Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-hand-shake-outline me-2 text-primary"></i> Sourcing & Bulk Request History</h5>
+                    </div>
+                    <div class="card-body pt-3">
+                      <div class="d-flex align-items-center justify-content-between p-3 rounded border" style="background-color: var(--beige-bg-alt);">
+                        <div>
+                          <div class="fw-bold text-dark fs-8">Request #REQ-2041 &bull; Sourcing Request</div>
+                          <small class="text-secondary fw-medium">Submitted on Oct 02, 2026 &bull; Custom Oak Office Desk</small>
+                        </div>
+                        <span class="badge bg-label-warning">Pending Review</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Right Column: Contact, Address, Abandoned Cart Summary -->
+                <div class="col-12 col-lg-4">
+                  
+                  <!-- Contact Information -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-card-account-details-outline me-2 text-primary"></i> Contact Details</h5>
+                    </div>
+                    <div class="card-body pt-3 fs-8">
+                      <div class="mb-3">
+                        <label class="text-secondary fw-semibold d-block fs-8 mb-1">Email Address</label>
+                        <span class="fw-bold text-dark fs-7">eleanor@example.com</span>
+                      </div>
+                      <div class="mb-3">
+                        <label class="text-secondary fw-semibold d-block fs-8 mb-1">Phone Number</label>
+                        <span class="fw-bold text-dark fs-7">+61 412 345 678</span>
+                      </div>
+                      <div class="mb-3">
+                        <label class="text-secondary fw-semibold d-block fs-8 mb-1">IP Address</label>
+                        <span class="fw-bold text-dark fs-7">12.43.54.34</span>
+                      </div>
+                      <div>
+                        <label class="text-secondary fw-semibold d-block fs-8 mb-1">Account Status</label>
+                        <span class="badge bg-label-success">Active & Verified</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Saved Shipping Address -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-map-marker-outline me-2 text-primary"></i> Primary Address</h5>
+                    </div>
+                    <div class="card-body pt-3 fs-8">
+                      <div class="fw-bold text-dark mb-1">Eleanor Vance</div>
+                      <div class="text-muted">742 Evergreen Terrace</div>
+                      <div class="text-muted">South Yarra, VIC 3141</div>
+                      <div class="text-muted">Australia</div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme" style="background-color: var(--beige-bg-main) !important; border-top: 1px solid var(--beige-border-subtle);">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Sales.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <!-- Confirmation Modal: Disable Account -->
+    <div class="modal fade" id="statusModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header border-bottom pb-2">
+            <h5 class="modal-title fs-6 fw-bold">Disable Customer?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body py-3 fs-8 text-muted">
+            Are you sure you want to disable Eleanor Vance's account? They will not be able to log in or place new orders.
+          </div>
+          <div class="modal-footer border-top pt-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal" onclick="alert('Customer status changed to Inactive!')">Disable Account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORE JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

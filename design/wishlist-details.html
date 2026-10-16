@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Wishlist Item Details | Aus Ecom Admin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item"><a href="orders.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cart-outline"></i><div>Sales</div></a></li>
+            
+            <!-- Engagement -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-star-outline"></i>
+                <div>Engagement</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="reviews.html" class="menu-link"><div>Reviews</div></a></li>
+                <li class="menu-item active"><a href="wishlists.html" class="menu-link"><div>Wishlist</div></a></li>
+                <li class="menu-item"><a href="subscribers.html" class="menu-link"><div>Subscribers</div></a></li>
+                <li class="menu-item"><a href="contacts.html" class="menu-link"><div>Contacts</div></a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="wishlists.html">Wishlists</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbWishlistId">Wishlist Item Details</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Header Bar -->
+              <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                <div class="d-flex align-items-center gap-3">
+                  <a href="wishlists.html" class="btn btn-outline-secondary btn-icon">
+                    <i class="mdi mdi-arrow-left"></i>
+                  </a>
+                  <div>
+                    <div class="d-flex align-items-center gap-2">
+                      <h4 class="fw-bold mb-0" style="color: var(--beige-text-primary);" id="wishlistIdHeader">Wishlist Item</h4>
+                      <span id="availabilityBadge"></span>
+                    </div>
+                    <p class="text-secondary mb-0 fs-7" id="addedDateHeader">Saved on --</p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-2">
+                  <a id="editWishlistLink" href="#" class="btn btn-primary d-flex align-items-center gap-1">
+                    <i class="mdi mdi-pencil-outline"></i> Edit Item
+                  </a>
+                  <button id="deleteBtn" class="btn btn-outline-danger btn-icon" title="Delete Wishlist Item">
+                    <i class="mdi mdi-trash-can-outline"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Content Cards -->
+              <div class="row g-4">
+                
+                <!-- Customer Card -->
+                <div class="col-12 col-md-6">
+                  <div class="card h-100">
+                    <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                      <h5 class="card-title mb-0 fw-bold"><i class="mdi mdi-account-heart-outline me-2 text-primary"></i>Customer Relationship</h5>
+                      <a id="customerProfileLink" href="#" class="btn btn-sm btn-outline-primary fs-8">View Customer Profile</a>
+                    </div>
+                    <div class="card-body py-4">
+                      <div class="d-flex align-items-center gap-3 mb-4">
+                        <img id="customerAvatar" src="assets/img/avatars/1.png" class="rounded-circle border p-1" width="64" height="64" alt="Customer" />
+                        <div>
+                          <h5 class="fw-bold text-dark mb-1" id="customerName">Customer Name</h5>
+                          <p class="text-secondary fs-7 mb-0" id="customerEmail">customer@example.com</p>
+                        </div>
+                      </div>
+
+                      <div class="border-top pt-3">
+                        <div class="d-flex justify-content-between mb-2">
+                          <span class="text-secondary fs-7">Customer ID:</span>
+                          <span class="fw-bold text-dark fs-7" id="customerId">--</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <span class="text-secondary fs-7">Wishlist Account Status:</span>
+                          <span class="badge bg-label-success fs-8">Active Account</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product Card -->
+                <div class="col-12 col-md-6">
+                  <div class="card h-100">
+                    <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                      <h5 class="card-title mb-0 fw-bold"><i class="mdi mdi-package-variant me-2 text-primary"></i>Wishlist Product Item</h5>
+                      <a id="productEditLink" href="#" class="btn btn-sm btn-outline-primary fs-8">View Product in Catalog</a>
+                    </div>
+                    <div class="card-body py-4">
+                      <div class="d-flex align-items-center gap-3 mb-4">
+                        <img id="productImage" src="assets/img/products/1.png" class="rounded border" width="72" height="72" style="object-fit: cover;" alt="Product" />
+                        <div>
+                          <h5 class="fw-bold text-dark mb-1" id="productName">Product Title</h5>
+                          <div class="text-secondary fs-7 mb-1" id="productSku">SKU: --</div>
+                          <div class="fw-bold text-primary fs-5" id="productPrice">$0.00</div>
+                        </div>
+                      </div>
+
+                      <div class="border-top pt-3">
+                        <div class="d-flex justify-content-between mb-2">
+                          <span class="text-secondary fs-7">Selected Variant:</span>
+                          <span class="fw-bold text-dark fs-7" id="productVariant">Default</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                          <span class="text-secondary fs-7">Product ID:</span>
+                          <span class="fw-bold text-dark fs-7" id="productId">--</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <span class="text-secondary fs-7">Current Stock Availability:</span>
+                          <span id="stockAvailabilityText" class="fw-bold fs-7">--</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Confirm Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header border-bottom pb-2">
+            <h5 class="modal-title fw-bold">Remove Wishlist Item</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-3">
+            <p class="mb-0 text-secondary">Are you sure you want to delete this wishlist item? This action cannot be undone.</p>
+          </div>
+          <div class="modal-footer border-top pt-2">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" id="confirmDeleteBtn" class="btn btn-danger btn-sm">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Engagement Store -->
+    <script src="assets/js/engagement-store.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const wishlistId = urlParams.get('id') || 'WISH-2001';
+        const item = EngagementStore.getWishlist(wishlistId);
+
+        if (!item) {
+          alert('Wishlist item not found!');
+          window.location.href = 'wishlists.html';
+          return;
+        }
+
+        const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+
+        function renderDetails() {
+          document.getElementById('breadcrumbWishlistId').innerText = item.id;
+          document.getElementById('wishlistIdHeader').innerText = item.id;
+          document.getElementById('addedDateHeader').innerText = `Saved on ${item.addedDate}`;
+          document.getElementById('editWishlistLink').href = `wishlist-edit.html?id=${item.id}`;
+
+          // Availability badge
+          const badge = document.getElementById('availabilityBadge');
+          if (item.availability === 'In Stock') {
+            badge.className = 'badge bg-label-success fs-7 px-2 py-1';
+            badge.innerHTML = '<i class="mdi mdi-check-circle me-1"></i>In Stock';
+            document.getElementById('stockAvailabilityText').innerHTML = '<span class="text-success"><i class="mdi mdi-check me-1"></i>In Stock</span>';
+          } else {
+            badge.className = 'badge bg-label-danger fs-7 px-2 py-1';
+            badge.innerHTML = '<i class="mdi mdi-alert-circle me-1"></i>Out of Stock';
+            document.getElementById('stockAvailabilityText').innerHTML = '<span class="text-danger"><i class="mdi mdi-close me-1"></i>Out of Stock</span>';
+          }
+
+          // Customer
+          document.getElementById('customerName').innerText = item.customerName;
+          document.getElementById('customerEmail').innerText = item.customerEmail;
+          document.getElementById('customerId').innerText = item.customerId;
+          document.getElementById('customerAvatar').src = `assets/img/avatars/${item.customerAvatar || '1.png'}`;
+          document.getElementById('customerProfileLink').href = `customer-details.html?id=${item.customerId}`;
+
+          // Product
+          document.getElementById('productName').innerText = item.productName;
+          document.getElementById('productSku').innerText = `SKU: ${item.productSku || 'N/A'}`;
+          document.getElementById('productPrice').innerText = `$${parseFloat(item.price || 0).toFixed(2)}`;
+          document.getElementById('productVariant').innerText = item.variant || 'Standard Variant';
+          document.getElementById('productId').innerText = item.productId;
+          document.getElementById('productImage').src = item.productImage || 'assets/img/products/1.png';
+          document.getElementById('productEditLink').href = `product-edit.html?id=${item.productId}`;
+        }
+
+        document.getElementById('deleteBtn').addEventListener('click', () => {
+          deleteModal.show();
+        });
+
+        document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+          EngagementStore.deleteWishlist(item.id);
+          window.location.href = 'wishlists.html';
+        });
+
+        renderDetails();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Navigation Management | Aus Ecom Admin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item"><a href="orders.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cart-outline"></i><div>Sales</div></a></li>
+            
+            <!-- Marketing -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-bullhorn-outline"></i>
+                <div>Marketing</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="offers.html" class="menu-link"><div>Offers / Discounts</div></a></li>
+                <li class="menu-item"><a href="coupons.html" class="menu-link"><div>Coupons</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Content -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-web"></i>
+                <div>Content</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="banners.html" class="menu-link"><div>Banners</div></a></li>
+                <li class="menu-item"><a href="homepage.html" class="menu-link"><div>Homepage</div></a></li>
+                <li class="menu-item"><a href="pages.html" class="menu-link"><div>Pages</div></a></li>
+                <li class="menu-item active"><a href="navigation.html" class="menu-link"><div>Navigation</div></a></li>
+                <li class="menu-item"><a href="site-contents.html" class="menu-link"><div>Site Content</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Engagement -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-star-outline"></i>
+                <div>Engagement</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="reviews.html" class="menu-link"><div>Reviews</div></a></li>
+                <li class="menu-item"><a href="wishlists.html" class="menu-link"><div>Wishlist</div></a></li>
+                <li class="menu-item"><a href="subscribers.html" class="menu-link"><div>Subscribers</div></a></li>
+                <li class="menu-item"><a href="contacts.html" class="menu-link"><div>Contacts</div></a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Content</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Navigation</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Header -->
+              <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                <div>
+                  <h4 class="fw-bold mb-1" style="color: var(--beige-text-primary);">Navigation Menu Management</h4>
+                  <p class="text-secondary mb-0 fs-7">Configure store header menus, dropdown links, sub-items, and footer links.</p>
+                </div>
+                <div>
+                  <a href="navigation-add.html" class="btn btn-primary d-flex align-items-center gap-2">
+                    <i class="mdi mdi-plus fs-5"></i> Add Navigation Item
+                  </a>
+                </div>
+              </div>
+
+              <!-- Filter Controls Card -->
+              <div class="card mb-4">
+                <div class="card-body p-3">
+                  <div class="row g-3">
+                    
+                    <div class="col-12 col-md-5">
+                      <div class="input-group input-group-merge">
+                        <span class="input-group-text bg-white border-end-0"><i class="mdi mdi-magnify"></i></span>
+                        <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Search title or destination URL...">
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                      <select id="filterParent" class="form-select">
+                        <option value="">All Parent Groups</option>
+                        <option value="Root">Root Items</option>
+                        <option value="Shop All Products">Sub-item of Shop All Products</option>
+                        <option value="Footer Quick Links">Footer Quick Links</option>
+                      </select>
+                    </div>
+
+                    <div class="col-6 col-md-2">
+                      <select id="filterStatus" class="form-select">
+                        <option value="">All Statuses</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12 col-md-2">
+                      <button id="resetFiltersBtn" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-1">
+                        <i class="mdi mdi-refresh"></i> Reset
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Table Card -->
+              <div class="card">
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th style="width: 70px;">Order</th>
+                        <th>Navigation Title</th>
+                        <th>Link / Destination</th>
+                        <th>Parent Item</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="navTableBody">
+                      <!-- Render JS -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Footer Pagination -->
+                <div class="card-footer d-flex align-items-center justify-content-between py-3 border-top flex-wrap gap-2">
+                  <div id="paginationInfo" class="fs-7 text-secondary">Showing 0 to 0 of 0 entries</div>
+                  <ul id="paginationNav" class="pagination pagination-sm mb-0">
+                    <!-- Pagination JS -->
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Confirm Delete Modal -->
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header pb-2 border-bottom">
+            <h5 class="modal-title fw-bold">Delete Navigation Item</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-3">
+            <p class="mb-0 text-secondary">Are you sure you want to remove this navigation link? Store menus will update immediately.</p>
+          </div>
+          <div class="modal-footer pt-2 border-top">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" id="confirmDeleteBtn" class="btn btn-danger btn-sm">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Store Script -->
+    <script src="assets/js/marketing-content-store.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchInput');
+        const filterParent = document.getElementById('filterParent');
+        const filterStatus = document.getElementById('filterStatus');
+        const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+        const navTableBody = document.getElementById('navTableBody');
+        const paginationInfo = document.getElementById('paginationInfo');
+        const paginationNav = document.getElementById('paginationNav');
+        const deleteConfirmModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+
+        let currentPage = 1;
+        const itemsPerPage = 8;
+        let deleteTargetId = null;
+
+        function renderTable() {
+          let items = MarketingContentStore.getNavigations();
+
+          // Search Filter
+          const searchVal = searchInput.value.toLowerCase().trim();
+          if (searchVal) {
+            items = items.filter(n => 
+              n.title.toLowerCase().includes(searchVal) ||
+              n.destination.toLowerCase().includes(searchVal)
+            );
+          }
+
+          // Parent Filter
+          const parentVal = filterParent.value;
+          if (parentVal) {
+            items = items.filter(n => n.parent === parentVal);
+          }
+
+          // Status Filter
+          const statusVal = filterStatus.value;
+          if (statusVal) {
+            items = items.filter(n => n.status === statusVal);
+          }
+
+          // Sort by Parent & sortOrder
+          items.sort((a, b) => {
+            if (a.parent === b.parent) {
+              return (a.sortOrder || 0) - (b.sortOrder || 0);
+            }
+            return a.parent.localeCompare(b.parent);
+          });
+
+          // Pagination calculation
+          const totalItems = items.length;
+          const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+          if (currentPage > totalPages) currentPage = totalPages;
+
+          const startIndex = (currentPage - 1) * itemsPerPage;
+          const paginatedItems = items.slice(startIndex, startIndex + itemsPerPage);
+
+          // Render rows
+          if (paginatedItems.length === 0) {
+            navTableBody.innerHTML = `
+              <tr>
+                <td colspan="6" class="text-center py-4 text-secondary fs-7">
+                  No navigation menu items found matching filters.
+                </td>
+              </tr>
+            `;
+          } else {
+            navTableBody.innerHTML = paginatedItems.map((item, index) => {
+              const globalIndex = startIndex + index;
+              return `
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-1">
+                      <span class="fw-bold text-dark me-1">${item.sortOrder || 1}</span>
+                      <div class="btn-group-vertical btn-group-sm">
+                        <button class="btn btn-xs btn-outline-secondary p-0 px-1 move-up-btn" data-id="${item.id}" title="Move Up" ${globalIndex === 0 ? 'disabled' : ''}>
+                          <i class="mdi mdi-chevron-up"></i>
+                        </button>
+                        <button class="btn btn-xs btn-outline-secondary p-0 px-1 move-down-btn" data-id="${item.id}" title="Move Down" ${globalIndex === totalItems - 1 ? 'disabled' : ''}>
+                          <i class="mdi mdi-chevron-down"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      ${item.parent !== 'Root' ? '<i class="mdi mdi-subdirectory-arrow-right text-muted fs-6"></i>' : ''}
+                      <span class="fw-bold" style="color: var(--beige-text-primary); fs-6;">${item.title}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <code class="text-dark bg-light px-2 py-1 rounded font-monospace fs-7">${item.destination}</code>
+                  </td>
+                  <td>
+                    <span class="badge ${item.parent === 'Root' ? 'bg-label-primary' : 'bg-label-secondary'}">
+                      ${item.parent}
+                    </span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm ${item.status === 'Active' ? 'btn-outline-success' : 'btn-outline-secondary'} status-toggle-btn px-2 py-1 fs-7" data-id="${item.id}">
+                      <i class="mdi ${item.status === 'Active' ? 'mdi-check-circle-outline' : 'mdi-close-circle-outline'} me-1"></i>
+                      ${item.status}
+                    </button>
+                  </td>
+                  <td class="text-end">
+                    <div class="d-flex align-items-center justify-content-end gap-1">
+                      <a href="navigation-edit.html?id=${item.id}" class="btn btn-sm btn-icon btn-outline-secondary" title="Edit Item">
+                        <i class="mdi mdi-pencil-outline"></i>
+                      </a>
+                      <button class="btn btn-sm btn-icon btn-outline-danger delete-btn" data-id="${item.id}" title="Delete Item">
+                        <i class="mdi mdi-trash-can-outline"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              `;
+            }).join('');
+          }
+
+          // Pagination Controls
+          paginationInfo.textContent = totalItems === 0
+            ? 'Showing 0 to 0 of 0 entries'
+            : `Showing ${startIndex + 1} to ${Math.min(startIndex + itemsPerPage, totalItems)} of ${totalItems} entries`;
+
+          let pagHTML = `
+            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+              <a class="page-link" href="javascript:void(0);" data-page="${currentPage - 1}">Previous</a>
+            </li>
+          `;
+
+          for (let i = 1; i <= totalPages; i++) {
+            pagHTML += `
+              <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link" href="javascript:void(0);" data-page="${i}">${i}</a>
+              </li>
+            `;
+          }
+
+          pagHTML += `
+            <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+              <a class="page-link" href="javascript:void(0);" data-page="${currentPage + 1}">Next</a>
+            </li>
+          `;
+
+          paginationNav.innerHTML = pagHTML;
+          attachEventHandlers();
+        }
+
+        function attachEventHandlers() {
+          // Status toggle
+          document.querySelectorAll('.status-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const id = btn.dataset.id;
+              MarketingContentStore.toggleNavigationStatus(id);
+              renderTable();
+            });
+          });
+
+          // Move Up Reordering
+          document.querySelectorAll('.move-up-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const id = btn.dataset.id;
+              const items = MarketingContentStore.getNavigations();
+              const idx = items.findIndex(n => n.id === id);
+              if (idx > 0) {
+                // swap sortOrders
+                const tempOrder = items[idx].sortOrder;
+                items[idx].sortOrder = items[idx - 1].sortOrder;
+                items[idx - 1].sortOrder = tempOrder;
+                MarketingContentStore._set(MC_STORAGE_KEYS.NAVIGATION, items);
+                renderTable();
+              }
+            });
+          });
+
+          // Move Down Reordering
+          document.querySelectorAll('.move-down-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const id = btn.dataset.id;
+              const items = MarketingContentStore.getNavigations();
+              const idx = items.findIndex(n => n.id === id);
+              if (idx !== -1 && idx < items.length - 1) {
+                const tempOrder = items[idx].sortOrder;
+                items[idx].sortOrder = items[idx + 1].sortOrder;
+                items[idx + 1].sortOrder = tempOrder;
+                MarketingContentStore._set(MC_STORAGE_KEYS.NAVIGATION, items);
+                renderTable();
+              }
+            });
+          });
+
+          // Delete Modal Trigger
+          document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              deleteTargetId = btn.dataset.id;
+              deleteConfirmModal.show();
+            });
+          });
+
+          // Pagination click
+          document.querySelectorAll('#paginationNav .page-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              const page = parseInt(link.dataset.page);
+              if (page && page !== currentPage) {
+                currentPage = page;
+                renderTable();
+              }
+            });
+          });
+        }
+
+        // Confirm Delete
+        confirmDeleteBtn.addEventListener('click', () => {
+          if (deleteTargetId) {
+            MarketingContentStore.deleteNavigation(deleteTargetId);
+            deleteTargetId = null;
+            deleteConfirmModal.hide();
+            renderTable();
+          }
+        });
+
+        // Filter Handlers
+        searchInput.addEventListener('input', () => { currentPage = 1; renderTable(); });
+        filterParent.addEventListener('change', () => { currentPage = 1; renderTable(); });
+        filterStatus.addEventListener('change', () => { currentPage = 1; renderTable(); });
+
+        resetFiltersBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          filterParent.value = '';
+          filterStatus.value = '';
+          currentPage = 1;
+          renderTable();
+        });
+
+        // Initial render
+        renderTable();
+      });
+    </script>
+  </body>
+</html>

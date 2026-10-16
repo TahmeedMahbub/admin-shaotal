@@ -1,0 +1,824 @@
+/* ==========================================
+   ADMIN BEIGE AMBIENCE - CUSTOM THEME STYLES
+   Refined Typography Hierarchy & Light Background
+   ========================================== */
+
+:root {
+  /* Warm Beige Palette & Surface Variables */
+  --beige-bg-main: #FCFBF8;
+  --beige-bg-alt: #F7F4EE;
+  --beige-bg-card: #FFFFFF;
+  --beige-bg-sidebar: #F3EEE6;
+  --beige-sidebar-active: #D8C4B0;
+  --beige-sidebar-hover: #EBE4DC;
+  
+  --beige-topbar-bg: #231C18;
+  --beige-topbar-text: #FAF7F2;
+  --beige-topbar-muted: #C5B8AC;
+  --beige-topbar-hover: #342A24;
+  
+  /* Strict Typography Hierarchy Colors */
+  --beige-text-primary: #211C17;    /* Primary / Important text & titles */
+  --beige-text-secondary: #625B53;  /* Secondary / Supporting text */
+  --beige-text-muted: #8A837A;      /* Low-priority metadata & dates */
+  --beige-text-light: #FAF7F2;
+  
+  --beige-primary-accent: #7E5B44;
+  --beige-primary-hover: #674936;
+  --beige-primary-light: #F2EBE4;
+  
+  --beige-border-subtle: #E8E2D9;
+  --beige-border-medium: #DDD6CB;
+  
+  /* Status Colors - Muted & Harmonized */
+  --beige-status-pending-bg: #FDF6E9;
+  --beige-status-pending-text: #9C6F1E;
+  --beige-status-processing-bg: #F0F4F8;
+  --beige-status-processing-text: #4A6B82;
+  --beige-status-shipped-bg: #F2F0F7;
+  --beige-status-shipped-text: #6A5B82;
+  --beige-status-delivered-bg: #F0F6F2;
+  --beige-status-delivered-text: #3B7A57;
+  --beige-status-cancelled-bg: #FAF0F0;
+  --beige-status-cancelled-text: #A64B4B;
+  
+  /* Materialize Variable Overrides */
+  --bs-primary: #7E5B44;
+  --bs-primary-rgb: 126, 91, 68;
+  --bs-body-bg: #FCFBF8;
+  --bs-body-color: #211C17;
+}
+
+/* Base resets & typography */
+body, html {
+  background-color: var(--beige-bg-main) !important;
+  color: var(--beige-text-primary) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout Page Background */
+.layout-wrapper,
+.layout-container,
+.layout-page,
+.content-wrapper {
+  background-color: var(--beige-bg-main) !important;
+}
+
+/* ==========================================
+   TYPOGRAPHY HIERARCHY OVERRIDES
+   ========================================== */
+
+/* 1. Primary / Important Text (Titles, Names, IDs, Metrics) */
+h1, h2, h3, h4, h5, h6,
+.page-title,
+.card-title,
+.fw-bold,
+.text-dark,
+.product-name,
+.customer-name,
+.order-id {
+  color: var(--beige-text-primary) !important;
+}
+
+h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+  font-weight: 700 !important;
+  letter-spacing: -0.015em;
+}
+
+h5, h6, .h5, .h6, .card-title {
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+}
+
+/* 2. Secondary / Supporting Text */
+.text-secondary,
+.card-subtitle,
+.form-label,
+.secondary-info {
+  color: var(--beige-text-secondary) !important;
+  font-weight: 500;
+}
+
+/* 3. Muted / Metadata Text (Strictly for low priority metadata & timestamps) */
+.text-muted,
+.metadata-text,
+.fs-9.text-muted,
+.timeline-date {
+  color: var(--beige-text-muted) !important;
+  font-weight: 400;
+}
+
+
+/* ==========================================
+   FIXED TOP BAR (NAVBAR)
+   ========================================== */
+.layout-navbar {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: 260px !important;
+  height: 64px !important;
+  z-index: 1075 !important;
+  background-color: var(--beige-topbar-bg) !important;
+  color: var(--beige-topbar-text) !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 1.5rem !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12) !important;
+  transition: left 0.25s ease-in-out !important;
+}
+
+/* Collapsed menu topbar width adjust */
+.layout-menu-collapsed .layout-navbar {
+  left: 80px !important;
+}
+
+/* Mobile responsive topbar width adjust */
+@media (max-width: 1199.98px) {
+  .layout-navbar {
+    left: 0 !important;
+  }
+}
+
+/* Ensure padding-top on layout page so content doesn't get overlapped by fixed topbar */
+.layout-navbar-fixed .layout-page {
+  padding-top: 64px !important;
+}
+
+/* Topbar Typography & Icons */
+.layout-navbar .nav-link,
+.layout-navbar .navbar-nav .nav-link,
+.layout-navbar .layout-menu-toggle,
+.layout-navbar .mdi,
+.layout-navbar .breadcrumb-item,
+.layout-navbar .breadcrumb-item a {
+  color: var(--beige-topbar-text) !important;
+}
+
+.layout-navbar .breadcrumb-item.active {
+  color: var(--beige-topbar-muted) !important;
+}
+
+.layout-navbar .layout-menu-toggle:hover,
+.layout-navbar .nav-link:hover {
+  color: #FFFFFF !important;
+  opacity: 0.9;
+}
+
+/* Search input in topbar */
+.layout-navbar .topbar-search {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: var(--beige-topbar-text) !important;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem;
+}
+
+.layout-navbar .topbar-search::placeholder {
+  color: var(--beige-topbar-muted) !important;
+}
+
+.layout-navbar .topbar-search:focus {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Topbar Dropdown Menu */
+.layout-navbar .dropdown-menu {
+  background-color: #2B201B !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25) !important;
+}
+
+.layout-navbar .dropdown-menu .dropdown-item {
+  color: var(--beige-topbar-text) !important;
+}
+
+.layout-navbar .dropdown-menu .dropdown-item:hover,
+.layout-navbar .dropdown-menu .dropdown-item:focus {
+  background-color: var(--beige-topbar-hover) !important;
+  color: #FFFFFF !important;
+}
+
+.layout-navbar .dropdown-divider {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+
+/* ==========================================
+   SIDEBAR (LIGHT BEIGE BACKGROUND / DARK TEXT)
+   ========================================== */
+#layout-menu,
+.layout-menu,
+.bg-menu-theme {
+  background-color: var(--beige-bg-sidebar) !important;
+  box-shadow: 1px 0 10px rgba(42, 33, 29, 0.04) !important;
+  border-right: 1px solid var(--beige-border-subtle) !important;
+}
+
+.menu-inner-shadow,
+.bg-menu-theme .menu-inner-shadow,
+.menu.bg-primary .menu-inner-shadow {
+  background: linear-gradient(#CC7A3F 5%, rgba(204, 122, 63, 0.75) 45%, rgba(204, 122, 63, 0.2) 80%, transparent) !important;
+}
+
+/* App Brand Section */
+.app-brand {
+  background-color: #FAF6F0 !important;
+  border-bottom: 1px solid var(--beige-border-subtle) !important;
+  padding: 0 1.25rem !important;
+  height: 64px !important;
+}
+
+.app-brand .app-brand-text {
+  color: var(--beige-text-primary) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+}
+
+.app-brand .layout-menu-toggle {
+  color: var(--beige-text-secondary) !important;
+}
+
+/* Menu Section Headers */
+.menu-header-text {
+  color: var(--beige-text-secondary) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Menu Items & Links */
+.menu-vertical .menu-item .menu-link {
+  color: var(--beige-text-primary) !important;
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+  margin: 0.15rem 0.75rem !important;
+  padding: 0.6rem 0.85rem !important;
+  transition: all 0.15s ease-in-out !important;
+}
+
+.menu-vertical .menu-item .menu-link .menu-icon {
+  color: var(--beige-text-secondary) !important;
+}
+
+/* Hover State */
+.menu-vertical .menu-item:not(.active) > .menu-link:hover {
+  background-color: var(--beige-sidebar-hover) !important;
+  color: var(--beige-text-primary) !important;
+}
+
+.menu-vertical .menu-item:not(.active) > .menu-link:hover .menu-icon {
+  color: var(--beige-primary-accent) !important;
+}
+
+/* Active State - Darker, highlighted, crisp dark text (No white text!) */
+.bg-menu-theme .menu-item.active > .menu-link,
+.bg-menu-theme .menu-item.active:not(.open) > .menu-link:not(.menu-toggle),
+.bg-menu-theme .menu-item.active:not(.open) > .menu-link:not(.menu-toggle)::before,
+.bg-menu-theme.menu-vertical .menu-item.active > .menu-link,
+.menu-vertical .menu-item.active > .menu-link,
+.menu-vertical .menu-sub .menu-item.active > .menu-link,
+.menu-item.active > .menu-link {
+  background-color: var(--beige-sidebar-active) !important;
+  color: var(--beige-text-primary) !important;
+  font-weight: 700 !important;
+  box-shadow: inset 4px 0 0 var(--beige-primary-accent), 0 2px 5px rgba(33, 28, 23, 0.08) !important;
+}
+
+/* Force text inside menu links (e.g. <div> or <span>) to be dark text, NOT white text */
+.bg-menu-theme .menu-item.active > .menu-link div,
+.bg-menu-theme .menu-item.active > .menu-link span,
+.bg-menu-theme .menu-item.active:not(.open) > .menu-link:not(.menu-toggle) div,
+.bg-menu-theme .menu-item.active:not(.open) > .menu-link:not(.menu-toggle) span,
+.menu-vertical .menu-item.active > .menu-link div,
+.menu-vertical .menu-item.active > .menu-link span,
+.menu-item.active > .menu-link div,
+.menu-item.active > .menu-link span {
+  color: var(--beige-text-primary) !important;
+  font-weight: 700 !important;
+}
+
+/* Highlight Menu Icons & Bullets for Active Items */
+.menu-vertical .menu-item.active > .menu-link .menu-icon,
+.bg-menu-theme .menu-item.active > .menu-link .menu-icon,
+.bg-menu-theme .menu-item.active:not(.open) > .menu-link:not(.menu-toggle) .menu-icon {
+  color: var(--beige-primary-accent) !important;
+}
+
+.bg-menu-theme .menu-item.active > .menu-link::before,
+.bg-menu-theme .menu-item.active:not(.open) > .menu-link:not(.menu-toggle)::before,
+.menu-vertical .menu-item.active > .menu-link::before {
+  background-color: var(--beige-primary-accent) !important;
+  color: var(--beige-primary-accent) !important;
+}
+
+/* Parent open category dropdown header when expanded */
+.menu-vertical .menu-item.active.open > .menu-link,
+.bg-menu-theme .menu-item.active.open > .menu-link {
+  background-color: #E8DDD0 !important;
+  color: var(--beige-text-primary) !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+}
+
+.menu-vertical .menu-item.active.open > .menu-link div,
+.bg-menu-theme .menu-item.active.open > .menu-link div {
+  color: var(--beige-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* Menu Submenu */
+.menu-vertical .menu-sub {
+  background-color: transparent !important;
+  padding-left: 0.5rem !important;
+}
+
+.menu-vertical .menu-sub .menu-link {
+  padding-left: 2.2rem !important;
+  font-size: 0.875rem !important;
+}
+
+/* Menu Toggle Arrow */
+.menu-vertical .menu-item .menu-toggle::after {
+  color: var(--beige-text-secondary) !important;
+}
+
+
+/* ==========================================
+   CARDS & CONTAINERS
+   ========================================== */
+.card {
+  background-color: var(--beige-bg-card) !important;
+  border: 1px solid var(--beige-border-subtle) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(33, 28, 23, 0.03) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 14px rgba(33, 28, 23, 0.05) !important;
+}
+
+.card-header {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--beige-border-subtle) !important;
+  padding: 1.25rem 1.5rem !important;
+}
+
+.card-title {
+  color: var(--beige-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.card-subtitle {
+  color: var(--beige-text-secondary) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+}
+
+/* Overview Card Custom Styles */
+.overview-card {
+  padding: 1.25rem;
+}
+
+.overview-card .card-metric-label {
+  color: var(--beige-text-secondary) !important;
+  font-weight: 600 !important;
+  font-size: 0.8125rem !important;
+}
+
+.overview-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: var(--beige-primary-light);
+  color: var(--beige-primary-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+
+/* ==========================================
+   TABLES
+   ========================================== */
+.table {
+  color: var(--beige-text-primary) !important;
+  margin-bottom: 0;
+}
+
+.table th {
+  background-color: #F7F4EE !important;
+  color: var(--beige-text-secondary) !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  border-bottom: 1px solid var(--beige-border-subtle) !important;
+  padding: 0.85rem 1.25rem !important;
+}
+
+.table td {
+  border-bottom: 1px solid var(--beige-border-subtle) !important;
+  padding: 0.9rem 1.25rem !important;
+  vertical-align: middle !important;
+  font-size: 0.875rem;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #FAF6F0 !important;
+}
+
+/* Clickable Table Rows with View Action */
+tr.clickable-row {
+  cursor: pointer !important;
+  transition: background-color 0.15s ease-in-out;
+}
+
+tr.clickable-row:hover,
+tr.clickable-row:hover > td,
+tr.clickable-row:hover > th {
+  background-color: #F3EBE1 !important;
+}
+
+tr.clickable-row a,
+tr.clickable-row button,
+tr.clickable-row input,
+tr.clickable-row select,
+tr.clickable-row label,
+tr.clickable-row .dropdown-toggle {
+  cursor: pointer;
+}
+
+
+
+/* ==========================================
+   STATUS BADGES
+   ========================================== */
+.badge-status-pending,
+.badge.bg-label-warning {
+  background-color: var(--beige-status-pending-bg) !important;
+  color: var(--beige-status-pending-text) !important;
+  border: 1px solid rgba(156, 111, 30, 0.2) !important;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+}
+
+.badge-status-processing,
+.badge.bg-label-info {
+  background-color: var(--beige-status-processing-bg) !important;
+  color: var(--beige-status-processing-text) !important;
+  border: 1px solid rgba(74, 107, 130, 0.2) !important;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+}
+
+.badge-status-shipped,
+.badge.bg-label-primary {
+  background-color: var(--beige-primary-light) !important;
+  color: var(--beige-primary-accent) !important;
+  border: 1px solid rgba(126, 91, 68, 0.2) !important;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+}
+
+.badge-status-delivered,
+.badge.bg-label-success {
+  background-color: var(--beige-status-delivered-bg) !important;
+  color: var(--beige-status-delivered-text) !important;
+  border: 1px solid rgba(59, 122, 87, 0.2) !important;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+}
+
+.badge-status-cancelled,
+.badge.bg-label-danger {
+  background-color: var(--beige-status-cancelled-bg) !important;
+  color: var(--beige-status-cancelled-text) !important;
+  border: 1px solid rgba(166, 75, 75, 0.2) !important;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+}
+
+.badge.bg-label-secondary {
+  background-color: #F4EFE6 !important;
+  color: #625B53 !important;
+  border: 1px solid rgba(98, 91, 83, 0.2) !important;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+}
+
+
+/* ==========================================
+   BUTTONS & CONTROLS
+   ========================================== */
+.btn-primary,
+.btn-beige {
+  background-color: var(--beige-primary-accent) !important;
+  border-color: var(--beige-primary-accent) !important;
+  color: var(--beige-text-light) !important;
+  font-weight: 600 !important;
+}
+
+.btn-primary:hover,
+.btn-beige:hover {
+  background-color: var(--beige-primary-hover) !important;
+  border-color: var(--beige-primary-hover) !important;
+  color: var(--beige-text-light) !important;
+}
+
+.time-filter-btn {
+  font-size: 0.8125rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--beige-border-medium);
+  background: transparent;
+  color: var(--beige-text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.time-filter-btn:hover {
+  color: var(--beige-text-primary);
+  background-color: var(--beige-bg-alt);
+}
+
+.time-filter-btn.active {
+  background-color: var(--beige-primary-accent);
+  color: var(--beige-text-light);
+  border-color: var(--beige-primary-accent);
+}
+
+/* Form Labels & Controls */
+.form-label {
+  color: var(--beige-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.form-control, .form-select {
+  border-color: var(--beige-border-medium) !important;
+  color: var(--beige-text-primary) !important;
+}
+
+.form-control::placeholder {
+  color: var(--beige-text-muted) !important;
+}
+
+/* User Avatar & Details */
+.user-avatar-text {
+  font-weight: 600;
+  color: var(--beige-topbar-text);
+  font-size: 0.875rem;
+}
+
+.user-role-text {
+  color: var(--beige-topbar-muted);
+  font-size: 0.75rem;
+}
+
+/* Status overview mini progress bars */
+.status-progress-bg {
+  background-color: var(--beige-bg-alt);
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.status-progress-bar {
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* ==========================================
+   PRODUCT VARIANTS & COLOR MEDIA EXTENSIONS
+   ========================================== */
+
+/* Color Item Box */
+.color-item-card {
+  background-color: var(--beige-bg-alt);
+  border: 1px solid var(--beige-border-subtle);
+  border-radius: 8px;
+  padding: 0.85rem;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.15s ease;
+}
+
+.color-item-card:hover {
+  border-color: var(--beige-border-medium);
+}
+
+/* Color Image Thumbnail */
+.color-img-thumb {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--beige-border-subtle);
+}
+
+.color-img-thumb-wrap {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 52px;
+}
+
+.color-img-thumb-wrap .btn-remove-color-img {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.color-img-upload-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 6px;
+  border: 1px dashed var(--beige-border-medium);
+  background-color: #ffffff;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--beige-text-secondary);
+  transition: all 0.15s ease;
+}
+
+.color-img-upload-btn:hover {
+  border-color: var(--beige-primary-accent);
+  color: var(--beige-primary-accent);
+  background-color: var(--beige-bg-main);
+}
+
+/* Variant Type Selector Pills */
+.variant-mode-group .btn-check:checked + .btn {
+  background-color: var(--beige-primary-accent) !important;
+  color: var(--beige-text-light) !important;
+  border-color: var(--beige-primary-accent) !important;
+}
+
+/* Disabled/Unavailable Variant Row */
+.variant-tr.variant-disabled {
+  opacity: 0.55;
+  background-color: rgba(240, 237, 230, 0.45) !important;
+}
+
+.variant-tr.variant-disabled td {
+  color: var(--beige-text-muted) !important;
+}
+
+.variant-tr.variant-disabled .variant-sku-input {
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* Inherited vs Overridden Price Badges */
+.price-inherited-tag {
+  font-size: 0.7rem;
+  color: var(--beige-text-muted);
+}
+
+.price-override-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #9C6F1E;
+}
+
+/* Color Micro Thumbnails in Matrix */
+.variant-color-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid var(--beige-border-subtle);
+}
+
+/* Selectable Image for Color Assignment */
+.color-img-selectable {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 2px;
+  background-color: #ffffff;
+  border: 1px solid var(--beige-border-subtle);
+  opacity: 0.55;
+  transition: all 0.15s ease-in-out;
+}
+
+.color-img-selectable:hover {
+  opacity: 0.95;
+  border-color: var(--beige-primary-hover);
+  transform: translateY(-1px);
+}
+
+.color-img-selectable.selected {
+  opacity: 1;
+  border: 2px solid var(--beige-primary-accent) !important;
+  box-shadow: 0 0 0 2px rgba(126, 91, 68, 0.25);
+}
+
+.color-img-selectable .selectable-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.color-img-selectable .check-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--beige-primary-accent);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.color-img-selectable .main-badge-tag {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  background-color: rgba(33, 28, 23, 0.85);
+  color: #FAF7F2;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+/* Additional Gallery Upload Thumbnail in Media Card */
+.gallery-thumb-card {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px solid var(--beige-border-subtle);
+  background-color: #ffffff;
+  padding: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.15s ease;
+}
+
+.gallery-thumb-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.gallery-thumb-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.gallery-thumb-card .btn-remove-gallery-img {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  background-color: #dc3545;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  font-size: 11px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+

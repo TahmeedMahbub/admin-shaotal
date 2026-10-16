@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Order Details #ORD-9482 | Aus Ecom Admin</title>
+    <meta name="description" content="Order Details View" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-cart-outline"></i>
+                <div>Sales</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item active"><a href="orders.html" class="menu-link"><div>Orders</div></a></li>
+                <li class="menu-item"><a href="customers.html" class="menu-link"><div>Customers</div></a></li>
+                <li class="menu-item"><a href="abandoned-carts.html" class="menu-link"><div>Abandoned Carts</div></a></li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="orders.html">Orders</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Order #ORD-9482</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-2">
+                <a href="orders.html" class="btn btn-sm btn-outline-secondary"><i class="mdi mdi-arrow-left me-1"></i> Back to Orders</a>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y pb-5">
+              
+              <!-- Order Header & Top Action Bar -->
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <h4 class="fw-bold mb-0" style="color: var(--beige-text-dark);">Order #ORD-9482</h4>
+                    <span class="badge bg-label-success fs-8">Paid</span>
+                    <span class="badge bg-label-success fs-8">Delivered</span>
+                  </div>
+                  <p class="text-muted mb-0 fs-7">Placed on <span class="fw-medium text-dark">Oct 07, 2026 at 10:14 AM</span></p>
+                </div>
+                
+                <div class="d-flex align-items-center gap-2">
+                  <button type="button" class="btn btn-outline-beige" onclick="window.print()"><i class="mdi mdi-printer me-1"></i> Print Invoice</button>
+                  <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#cancelModal"><i class="mdi mdi-close-circle-outline me-1"></i> Cancel Order</button>
+                  <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#refundModal"><i class="mdi mdi-cash-refund me-1"></i> Refund</button>
+                </div>
+              </div>
+
+              <div class="row g-4">
+                
+                <!-- Left Main Column (Products, Totals, Timeline) -->
+                <div class="col-12 col-lg-8">
+                  
+                  <!-- Products Table Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-package-variant me-2 text-primary"></i> Order Items (2)</h5>
+                      <span class="text-muted fs-8">SKU Tracking Active</span>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table align-middle mb-0 fs-8">
+                        <thead>
+                          <tr>
+                            <th>Item Details</th>
+                            <th>SKU</th>
+                            <th>Variant</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th class="text-end">Total</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                          <!-- Item 1 -->
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center gap-3">
+                                <div class="rounded border p-1 bg-white" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                                  <i class="mdi mdi-chair-rolling fs-2 text-primary"></i>
+                                </div>
+                                <div>
+                                  <a href="product-edit.html" class="fw-bold text-dark hover-underline">Minimalist Oak Dining Table</a>
+                                  <div class="text-muted fs-9">Category: Furniture / Dining</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td><code>FUR-OAK-OLV-6S</code></td>
+                            <td>
+                              <div class="d-flex align-items-center gap-1 mb-1">
+                                <span class="rounded-circle border" style="width: 14px; height: 14px; background-color: #6F765F; display: inline-block;"></span>
+                                <span class="fw-medium text-dark">Olive Green</span>
+                              </div>
+                              <span class="badge bg-label-secondary fs-9">6-Seater</span>
+                            </td>
+                            <td class="fw-bold text-dark">1</td>
+                            <td>
+                              <div class="fw-bold text-dark">$340.00</div>
+                              <small class="text-muted text-decoration-line-through me-1">$400.00</small>
+                            </td>
+                            <td class="text-end fw-bold text-dark fs-7">$340.00</td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- Totals Breakdown -->
+                    <div class="p-4 border-top" style="background-color: var(--beige-bg-alt);">
+                      <div class="row justify-content-end">
+                        <div class="col-12 col-md-6 col-lg-5">
+                          <div class="d-flex justify-content-between mb-2 fs-8">
+                            <span class="text-muted">Subtotal</span>
+                            <span class="fw-medium text-dark">$310.00</span>
+                          </div>
+                          <div class="d-flex justify-content-between mb-2 fs-8">
+                            <span class="text-muted">Discount (PROMO10)</span>
+                            <span class="fw-medium text-success">-$20.00</span>
+                          </div>
+                          <div class="d-flex justify-content-between mb-2 fs-8">
+                            <span class="text-muted">Shipping (Standard Express)</span>
+                            <span class="fw-medium text-dark">$15.00</span>
+                          </div>
+                          <div class="d-flex justify-content-between mb-2 fs-8">
+                            <span class="text-muted">GST Tax (10% Included)</span>
+                            <span class="fw-medium text-dark">$35.00</span>
+                          </div>
+                          <hr class="my-2" style="border-top-color: var(--beige-border-medium);">
+                          <div class="d-flex justify-content-between fs-6 fw-bold">
+                            <span style="color: var(--beige-text-dark);">Grand Total</span>
+                            <span style="color: var(--beige-primary-accent);">$340.00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Order Timeline / Activity Tracker -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-timeline-clock-outline me-2 text-primary"></i> Order Event History</h5>
+                    </div>
+                    <div class="card-body pt-4">
+                      <div class="timeline-stepper">
+                        
+                        <!-- Event 1 -->
+                        <div class="d-flex gap-3 mb-4">
+                          <div class="rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; background-color: var(--beige-status-delivered-text); flex-shrink: 0;">
+                            <i class="mdi mdi-check fs-6"></i>
+                          </div>
+                          <div>
+                            <div class="fw-bold text-dark fs-8">Order Delivered</div>
+                            <small class="text-muted">Oct 09, 2026 at 02:30 PM &bull; Signed by customer (E. Vance)</small>
+                          </div>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="d-flex gap-3 mb-4">
+                          <div class="rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; background-color: var(--beige-primary-accent); flex-shrink: 0;">
+                            <i class="mdi mdi-truck-delivery-outline fs-6"></i>
+                          </div>
+                          <div>
+                            <div class="fw-bold text-dark fs-8">Shipped via Australia Post</div>
+                            <small class="text-muted">Oct 08, 2026 at 09:15 AM &bull; Tracking #AU94820194</small>
+                          </div>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="d-flex gap-3 mb-4">
+                          <div class="rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; background-color: var(--beige-status-processing-text); flex-shrink: 0;">
+                            <i class="mdi mdi-cog-sync-outline fs-6"></i>
+                          </div>
+                          <div>
+                            <div class="fw-bold text-dark fs-8">Order Packed & Verified</div>
+                            <small class="text-muted">Oct 07, 2026 at 02:00 PM &bull; Prepared at Sydney Warehouse</small>
+                          </div>
+                        </div>
+
+                        <!-- Event 4 -->
+                        <div class="d-flex gap-3">
+                          <div class="rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; background-color: var(--beige-primary-accent); flex-shrink: 0;">
+                            <i class="mdi mdi-cart-check fs-6"></i>
+                          </div>
+                          <div>
+                            <div class="fw-bold text-dark fs-8">Order Placed & Payment Captured</div>
+                            <small class="text-muted">Oct 07, 2026 at 10:14 AM &bull; Online Checkout</small>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Right Sidebar Column (Status Controls, Customer Info, Shipping & Payment) -->
+                <div class="col-12 col-lg-4">
+                  
+                  <!-- Status Quick Update Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-square-edit-outline me-2 text-primary"></i> Order Status Management</h5>
+                    </div>
+                    <div class="card-body pt-3">
+                      <div class="mb-3">
+                        <label class="form-label fw-bold fs-8">Order Status</label>
+                        <select class="form-select">
+                          <option value="Pending">Pending</option>
+                          <option value="Confirmed">Confirmed</option>
+                          <option value="Processing">Processing</option>
+                          <option value="Shipped">Shipped</option>
+                          <option value="Delivered" selected>Delivered</option>
+                          <option value="Cancelled">Cancelled</option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label fw-bold fs-8">Payment Status</label>
+                        <select class="form-select">
+                          <option value="Paid" selected>Paid</option>
+                          <option value="Pending">Pending</option>
+                          <option value="Failed">Failed</option>
+                          <option value="Refunded">Refunded</option>
+                        </select>
+                      </div>
+
+                      <button type="button" class="btn btn-beige w-100" onclick="alert('Order Status Updated Successfully!')">
+                        <i class="mdi mdi-content-save me-1"></i> Update Status
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Customer Info Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-account-outline me-2 text-primary"></i> Customer</h5>
+                      <a href="customer-details.html" class="btn btn-sm btn-outline-beige">View Profile</a>
+                    </div>
+                    <div class="card-body pt-3">
+                      <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="avatar avatar-md">
+                          <span class="avatar-initial rounded-circle bg-label-secondary fw-bold">EV</span>
+                        </div>
+                        <div>
+                          <a href="customer-details.html" class="fw-bold text-dark fs-7 hover-underline">Eleanor Vance</a>
+                          <div class="text-muted fs-8">Customer ID: CUST-1001</div>
+                        </div>
+                      </div>
+
+                      <div class="fs-8 d-flex flex-column gap-2 border-top pt-3" style="border-top-color: var(--beige-border-subtle) !important;">
+                        <div><i class="mdi mdi-email-outline me-2 text-muted"></i> eleanor@example.com</div>
+                        <div><i class="mdi mdi-phone-outline me-2 text-muted"></i> +61 412 345 678</div>
+                        <div><i class="mdi mdi-cart-outline me-2 text-muted"></i> 6 Orders Placed</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Shipping Address Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-map-marker-outline me-2 text-primary"></i> Shipping Address</h5>
+                    </div>
+                    <div class="card-body pt-3 fs-8">
+                      <div class="fw-bold text-dark mb-1">Eleanor Vance</div>
+                      <div class="text-muted">742 Evergreen Terrace</div>
+                      <div class="text-muted">South Yarra, VIC 3141</div>
+                      <div class="text-muted mb-2">Australia</div>
+                      <div class="text-dark"><i class="mdi mdi-phone-outline me-1 text-muted"></i> +61 412 345 678</div>
+                    </div>
+                  </div>
+
+                  <!-- Payment Details Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-credit-card-outline me-2 text-primary"></i> Payment Information</h5>
+                    </div>
+                    <div class="card-body pt-3 fs-8">
+                      <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Method</span>
+                        <span class="fw-medium text-dark">Visa ending 4242</span>
+                      </div>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Transaction ID</span>
+                        <code>TXN-88492019</code>
+                      </div>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Amount</span>
+                        <span class="fw-bold text-dark">$340.00</span>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <span class="text-muted">Status</span>
+                        <span class="badge bg-label-success">Paid</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme" style="background-color: var(--beige-bg-main) !important; border-top: 1px solid var(--beige-border-subtle);">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Sales.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <!-- Confirmation Modal: Refund -->
+    <div class="modal fade" id="refundModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header border-bottom pb-2">
+            <h5 class="modal-title fs-6 fw-bold">Issue Refund?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body py-3 fs-8 text-muted">
+            Are you sure you want to refund $340.00 to Visa **** 4242 for Order #ORD-9482?
+          </div>
+          <div class="modal-footer border-top pt-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal" onclick="alert('Refund Processed Successfully!')">Confirm Refund</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal: Cancel -->
+    <div class="modal fade" id="cancelModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header border-bottom pb-2">
+            <h5 class="modal-title fs-6 fw-bold">Cancel Order?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body py-3 fs-8 text-muted">
+            Are you sure you want to cancel Order #ORD-9482? This will mark the order as cancelled.
+          </div>
+          <div class="modal-footer border-top pt-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal" onclick="alert('Order Cancelled!')">Cancel Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORE JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

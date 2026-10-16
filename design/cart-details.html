@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Abandoned Cart Details #CRT-7750 | Aus Ecom Admin</title>
+    <meta name="description" content="Abandoned Cart Details View" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-cart-outline"></i>
+                <div>Sales</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="orders.html" class="menu-link"><div>Orders</div></a></li>
+                <li class="menu-item"><a href="customers.html" class="menu-link"><div>Customers</div></a></li>
+                <li class="menu-item active"><a href="abandoned-carts.html" class="menu-link"><div>Abandoned Carts</div></a></li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="abandoned-carts.html">Abandoned Carts</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Cart #CRT-7750</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-2">
+                <a href="abandoned-carts.html" class="btn btn-sm btn-outline-secondary"><i class="mdi mdi-arrow-left me-1"></i> Back to Abandoned Carts</a>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y pb-5">
+              
+              <!-- Header -->
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <h4 class="fw-bold mb-0" style="color: var(--beige-text-dark);">Abandoned Cart #CRT-7750</h4>
+                    <span class="badge bg-label-warning fs-8">Abandoned 2 hours ago</span>
+                    <span class="badge bg-label-primary fs-8">Registered Customer</span>
+                  </div>
+                  <p class="text-muted mb-0 fs-7">Cart Created: <span class="fw-medium text-dark">Oct 07, 2026 10:30 AM</span> &bull; Last Activity: <span class="fw-medium text-dark">10:45 AM</span></p>
+                </div>
+              </div>
+
+              <div class="row g-4">
+                
+                <!-- Left Main Column (Cart Items & Activity) -->
+                <div class="col-12 col-lg-8">
+                  
+                  <!-- Cart Items Table Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-cart-outline me-2 text-primary"></i> Cart Products (3 Items)</h5>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table align-middle mb-0 fs-8">
+                        <thead>
+                          <tr>
+                            <th>Item</th>
+                            <th>SKU</th>
+                            <th>Color & Size</th>
+                            <th>Qty</th>
+                            <th>Unit Price</th>
+                            <th class="text-end">Total</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                          <!-- Item 1 -->
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center gap-3">
+                                <div class="rounded border p-1 bg-white" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
+                                  <i class="mdi mdi-chair-rolling fs-3 text-primary"></i>
+                                </div>
+                                <div>
+                                  <a href="product-edit.html" class="fw-bold text-dark hover-underline">Minimalist Oak Dining Table</a>
+                                  <div class="text-muted fs-9">Furniture / Dining</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td><code>FUR-OAK-ESP-8S</code></td>
+                            <td>
+                              <div class="d-flex align-items-center gap-1">
+                                <span class="rounded-circle border" style="width: 14px; height: 14px; background-color: #3B2B23; display: inline-block;"></span>
+                                <span class="fw-medium text-dark fs-8">Espresso Walnut</span>
+                              </div>
+                              <span class="badge bg-label-secondary fs-9">8-Seater</span>
+                            </td>
+                            <td class="fw-bold text-dark">2</td>
+                            <td>$450.00</td>
+                            <td class="text-end fw-bold text-dark fs-7">$900.00</td>
+                          </tr>
+
+                          <!-- Item 2 -->
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center gap-3">
+                                <div class="rounded border p-1 bg-white" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
+                                  <i class="mdi mdi-seat-recline-extra fs-3 text-primary"></i>
+                                </div>
+                                <div>
+                                  <a href="product-edit.html" class="fw-bold text-dark hover-underline">Scandinavia Lounge Chair</a>
+                                  <div class="text-muted fs-9">Furniture / Chairs</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td><code>FUR-CHR-OAK</code></td>
+                            <td>
+                              <div class="d-flex align-items-center gap-1">
+                                <span class="rounded-circle border" style="width: 14px; height: 14px; background-color: #E5DDD3; display: inline-block;"></span>
+                                <span class="fw-medium text-dark fs-8">Beige Linen</span>
+                              </div>
+                              <span class="badge bg-label-secondary fs-9">Single Seat</span>
+                            </td>
+                            <td class="fw-bold text-dark">1</td>
+                            <td>$340.00</td>
+                            <td class="text-end fw-bold text-dark fs-7">$340.00</td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- Cart Summary Totals -->
+                    <div class="p-4 border-top" style="background-color: var(--beige-bg-alt);">
+                      <div class="row justify-content-end">
+                        <div class="col-12 col-md-6 col-lg-5">
+                          <div class="d-flex justify-content-between mb-2 fs-8">
+                            <span class="text-muted">Cart Subtotal</span>
+                            <span class="fw-medium text-dark">$1,240.00</span>
+                          </div>
+                          <div class="d-flex justify-content-between mb-2 fs-8">
+                            <span class="text-muted">Estimated Shipping</span>
+                            <span class="fw-medium text-dark">$0.00 (Calculated at checkout)</span>
+                          </div>
+                          <hr class="my-2" style="border-top-color: var(--beige-border-medium);">
+                          <div class="d-flex justify-content-between fs-6 fw-bold">
+                            <span style="color: var(--beige-text-dark);">Total Cart Value</span>
+                            <span style="color: var(--beige-primary-accent);">$1,240.00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Session Activity Log -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-history me-2 text-primary"></i> Cart Activity Log</h5>
+                    </div>
+                    <div class="card-body pt-3 fs-8">
+                      <div class="d-flex flex-column gap-3">
+                        <div class="p-2 rounded border-start border-3 border-warning ps-3" style="background-color: var(--beige-bg-alt);">
+                          <div class="fw-bold text-dark">Oct 07, 2026 &bull; 10:45 AM</div>
+                          <div class="text-muted">Customer exited checkout flow without initiating payment.</div>
+                        </div>
+                        <div class="p-2 rounded border-start border-3 border-info ps-3" style="background-color: var(--beige-bg-alt);">
+                          <div class="fw-bold text-dark">Oct 07, 2026 &bull; 10:42 AM</div>
+                          <div class="text-muted">Entered shipping address (South Yarra, VIC).</div>
+                        </div>
+                        <div class="p-2 rounded border-start border-3 border-primary ps-3" style="background-color: var(--beige-bg-alt);">
+                          <div class="fw-bold text-dark">Oct 07, 2026 &bull; 10:35 AM</div>
+                          <div class="text-muted">Added Minimalist Oak Dining Table (x2) & Scandinavia Lounge Chair (x1) to cart.</div>
+                        </div>
+                        <div class="p-2 rounded border-start border-3 border-secondary ps-3" style="background-color: var(--beige-bg-alt);">
+                          <div class="fw-bold text-dark">Oct 07, 2026 &bull; 10:30 AM</div>
+                          <div class="text-muted">Cart session initiated.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Right Sidebar Column (Customer Info) -->
+                <div class="col-12 col-lg-4">
+                  
+                  <!-- Customer Card -->
+                  <div class="card mb-4">
+                    <div class="card-header border-bottom py-3 d-flex align-items-center justify-content-between">
+                      <h5 class="card-title mb-0 fs-6"><i class="mdi mdi-account-outline me-2 text-primary"></i> Customer</h5>
+                      <a href="customer-details.html" class="btn btn-sm btn-outline-beige">View Customer</a>
+                    </div>
+                    <div class="card-body pt-3">
+                      <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="avatar avatar-md">
+                          <span class="avatar-initial rounded-circle bg-label-secondary fw-bold">AD</span>
+                        </div>
+                        <div>
+                          <a href="customer-details.html" class="fw-bold text-dark fs-7 hover-underline">Aura Design Studio</a>
+                          <div class="text-muted fs-8">Registered Account</div>
+                        </div>
+                      </div>
+
+                      <div class="fs-8 d-flex flex-column gap-2 border-top pt-3" style="border-top-color: var(--beige-border-subtle) !important;">
+                        <div><i class="mdi mdi-email-outline me-2 text-muted"></i> contact@auradesign.com.au</div>
+                        <div><i class="mdi mdi-phone-outline me-2 text-muted"></i> +61 2 9876 5432</div>
+                        <div><i class="mdi mdi-map-marker-outline me-2 text-muted"></i> South Yarra, VIC 3141</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme" style="background-color: var(--beige-bg-main) !important; border-top: 1px solid var(--beige-border-subtle);">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Sales.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <!-- CORE JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

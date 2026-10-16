@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Subcategories | Aus Ecom Admin</title>
+    <meta name="description" content="Manage Subcategories" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i>
+                <div>Catalog</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="products.html" class="menu-link"><div>Products</div></a></li>
+                <li class="menu-item"><a href="categories.html" class="menu-link"><div>Categories</div></a></li>
+                <li class="menu-item active"><a href="subcategories.html" class="menu-link"><div>Subcategories</div></a></li>
+                <li class="menu-item"><a href="brands.html" class="menu-link"><div>Brands</div></a></li>
+                <li class="menu-item"><a href="size-guides.html" class="menu-link"><div>Size Guides</div></a></li>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link menu-toggle"><i class="menu-icon tf-icons mdi mdi-cart-outline"></i><div>Sales</div></a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="admin/orders.html" class="menu-link"><div>Orders</div></a></li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Catalog</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Subcategories</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Header -->
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <div>
+                  <h4 class="fw-bold mb-1" style="color: var(--beige-text-dark);">Subcategories</h4>
+                  <p class="text-muted mb-0 fs-7">Manage second-level product classification linked to parent categories.</p>
+                </div>
+                <div>
+                  <a href="subcategory-add.html" class="btn btn-beige d-flex align-items-center gap-1">
+                    <i class="mdi mdi-plus fs-5"></i> Add Subcategory
+                  </a>
+                </div>
+              </div>
+
+              <!-- Subcategories Table Card -->
+              <div class="card">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Subcategory</th>
+                        <th>Parent Category</th>
+                        <th>Slug</th>
+                        <th>Products</th>
+                        <th>Sort Order</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <!-- Row 1 -->
+                      <tr>
+                        <td>
+                          <a href="subcategory-edit.html" class="fw-bold text-dark fs-8">Dining Tables</a>
+                        </td>
+                        <td><span class="badge bg-label-primary fs-8">Furniture</span></td>
+                        <td><code>dining-tables</code></td>
+                        <td><span class="fw-bold text-dark">42 Products</span></td>
+                        <td>1</td>
+                        <td><span class="badge bg-label-success fs-8">Active</span></td>
+                        <td class="text-end">
+                          <div class="d-flex align-items-center justify-content-end gap-1">
+                            <a href="subcategory-edit.html" class="btn btn-sm btn-icon btn-outline-beige" title="Edit"><i class="mdi mdi-pencil-outline fs-6"></i></a>
+                            <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="mdi mdi-trash-can-outline fs-6"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- Row 2 -->
+                      <tr>
+                        <td>
+                          <a href="subcategory-edit.html" class="fw-bold text-dark fs-8">Tea Sets</a>
+                        </td>
+                        <td><span class="badge bg-label-primary fs-8">Home & Living</span></td>
+                        <td><code>tea-sets</code></td>
+                        <td><span class="fw-bold text-dark">28 Products</span></td>
+                        <td>1</td>
+                        <td><span class="badge bg-label-success fs-8">Active</span></td>
+                        <td class="text-end">
+                          <div class="d-flex align-items-center justify-content-end gap-1">
+                            <a href="subcategory-edit.html" class="btn btn-sm btn-icon btn-outline-beige" title="Edit"><i class="mdi mdi-pencil-outline fs-6"></i></a>
+                            <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="mdi mdi-trash-can-outline fs-6"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- Row 3 -->
+                      <tr>
+                        <td>
+                          <a href="subcategory-edit.html" class="fw-bold text-dark fs-8">Blankets & Throws</a>
+                        </td>
+                        <td><span class="badge bg-label-primary fs-8">Textiles</span></td>
+                        <td><code>blankets-throws</code></td>
+                        <td><span class="fw-bold text-dark">35 Products</span></td>
+                        <td>2</td>
+                        <td><span class="badge bg-label-success fs-8">Active</span></td>
+                        <td class="text-end">
+                          <div class="d-flex align-items-center justify-content-end gap-1">
+                            <a href="subcategory-edit.html" class="btn btn-sm btn-icon btn-outline-beige" title="Edit"><i class="mdi mdi-pencil-outline fs-6"></i></a>
+                            <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="mdi mdi-trash-can-outline fs-6"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- Row 4 -->
+                      <tr>
+                        <td>
+                          <a href="subcategory-edit.html" class="fw-bold text-dark fs-8">Lighting & Candles</a>
+                        </td>
+                        <td><span class="badge bg-label-primary fs-8">Decor</span></td>
+                        <td><code>lighting-candles</code></td>
+                        <td><span class="fw-bold text-dark">30 Products</span></td>
+                        <td>1</td>
+                        <td><span class="badge bg-label-success fs-8">Active</span></td>
+                        <td class="text-end">
+                          <div class="d-flex align-items-center justify-content-end gap-1">
+                            <a href="subcategory-edit.html" class="btn btn-sm btn-icon btn-outline-beige" title="Edit"><i class="mdi mdi-pencil-outline fs-6"></i></a>
+                            <button type="button" class="btn btn-sm btn-icon btn-outline-beige text-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="mdi mdi-trash-can-outline fs-6"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="content-footer footer bg-footer-theme" style="background-color: var(--beige-bg-main) !important; border-top: 1px solid var(--beige-border-subtle);">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0 fs-8 text-muted">
+                  © 2026 Aus Ecom Admin Catalog.
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header border-bottom pb-2">
+            <h5 class="modal-title fs-6 fw-bold">Delete Subcategory?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body py-3 fs-8 text-muted">
+            Are you sure you want to delete this subcategory?
+          </div>
+          <div class="modal-footer border-top pt-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORE JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Offers & Discounts | Aus Ecom Admin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!-- Custom Beige Ambience CSS -->
+    <link rel="stylesheet" href="assets/css/admin-beige.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/template-customizer.js"></script>
+    <script src="assets/js/config.js"></script>
+
+    <style>
+      .table-clickable-row {
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+      }
+      .table-clickable-row:hover {
+        background-color: rgba(204, 122, 63, 0.05) !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        
+        <!-- SIDEBAR -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link gap-2 align-items-center">
+              <span class="app-brand-logo demo" style="color: #7E5B44;">
+                <i class="mdi mdi-storefront-outline fs-3"></i>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-1" style="color: #2A211D; letter-spacing: -0.01em;">AUS ECOM</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block">
+              <i class="mdi mdi-chevron-left mdi-24px align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-2">
+            <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-view-dashboard-outline"></i><div>Dashboard</div></a></li>
+            <li class="menu-item"><a href="products.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-package-variant-closed"></i><div>Catalog</div></a></li>
+            <li class="menu-item"><a href="orders.html" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cart-outline"></i><div>Sales</div></a></li>
+            
+            <!-- Marketing -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-bullhorn-outline"></i>
+                <div>Marketing</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item active"><a href="offers.html" class="menu-link"><div>Offers / Discounts</div></a></li>
+                <li class="menu-item"><a href="coupons.html" class="menu-link"><div>Coupons</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Content -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-web"></i>
+                <div>Content</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="banners.html" class="menu-link"><div>Banners</div></a></li>
+                <li class="menu-item"><a href="homepage.html" class="menu-link"><div>Homepage</div></a></li>
+                <li class="menu-item"><a href="pages.html" class="menu-link"><div>Pages</div></a></li>
+                <li class="menu-item"><a href="navigation.html" class="menu-link"><div>Navigation</div></a></li>
+                <li class="menu-item"><a href="site-contents.html" class="menu-link"><div>Site Content</div></a></li>
+              </ul>
+            </li>
+
+            <!-- Engagement -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-star-outline"></i>
+                <div>Engagement</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item"><a href="reviews.html" class="menu-link"><div>Reviews</div></a></li>
+                <li class="menu-item"><a href="wishlists.html" class="menu-link"><div>Wishlist</div></a></li>
+                <li class="menu-item"><a href="subscribers.html" class="menu-link"><div>Subscribers</div></a></li>
+                <li class="menu-item"><a href="contacts.html" class="menu-link"><div>Contacts</div></a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item"><a href="javascript:void(0);" class="menu-link"><i class="menu-icon tf-icons mdi mdi-cog-outline"></i><div>Settings</div></a></li>
+          </ul>
+        </aside>
+
+        <!-- LAYOUT PAGE -->
+        <div class="layout-page">
+          
+          <!-- FIXED TOP BAR -->
+          <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+            <div class="container-fluid d-flex align-items-center justify-content-between px-0">
+              <div class="d-flex align-items-center gap-3">
+                <a class="nav-item nav-link px-0 me-3 layout-menu-toggle" href="javascript:void(0)">
+                  <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0 py-0" style="font-size: 0.875rem;">
+                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Marketing</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Offers & Discounts</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar avatar-online">
+                  <span class="avatar-initial rounded-circle fw-bold" style="background-color: var(--beige-primary-accent); color: var(--beige-text-light);">A</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!-- CONTENT WRAPPER -->
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Header -->
+              <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                <div>
+                  <h4 class="fw-bold mb-1" style="color: var(--beige-text-primary);">Offers & Discounts</h4>
+                  <p class="text-secondary mb-0 fs-7">Manage promotional sales, category discounts, and special pricing campaigns.</p>
+                </div>
+                <div>
+                  <a href="offer-add.html" class="btn btn-primary d-flex align-items-center gap-2">
+                    <i class="mdi mdi-plus fs-5"></i> Create New Offer
+                  </a>
+                </div>
+              </div>
+
+              <!-- Filter Controls Card -->
+              <div class="card mb-4">
+                <div class="card-body p-3">
+                  <div class="row g-3">
+                    
+                    <div class="col-12 col-md-5">
+                      <div class="input-group input-group-merge">
+                        <span class="input-group-text bg-white border-end-0"><i class="mdi mdi-magnify"></i></span>
+                        <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Search by offer name, product, category...">
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                      <select id="filterStatus" class="form-select">
+                        <option value="">All Statuses</option>
+                        <option value="Active">Active</option>
+                        <option value="Scheduled">Scheduled</option>
+                        <option value="Expired">Expired</option>
+                        <option value="Inactive">Inactive</option>
+                      </select>
+                    </div>
+
+                    <div class="col-6 col-md-2">
+                      <select id="filterType" class="form-select">
+                        <option value="">All Discount Types</option>
+                        <option value="Percentage">Percentage (%)</option>
+                        <option value="Fixed Amount">Fixed Amount ($)</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12 col-md-2">
+                      <button id="resetFiltersBtn" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-1">
+                        <i class="mdi mdi-refresh"></i> Reset
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Offers Table Card -->
+              <div class="card">
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Offer ID</th>
+                        <th>Offer Name</th>
+                        <th>Discount Type</th>
+                        <th>Discount Value</th>
+                        <th>Applicable Scope</th>
+                        <th>Validity Period</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="offersTableBody">
+                      <!-- Render JS -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Footer Pagination -->
+                <div class="card-footer d-flex align-items-center justify-content-between py-3 border-top flex-wrap gap-2">
+                  <div id="paginationInfo" class="fs-7 text-secondary">Showing 0 to 0 of 0 entries</div>
+                  <ul id="paginationNav" class="pagination pagination-sm mb-0">
+                    <!-- Pagination JS -->
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Confirm Delete Modal -->
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-header pb-2 border-bottom">
+            <h5 class="modal-title fw-bold">Delete Offer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-3">
+            <p class="mb-0 text-secondary">Are you sure you want to delete this promotional offer? This action cannot be undone.</p>
+          </div>
+          <div class="modal-footer pt-2 border-top">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" id="confirmDeleteBtn" class="btn btn-danger btn-sm">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core JS -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Marketing Store -->
+    <script src="assets/js/marketing-content-store.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let currentPage = 1;
+        const pageSize = 5;
+        let targetDeleteId = null;
+
+        const tableBody = document.getElementById('offersTableBody');
+        const searchInput = document.getElementById('searchInput');
+        const filterStatus = document.getElementById('filterStatus');
+        const filterType = document.getElementById('filterType');
+        const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+        const deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+
+        function renderStatusBadge(status) {
+          if (status === 'Active') {
+            return '<span class="badge bg-label-success fw-bold px-2 py-1"><i class="mdi mdi-check-circle me-1"></i>Active</span>';
+          } else if (status === 'Scheduled') {
+            return '<span class="badge bg-label-info fw-bold px-2 py-1"><i class="mdi mdi-clock-outline me-1"></i>Scheduled</span>';
+          } else if (status === 'Expired') {
+            return '<span class="badge bg-label-secondary fw-bold px-2 py-1"><i class="mdi mdi-timer-off me-1"></i>Expired</span>';
+          } else {
+            return '<span class="badge bg-label-danger fw-bold px-2 py-1"><i class="mdi mdi-pause-circle me-1"></i>Inactive</span>';
+          }
+        }
+
+        function loadTable() {
+          const allOffers = MarketingContentStore.getOffers();
+          const query = searchInput.value.toLowerCase().trim();
+          const statusVal = filterStatus.value;
+          const typeVal = filterType.value;
+
+          let filtered = allOffers.filter(o => {
+            const matchesQuery = !query ||
+              o.id.toLowerCase().includes(query) ||
+              o.name.toLowerCase().includes(query) ||
+              (o.description && o.description.toLowerCase().includes(query)) ||
+              (o.applicableProducts && o.applicableProducts.some(p => p.toLowerCase().includes(query))) ||
+              (o.applicableCategories && o.applicableCategories.some(c => c.toLowerCase().includes(query)));
+
+            const matchesStatus = !statusVal || o.status === statusVal;
+            const matchesType = !typeVal || o.discountType === typeVal;
+
+            return matchesQuery && matchesStatus && matchesType;
+          });
+
+          // Pagination
+          const totalCount = filtered.length;
+          const totalPages = Math.ceil(totalCount / pageSize) || 1;
+          if (currentPage > totalPages) currentPage = totalPages;
+
+          const startIndex = (currentPage - 1) * pageSize;
+          const paginated = filtered.slice(startIndex, startIndex + pageSize);
+
+          tableBody.innerHTML = '';
+
+          if (paginated.length === 0) {
+            tableBody.innerHTML = `
+              <tr>
+                <td colspan="8" class="text-center py-5">
+                  <div class="text-muted mb-2"><i class="mdi mdi-tag-off-outline fs-1"></i></div>
+                  <h6 class="fw-bold mb-1">No Offers Found</h6>
+                  <p class="text-secondary fs-7 mb-0">Try changing your search terms or filter criteria.</p>
+                </td>
+              </tr>
+            `;
+          } else {
+            paginated.forEach(o => {
+              const tr = document.createElement('tr');
+              tr.className = 'table-clickable-row';
+
+              const valueText = o.discountType === 'Percentage'
+                ? `<span class="fw-bold text-primary fs-7">${o.discountValue}% OFF</span>`
+                : `<span class="fw-bold text-primary fs-7">$${parseFloat(o.discountValue).toFixed(2)} OFF</span>`;
+
+              const scopeList = [];
+              if (o.applicableProducts && o.applicableProducts.length > 0) scopeList.push(`${o.applicableProducts.length} Products`);
+              if (o.applicableCategories && o.applicableCategories.length > 0) scopeList.push(`${o.applicableCategories.length} Categories`);
+              const scopeText = scopeList.length > 0 ? scopeList.join(' & ') : 'Storewide';
+
+              tr.innerHTML = `
+                <td class="fw-bold text-dark">${o.id}</td>
+                <td>
+                  <div class="fw-bold text-dark fs-7">${o.name}</div>
+                  <div class="text-secondary fs-8 text-truncate" style="max-width: 200px;">${o.description || ''}</div>
+                </td>
+                <td><span class="badge bg-label-secondary fs-8">${o.discountType}</span></td>
+                <td>${valueText}</td>
+                <td class="text-dark fs-7"><i class="mdi mdi-shape-outline me-1 text-primary"></i>${scopeText}</td>
+                <td class="text-secondary fs-7">${o.startDate} to ${o.endDate}</td>
+                <td>${renderStatusBadge(o.status)}</td>
+                <td class="text-end" onclick="event.stopPropagation();">
+                  <div class="d-inline-flex gap-1">
+                    <a href="offer-details.html?id=${o.id}" class="btn btn-sm btn-icon btn-outline-secondary" title="View Offer">
+                      <i class="mdi mdi-eye-outline"></i>
+                    </a>
+                    <a href="offer-edit.html?id=${o.id}" class="btn btn-sm btn-icon btn-outline-primary" title="Edit Offer">
+                      <i class="mdi mdi-pencil-outline"></i>
+                    </a>
+                    <button class="btn btn-sm btn-icon ${o.status === 'Active' ? 'btn-outline-warning' : 'btn-outline-success'} btn-toggle-status" data-id="${o.id}" title="${o.status === 'Active' ? 'Deactivate' : 'Activate'}">
+                      <i class="mdi ${o.status === 'Active' ? 'mdi-pause' : 'mdi-play'}"></i>
+                    </button>
+                    <button class="btn btn-sm btn-icon btn-outline-danger btn-delete" data-id="${o.id}" title="Delete Offer">
+                      <i class="mdi mdi-trash-can-outline"></i>
+                    </button>
+                  </div>
+                </td>
+              `;
+
+              tr.addEventListener('click', () => {
+                window.location.href = `offer-details.html?id=${o.id}`;
+              });
+
+              tableBody.appendChild(tr);
+            });
+          }
+
+          const endObjIndex = Math.min(startIndex + pageSize, totalCount);
+          document.getElementById('paginationInfo').innerText = totalCount === 0 
+            ? 'Showing 0 to 0 of 0 entries'
+            : `Showing ${startIndex + 1} to ${endObjIndex} of ${totalCount} entries`;
+
+          renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+          const nav = document.getElementById('paginationNav');
+          nav.innerHTML = '';
+          if (totalPages <= 1) return;
+
+          const prevLi = document.createElement('li');
+          prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+          prevLi.innerHTML = `<a class="page-link" href="javascript:void(0)"><i class="mdi mdi-chevron-left"></i></a>`;
+          prevLi.addEventListener('click', () => { if (currentPage > 1) { currentPage--; loadTable(); } });
+          nav.appendChild(prevLi);
+
+          for (let i = 1; i <= totalPages; i++) {
+            const pageLi = document.createElement('li');
+            pageLi.className = `page-item ${i === currentPage ? 'active' : ''}`;
+            pageLi.innerHTML = `<a class="page-link" href="javascript:void(0)">${i}</a>`;
+            pageLi.addEventListener('click', () => { currentPage = i; loadTable(); });
+            nav.appendChild(pageLi);
+          }
+
+          const nextLi = document.createElement('li');
+          nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+          nextLi.innerHTML = `<a class="page-link" href="javascript:void(0)"><i class="mdi mdi-chevron-right"></i></a>`;
+          nextLi.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; loadTable(); } });
+          nav.appendChild(nextLi);
+        }
+
+        // Listeners
+        searchInput.addEventListener('input', () => { currentPage = 1; loadTable(); });
+        filterStatus.addEventListener('change', () => { currentPage = 1; loadTable(); });
+        filterType.addEventListener('change', () => { currentPage = 1; loadTable(); });
+        resetFiltersBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          filterStatus.value = '';
+          filterType.value = '';
+          currentPage = 1;
+          loadTable();
+        });
+
+        tableBody.addEventListener('click', (e) => {
+          const toggleBtn = e.target.closest('.btn-toggle-status');
+          const deleteBtn = e.target.closest('.btn-delete');
+
+          if (toggleBtn) {
+            e.stopPropagation();
+            const id = toggleBtn.getAttribute('data-id');
+            MarketingContentStore.toggleOfferStatus(id);
+            loadTable();
+          } else if (deleteBtn) {
+            e.stopPropagation();
+            targetDeleteId = deleteBtn.getAttribute('data-id');
+            deleteModal.show();
+          }
+        });
+
+        confirmDeleteBtn.addEventListener('click', () => {
+          if (targetDeleteId) {
+            MarketingContentStore.deleteOffer(targetDeleteId);
+            targetDeleteId = null;
+            deleteModal.hide();
+            loadTable();
+          }
+        });
+
+        loadTable();
+      });
+    </script>
+  </body>
+</html>
