@@ -23,7 +23,7 @@
         <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Payment</th><th>Order Status</th><th class="text-end">Action</th></tr></thead>
         <tbody>
           @forelse ($orders as $o)
-            <tr><td><a href="{{ route('orders.show', $o->id) }}" class="fw-bold text-dark">#{{ $o->order_number }}</a></td><td>{{ $o->created_at->format('M d, Y') }}</td><td>{{ Fmt::money($o->grand_total) }}</td>
+            <tr data-row-href="{{ route('orders.show', $o->id) }}"><td><a href="{{ route('orders.show', $o->id) }}" class="fw-bold text-dark">#{{ $o->order_number }}</a></td><td>{{ $o->created_at->format('M d, Y') }}</td><td>{{ Fmt::money($o->grand_total) }}</td>
               <td><x-admin.badge :status="$o->payment_status" /></td><td><x-admin.badge :status="$o->order_status" /></td><td class="text-end"><x-admin.row-actions :show="route('orders.show', $o->id)" /></td></tr>
           @empty
             <tr><td colspan="6" class="text-center text-muted py-4">No orders yet.</td></tr>

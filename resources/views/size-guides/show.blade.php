@@ -30,7 +30,7 @@
           <thead><tr><th>Product</th><th>SKU</th><th>Price</th><th>Stock</th><th class="text-end">Action</th></tr></thead>
           <tbody>
             @forelse ($products as $p)
-              <tr>
+              <tr data-row-href="{{ route('products.edit', $p->id) }}">
                 <td class="fw-bold text-dark fs-8">{{ $p->name }}</td><td>{{ $p->sku ?: '—' }}</td>
                 <td>{{ \App\Support\Fmt::money($p->selling_price ?? $p->price) }}</td>
                 <td>{{ $p->has_variants ? 'Variants' : $p->stock_qty }}</td>

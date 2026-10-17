@@ -20,7 +20,7 @@
       <thead><tr><th>Order</th><th>Navigation Title</th><th>Link / Destination</th><th>Location</th><th>Parent Item</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $n)
-          <tr>
+          <tr data-row-href="{{ route('navigation.edit', $n) }}">
             <td>{{ $n->sort_order }}</td>
             <td><a href="{{ route('navigation.edit', $n) }}" class="fw-bold text-dark fs-8">{{ $n->parent_id ? '↳ ' : '' }}{{ $n->title }}</a></td>
             <td><code class="fs-9">{{ \Illuminate\Support\Str::limit($n->url, 48) }}</code></td>

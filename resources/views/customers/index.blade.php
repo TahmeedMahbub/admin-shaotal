@@ -17,7 +17,7 @@
       <thead><tr><th>Customer</th><th>Contact</th><th>Orders</th><th>Total Spent</th><th>Last Order</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $c)
-          <tr>
+          <tr data-row-href="{{ route('customers.edit', $c) }}">
             <td><a href="{{ route('customers.show', $c) }}" class="fw-bold text-dark fs-8">{{ trim($c->first_name.' '.$c->last_name) }}</a><div><small class="text-muted">ID #{{ $c->id }}</small></div></td>
             <td>{{ $c->email }}<br><small class="text-muted">{{ $c->phone }}</small></td>
             <td><span class="badge bg-label-secondary">{{ $c->orders_count }} {{ $c->orders_count == 1 ? 'Order' : 'Orders' }}</span></td>

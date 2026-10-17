@@ -76,6 +76,14 @@
         document.getElementById('deleteForm').action = b.dataset.deleteUrl;
         document.getElementById('deleteLabel').textContent = b.dataset.deleteLabel || 'item';
       });
+      // Clicking anywhere on a table row with data-row-href navigates to it, unless the
+      // click started on an interactive element (link, button, form control, drag handle).
+      document.addEventListener('click', function (e) {
+        var row = e.target.closest('tr[data-row-href]');
+        if (!row) return;
+        if (e.target.closest('a, button, input, select, textarea, label, .drag-handle, [data-bs-toggle]')) return;
+        window.location = row.dataset.rowHref;
+      });
       // Live image preview for <input type="file" data-preview="#imgId">
       document.addEventListener('change', function (e) {
         var f = e.target; if (!f.matches || !f.matches('input[type=file][data-preview]')) return;

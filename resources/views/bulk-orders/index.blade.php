@@ -13,7 +13,7 @@
       <thead><tr><th>Request ID</th><th>Contact / Company</th><th>Products</th><th>Total Qty</th><th>Date</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $r)
-          <tr>
+          <tr data-row-href="{{ route('bulk-orders.show', $r) }}">
             <td><a href="{{ route('bulk-orders.show', $r) }}" class="fw-bold text-dark">#{{ $r->request_number }}</a></td>
             <td>{{ $r->contact_name }}<br><small class="text-muted">{{ $r->company_name ?: $r->email }}</small></td>
             <td><span class="badge bg-label-secondary">{{ $r->items_count }} Products</span></td>

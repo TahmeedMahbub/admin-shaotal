@@ -22,7 +22,7 @@
       <tbody>
         @forelse ($rows as $c)
           @php $state = $c->status === 'active' ? ($c->starts_at && $c->starts_at->isFuture() ? 'scheduled' : ($c->expires_at && $c->expires_at->isPast() ? 'expired' : 'active')) : $c->status; @endphp
-          <tr>
+          <tr data-row-href="{{ route('coupons.edit', $c) }}">
             <td><a href="{{ route('coupons.show', $c) }}" class="fw-bold text-dark"><code>{{ $c->code }}</code></a></td>
             <td>{{ ucwords(str_replace('_', ' ', $c->discount_type)) }}</td>
             <td class="fw-bold">{{ $c->discount_type === 'percentage' ? rtrim(rtrim($c->discount_value, '0'), '.').'%' : ($c->discount_type === 'free_shipping' ? 'Free shipping' : Fmt::money($c->discount_value)) }}</td>

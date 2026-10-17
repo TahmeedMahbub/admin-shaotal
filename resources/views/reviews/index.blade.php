@@ -23,7 +23,7 @@
       <thead><tr><th>Review ID</th><th>Customer</th><th>Product</th><th>Rating</th><th>Review Snippet</th><th>Date</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $r)
-          <tr>
+          <tr data-row-href="{{ route('reviews.edit', $r) }}">
             <td><a href="{{ route('reviews.show', $r) }}" class="fw-bold text-dark">#REV-{{ $r->id }}</a></td>
             <td>{{ $r->reviewer_name }}<br><small class="text-muted">{{ $r->reviewer_email }}</small></td>
             <td>{{ $r->product->name ?? '—' }}</td>

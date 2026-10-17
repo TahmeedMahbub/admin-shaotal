@@ -23,7 +23,7 @@
       <thead><tr><th>Wishlist ID</th><th>Customer</th><th>Product Details</th><th>Current Price</th><th>Added Date</th><th>Availability</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $w)
-          <tr>
+          <tr data-row-href="{{ route('wishlists.show', $w) }}">
             <td><a href="{{ route('wishlists.show', $w) }}" class="fw-bold text-dark">#WSH-{{ $w->id }}</a></td>
             <td>{{ trim(($w->customer->first_name ?? '').' '.($w->customer->last_name ?? '')) }}<br><small class="text-muted">{{ $w->customer->email ?? '' }}</small></td>
             <td><a href="{{ route('products.edit', $w->product_id) }}" class="fw-bold text-dark fs-8">{{ $w->product->name }}</a></td>

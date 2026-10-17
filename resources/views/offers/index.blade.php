@@ -23,7 +23,7 @@
       <tbody>
         @forelse ($rows as $o)
           @php $state = $o->status === 'active' ? ($o->starts_at && $o->starts_at->isFuture() ? 'scheduled' : ($o->ends_at && $o->ends_at->isPast() ? 'expired' : 'active')) : 'inactive'; @endphp
-          <tr>
+          <tr data-row-href="{{ route('offers.edit', $o) }}">
             <td><a href="{{ route('offers.show', $o) }}" class="fw-bold text-dark">#OFF-{{ $o->id }}</a></td>
             <td class="fw-bold fs-8">{{ $o->name }}</td>
             <td class="fw-bold">{{ $o->discount_type === 'percentage' ? (float) $o->discount_value.'%' : Fmt::money($o->discount_value) }}</td>

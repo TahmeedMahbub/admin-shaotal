@@ -15,7 +15,7 @@
       <thead><tr><th>Featured Image</th><th>Page Title</th><th>URL Slug</th><th>Updated</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $p)
-          <tr>
+          <tr data-row-href="{{ route('pages.edit', $p) }}">
             <td><x-admin.thumb :src="$p->featured_image_url" icon="mdi-file-document-outline" :size="48" /></td>
             <td><a href="{{ route('pages.show', $p) }}" class="fw-bold text-dark fs-8">{{ $p->title }}</a></td>
             <td><code>/pages/{{ $p->slug }}</code></td>

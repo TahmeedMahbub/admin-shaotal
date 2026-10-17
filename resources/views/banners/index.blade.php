@@ -9,13 +9,20 @@
 
 <x-admin.filters :statuses="['active', 'inactive']" placeholder="Search banner title..." />
 
+  @if ($canReorder)
+    <div class="d-none justify-content-start py-2" id="reorderDoneBar">
+      <button type="button" class="btn btn-sm btn-beige" id="btnDoneReorder">Done Reordering</button>
+    </div>
+  @endif
+
+
 <div class="card">
   <div class="table-responsive">
     <table class="table table-hover align-middle mb-0">
       <thead><tr>@if ($canReorder)<th style="width:32px;"></th>@endif<th>Banner Preview</th><th>Banner Title</th><th>Linked Destination</th><th>Order</th><th>Schedule</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody id="bannerRows">
         @forelse ($rows as $b)
-          <tr data-id="{{ $b->id }}">
+          <tr data-id="{{ $b->id }}" data-row-href="{{ route('banners.edit', $b) }}">
             @if ($canReorder)<td class="text-muted drag-handle" style="cursor: grab;" title="Drag to reorder"><i class="mdi mdi-drag-vertical fs-5"></i></td>@endif
             <td><img src="{{ $b->image_url }}" alt="" loading="lazy" class="rounded border" style="width: 120px; height: 60px; object-fit: cover;"></td>
             <td><a href="{{ route('banners.show', $b) }}" class="fw-bold text-dark fs-8">{{ $b->title ?: '(untitled)' }}</a><div><small class="text-muted">{{ $b->subtitle }}</small></div></td>
@@ -68,6 +75,9 @@
     var pendingOrder = null, confirmed = false;
     var modalEl = document.getElementById('reorderConfirmModal');
     var modal = new bootstrap.Modal(modalEl);
+    var btnDone = document.getElementById('btnDoneReorder');
+    var doneBar = document.getElementById('reorderDoneBar');
+    var toggleDoneBar = function (show) { doneBar.classList.toggle('d-none', !show); doneBar.classList.toggle('d-flex', show); };
 
     function saveOrder(ids) {
       fetch(@json(route('banners.reorder')), {
@@ -81,6 +91,8 @@
       }).catch(function () {
         applyOrder(lastOrder);
         alert('Could not save the new banner order. Reload the page and try again.');
+      }).finally(function () {
+        toggleDoneBar(false);
       });
     }
 
@@ -88,11 +100,14 @@
       handle: '.drag-handle', animation: 150,
       onEnd: function () {
         var ids = rowIds();
-        if (ids.join(',') === lastOrder.join(',')) return; // dropped back in the same place
-        pendingOrder = ids;
-        confirmed = false;
-        modal.show();
+        toggleDoneBar(ids.join(',') !== lastOrder.join(','));
       },
+    });
+
+    btnDone.addEventListener('click', function () {
+      pendingOrder = rowIds();
+      confirmed = false;
+      modal.show();
     });
 
     document.getElementById('btnConfirmReorder').addEventListener('click', function () {
@@ -102,7 +117,10 @@
     });
 
     modalEl.addEventListener('hidden.bs.modal', function () {
-      if (!confirmed) applyOrder(lastOrder); // cancelled, dismissed, or closed without confirming
+      if (!confirmed) {
+        applyOrder(lastOrder); // cancelled, dismissed, or closed without confirming
+        toggleDoneBar(false);
+      }
       pendingOrder = null;
     });
   })();

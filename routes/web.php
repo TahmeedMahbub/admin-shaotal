@@ -36,7 +36,9 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::post('products/upload-image', [ProductController::class, 'storeImage'])->name('products.upload-image');
     Route::resource('products', ProductController::class)->except('show');
+    Route::post('categories/reorder', [CategoryController::class, 'reorder'])->name('categories.reorder');
     Route::resource('categories', CategoryController::class)->except('show');
+    Route::post('subcategories/reorder', [SubcategoryController::class, 'reorder'])->name('subcategories.reorder');
     Route::resource('subcategories', SubcategoryController::class)->except('show');
     Route::resource('brands', BrandController::class)->except('show');
     Route::resource('size-guides', SizeGuideController::class)->parameters(['size-guides' => 'size_guide']);

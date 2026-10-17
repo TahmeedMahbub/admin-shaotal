@@ -86,7 +86,7 @@
           <thead><tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th></tr></thead>
           <tbody>
             @forelse ($recentOrders as $o)
-              <tr>
+              <tr data-row-href="{{ route('orders.show', $o->id) }}">
                 <td><a href="{{ route('orders.show', $o->id) }}" class="fw-bold text-dark">#{{ $o->order_number }}</a></td>
                 <td>{{ $o->shipping_recipient_name }}</td>
                 <td class="text-muted">{{ \Illuminate\Support\Carbon::parse($o->created_at)->format('M d, Y') }}</td>
@@ -127,7 +127,7 @@
           <thead><tr><th>Request ID</th><th>Type</th><th>Customer</th><th>Status</th></tr></thead>
           <tbody>
             @forelse ($recentRequests as $r)
-              <tr>
+              <tr data-row-href="{{ route($r->type === 'Bulk' ? 'bulk-orders.show' : 'sourcing-requests.show', $r->id) }}">
                 <td><a href="{{ route($r->type === 'Bulk' ? 'bulk-orders.show' : 'sourcing-requests.show', $r->id) }}" class="fw-bold text-dark">#{{ $r->request_number }}</a></td>
                 <td><span class="badge bg-label-secondary">{{ $r->type }}</span></td>
                 <td>{{ $r->name }}</td>
@@ -152,7 +152,7 @@
           <thead><tr><th>Product</th><th>Stock</th><th class="text-end">Status</th></tr></thead>
           <tbody>
             @forelse ($lowStock as $s)
-              <tr>
+              <tr data-row-href="{{ route('products.edit', $s->product_id) }}">
                 <td><div class="fw-medium text-dark fs-8">{{ $s->name }}</div><small class="text-muted">SKU: {{ $s->sku ?: '—' }}</small></td>
                 <td><span class="fw-bold {{ $s->stock <= 2 ? 'text-danger' : 'text-warning' }}">{{ $s->stock }} left</span></td>
                 <td class="text-end"><span class="badge {{ $s->stock <= 2 ? 'bg-label-danger' : 'bg-label-warning' }}">{{ $s->stock <= 2 ? 'Critical' : 'Low Stock' }}</span></td>

@@ -15,7 +15,7 @@
       <thead><tr><th>Contact ID</th><th>Sender Name</th><th>Email</th><th>Subject</th><th>Date</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $c)
-          <tr>
+          <tr data-row-href="{{ route('contacts.edit', $c) }}">
             <td><a href="{{ route('contacts.show', $c) }}" class="fw-bold text-dark">#CNT-{{ $c->id }}</a></td>
             <td>{{ $c->name }}</td><td>{{ $c->email ?: '—' }}</td><td>{{ \Illuminate\Support\Str::limit($c->subject, 50) }}</td>
             <td>{{ $c->created_at->format('M d, Y') }}</td>

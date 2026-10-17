@@ -25,7 +25,7 @@
       <thead><tr><th>Order ID</th><th>Date</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment Status</th><th>Order Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $o)
-          <tr>
+          <tr data-row-href="{{ route('orders.show', $o) }}">
             <td><a href="{{ route('orders.show', $o) }}" class="fw-bold text-dark">#{{ $o->order_number }}</a></td>
             <td>{{ $o->created_at->format('M d, Y') }}<br><small class="text-muted">{{ $o->created_at->format('h:i A') }}</small></td>
             <td>@if ($o->customer_id)<a href="{{ route('customers.show', $o->customer_id) }}" class="text-dark">{{ $o->shipping_recipient_name }}</a>@else{{ $o->shipping_recipient_name }}@endif<br><small class="text-muted">{{ $o->customer_email }}</small></td>

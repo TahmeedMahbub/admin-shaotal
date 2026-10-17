@@ -5,19 +5,50 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class SubcategoryController extends Controller
 {
+    /** Reordering is drag-and-drop from the list, so keep the whole set on one page whenever possible. */
+    private const REORDER_PER_PAGE = 100;
+
     public function index(Request $request)
     {
+        $filtered = $request->filled('q') || $request->filled('status');
+
         $rows = Subcategory::query()->with('category:id,name')->withCount('products')
             ->when($request->q, fn ($q, $v) => $q->where(fn ($w) => $w->where('name', 'like', "%$v%")->orWhere('slug', 'like', "%$v%")))
             ->when($request->status, fn ($q, $v) => $q->where('status', $v))
             ->when($request->category_id, fn ($q, $v) => $q->where('category_id', $v))
-            ->orderBy('category_id')->orderBy('sort_order')->paginate($this->perPage())->withQueryString();
+            ->orderBy('category_id')->orderBy('sort_order')->paginate(self::REORDER_PER_PAGE)->withQueryString();
 
-        return view('subcategories.index', ['rows' => $rows, 'categories' => $this->categories()]);
+        // Dragging only makes sense over the full, unfiltered, single-page list; otherwise order is ambiguous.
+        // Sort order is scoped per parent category, so the list is dragged as independent per-category groups.
+        $canReorder = ! $filtered && ! $rows->hasPages();
+
+        return view('subcategories.index', ['rows' => $rows, 'categories' => $this->categories(), 'canReorder' => $canReorder]);
+    }
+
+    /** Persist the drag-and-drop order from the list page, one or more per-category groups at once. */
+    public function reorder(Request $request)
+    {
+        $data = $request->validate([
+            'groups' => ['required', 'array', 'min:1'],
+            'groups.*.category_id' => ['required', 'integer', 'exists:categories,id'],
+            'groups.*.ids' => ['required', 'array'],
+            'groups.*.ids.*' => ['integer', 'distinct', 'exists:subcategories,id'],
+        ]);
+
+        DB::transaction(function () use ($data) {
+            foreach ($data['groups'] as $group) {
+                foreach (array_values($group['ids']) as $i => $id) {
+                    Subcategory::where('id', $id)->where('category_id', $group['category_id'])->update(['sort_order' => $i + 1, 'updated_by' => auth('admin')->id()]);
+                }
+            }
+        });
+
+        return response()->json(['message' => 'Subcategory order saved.']);
     }
 
     public function create()

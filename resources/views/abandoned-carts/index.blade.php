@@ -23,7 +23,7 @@
       <thead><tr><th>Cart ID</th><th>Customer</th><th>Type</th><th>Products</th><th>Total Value</th><th>Last Activity</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $c)
-          <tr>
+          <tr data-row-href="{{ route('abandoned-carts.show', $c) }}">
             <td><a href="{{ route('abandoned-carts.show', $c) }}" class="fw-bold text-dark">#CRT-{{ $c->id }}</a></td>
             <td>{{ $c->customer ? trim($c->customer->first_name.' '.$c->customer->last_name) : 'Guest' }}<br><small class="text-muted">{{ $c->customer->email ?? '' }}</small></td>
             <td><span class="badge {{ $c->customer_id ? 'bg-label-info' : 'bg-label-secondary' }}">{{ $c->customer_id ? 'Registered' : 'Guest' }}</span></td>

@@ -15,7 +15,7 @@
       <thead><tr><th>Brand Logo</th><th>Brand Name</th><th>Slug</th><th>Products</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $b)
-          <tr>
+          <tr data-row-href="{{ route('brands.edit', $b) }}">
             <td><x-admin.thumb :src="$b->logo_url" icon="mdi-tag-outline" /></td>
             <td>
               <a href="{{ route('brands.edit', $b) }}" class="fw-bold text-dark fs-8">{{ $b->name }}</a>

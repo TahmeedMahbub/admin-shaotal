@@ -17,7 +17,7 @@
       <thead><tr><th>Request ID</th><th>Customer</th><th>Requested Item</th><th>Qty</th><th>Target Budget</th><th>Date</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $r)
-          <tr>
+          <tr data-row-href="{{ route('sourcing-requests.show', $r) }}">
             <td><a href="{{ route('sourcing-requests.show', $r) }}" class="fw-bold text-dark">#{{ $r->request_number }}</a></td>
             <td>{{ $r->customer_name }}<br><small class="text-muted">{{ $r->email }}</small></td>
             <td>{{ $r->product_name ?: '—' }}</td>

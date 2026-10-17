@@ -13,7 +13,7 @@
       <thead><tr><th>Location Slug</th><th>Title</th><th>Content Preview</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $c)
-          <tr>
+          <tr data-row-href="{{ route('site-contents.edit', $c) }}">
             <td><a href="{{ route('site-contents.show', $c) }}"><code>{{ $c->slug }}</code></a></td>
             <td class="fw-bold fs-8">{{ $c->title }}</td>
             <td class="text-muted">{{ \Illuminate\Support\Str::limit(strip_tags((string) $c->content), 70) ?: '—' }}</td>

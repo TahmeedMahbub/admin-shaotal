@@ -34,7 +34,7 @@
             $low = $stock <= ($p->low_stock_threshold ?? 5);
             $price = (float) $p->price; $sale = $p->selling_price !== null ? (float) $p->selling_price : null;
           @endphp
-          <tr>
+          <tr data-row-href="{{ route('products.edit', $p) }}">
             <td>
               <div class="d-flex align-items-center gap-2">
                 <x-admin.thumb :src="$p->image_url" icon="mdi-package-variant" :size="48" />

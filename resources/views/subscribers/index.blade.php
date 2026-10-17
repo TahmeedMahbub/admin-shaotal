@@ -19,7 +19,7 @@
       <thead><tr><th>ID</th><th>Subscriber Email</th><th>Opt-in Source</th><th>Subscription Date</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
         @forelse ($rows as $s)
-          <tr>
+          <tr data-row-href="{{ route('subscribers.edit', $s) }}">
             <td><a href="{{ route('subscribers.show', $s) }}" class="fw-bold text-dark">#SUB-{{ $s->id }}</a></td>
             <td>{{ $s->email }}</td>
             <td>{{ \App\Http\Controllers\SubscriberController::SOURCES[$s->source] ?? ($s->source ?: '—') }}</td>
