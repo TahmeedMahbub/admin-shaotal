@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\ImageUploadException;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -11,7 +12,9 @@ use App\Models\ProductSize;
 use App\Models\ProductVariant;
 use App\Models\SizeGuide;
 use App\Models\Subcategory;
+use App\Services\CloudinaryImageService;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -58,10 +61,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $input = $this->validated($request);
-        $uploads = $this->uploadImages($request);
-        $product = DB::transaction(fn () => $this->persist(new Product, $input, $request, $uploads));
+        $product = DB::transaction(fn () => $this->persist(new Product, $input));
 
-        return redirect()->route('products.edit', $product)->with('success', 'Product created.');
+        return redirect()->route('products.edit', $product)->with('success', $input['draft'] ? 'Draft saved. It is hidden from the storefront until published.' : 'Product created.');
     }
 
     public function edit(Product $product)
@@ -72,10 +74,23 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $input = $this->validated($request, $product);
-        $uploads = $this->uploadImages($request);
-        DB::transaction(fn () => $this->persist($product, $input, $request, $uploads));
+        DB::transaction(fn () => $this->persist($product, $input));
 
-        return redirect()->route('products.edit', $product)->with('success', 'Product updated.');
+        return redirect()->route('products.edit', $product)->with('success', $input['draft'] ? 'Draft saved. It is hidden from the storefront until published.' : 'Product updated.');
+    }
+
+    /** AJAX: upload one image to Cloudinary when it is picked, so progress/errors show early and the URL survives validation errors. */
+    public function storeImage(Request $request, CloudinaryImageService $images): JsonResponse
+    {
+        if (! $request->hasFile('image')) {
+            return response()->json(['message' => 'Please choose an image.'], 422);
+        }
+
+        try {
+            return response()->json(['url' => $images->upload($request->file('image'), 'products')]);
+        } catch (ImageUploadException $e) {
+            return response()->json(['message' => $e->getMessage()], 422);
+        }
     }
 
     public function destroy(Product $product)
@@ -98,30 +113,67 @@ class ProductController extends Controller
     {
         $product->loadMissing(['colors', 'sizes', 'variants', 'images.colors:id', 'specification']);
 
-        $colors = old('colors') ?? $product->colors->map(fn ($c) => ['id' => $c->id, 'name' => $c->name, 'hex_code' => $c->hex_code ?: '#cccccc'])->all();
+        // Images: from the submitted form after a validation error, otherwise from the database.
+        $dbImages = $product->images->keyBy('id');
+        if (is_array(old('images'))) {
+            $images = collect(old('images'))->values()->map(fn ($e, $k) => [
+                'id' => ($e['id'] ?? null) ?: null,
+                'url' => ! empty($e['id']) ? ($dbImages[(int) $e['id']]->image_url ?? null) : ($e['url'] ?? null),
+                'main' => (string) old('main_key') === (string) $k,
+            ])->filter(fn ($i) => $i['url'])->values()->all();
+        } else {
+            $images = $product->images->values()->map(fn ($i) => ['id' => $i->id, 'url' => $i->image_url, 'main' => (bool) $i->is_main])->all();
+        }
+
+        if (is_array(old('colors'))) {
+            $colors = collect(old('colors'))->values()->map(fn ($c) => [
+                'id' => $c['id'] ?? '', 'name' => $c['name'] ?? '', 'hex' => $c['hex_code'] ?? '#cccccc',
+                'images' => array_map('intval', $c['images'] ?? []),
+            ])->all();
+        } else {
+            $imageIdx = $product->images->values()->pluck('id')->flip();
+            $colors = $product->colors->map(fn ($c) => [
+                'id' => $c->id, 'name' => $c->name, 'hex' => $c->hex_code ?: '#cccccc',
+                'images' => $product->images->filter(fn ($i) => $i->colors->contains('id', $c->id))->map(fn ($i) => $imageIdx[$i->id])->values()->all(),
+            ])->all();
+        }
+
         $sizes = old('sizes') ?? $product->sizes->map(fn ($s) => ['id' => $s->id, 'size_label' => $s->size_label])->all();
-        $colorIdx = $product->colors->pluck('id')->flip();
-        $sizeIdx = $product->sizes->pluck('id')->flip();
+        $colorIdx = collect($colors)->pluck('id')->filter()->flip(); // new rows have a blank (null) id
+        $sizeIdx = collect($sizes)->pluck('id')->filter()->flip();
         $variants = old('variants') ?? $product->variants->map(fn ($v) => [
             'id' => $v->id, 'color' => $colorIdx[$v->color_id] ?? '', 'size' => $sizeIdx[$v->size_id] ?? '', 'sku' => $v->sku,
             'price_override' => $v->price_override, 'selling_price_override' => $v->selling_price_override,
             'stock_qty' => $v->stock_qty, 'is_active' => $v->is_active ? 1 : 0,
         ])->all();
 
+        $guides = SizeGuide::with('sizeValues:id,size_guide_id,size_label,sort_order')->orderBy('title')->get(['id', 'title'])
+            ->map(fn ($g) => ['id' => $g->id, 'title' => $g->title, 'sizes' => $g->sizeValues->sortBy('sort_order')->pluck('size_label')->unique()->values()->all()])->all();
+
         return [
             'product' => $product,
             'categories' => Category::orderBy('sort_order')->pluck('name', 'id'),
             'subcategories' => Subcategory::orderBy('sort_order')->get(['id', 'category_id', 'name']),
             'brands' => Brand::orderBy('name')->pluck('name', 'id'),
-            'sizeGuides' => SizeGuide::orderBy('title')->pluck('title', 'id'),
             'badges' => self::BADGES,
-            'state' => ['colors' => array_values($colors), 'sizes' => array_values($sizes), 'variants' => array_values($variants)],
+            'state' => [
+                'images' => $images, 'colors' => $colors, 'sizes' => array_values($sizes), 'variants' => array_values($variants),
+                'guides' => $guides, 'slugManual' => $this->slugWasEdited(old('slug', $product->slug), old('name', $product->name)),
+            ],
         ];
+    }
+
+    /** True when the stored/submitted slug differs from what the name would generate, i.e. it was edited by hand. */
+    private function slugWasEdited(?string $slug, ?string $name): bool
+    {
+        return filled($slug) && $slug !== Str::slug((string) $name);
     }
 
     private function validated(Request $request, ?Product $product = null): array
     {
         $hasVariants = $request->boolean('has_variants');
+        $draft = $request->boolean('save_draft');
+        $required = $draft ? 'nullable' : 'required';
 
         $data = $request->validate([
             'name' => ['required', 'string', 'max:220'],
@@ -132,10 +184,10 @@ class ProductController extends Controller
             'brand_id' => ['nullable', 'integer', 'exists:brands,id'],
             'short_description' => ['nullable', 'string', 'max:500'],
             'description' => ['nullable', 'string', 'max:100000'],
-            'price' => ['required', 'numeric', 'min:0', 'max:9999999999'],
+            'price' => [$required, 'numeric', 'min:0', 'max:9999999999'],
             'selling_price' => ['nullable', 'numeric', 'min:0', 'lte:price'],
-            'variant_scenario' => [$hasVariants ? 'required' : 'nullable', Rule::in(['color_size', 'color_only', 'size_only'])],
-            'stock_qty' => [$hasVariants ? 'nullable' : 'required', 'integer', 'min:0', 'max:4294967295'],
+            'variant_scenario' => [$hasVariants && ! $draft ? 'required' : 'nullable', Rule::in(['color_size', 'color_only', 'size_only'])],
+            'stock_qty' => [$hasVariants || $draft ? 'nullable' : 'required', 'integer', 'min:0', 'max:4294967295'],
             'availability' => ['required', Rule::in(['in_stock', 'out_of_stock', 'preorder', 'coming_soon'])],
             'badge_type' => ['nullable', Rule::in(array_keys(self::BADGES))],
             'preorder_release_date' => ['nullable', 'date'],
@@ -153,6 +205,8 @@ class ProductController extends Controller
             'colors.*.id' => ['nullable', 'integer'],
             'colors.*.name' => ['required', 'string', 'max:80', 'distinct:ignore_case'],
             'colors.*.hex_code' => ['nullable', 'regex:/^#[0-9a-fA-F]{6}$/'],
+            'colors.*.images' => ['nullable', 'array'],
+            'colors.*.images.*' => ['integer', 'min:0'],
             'sizes' => ['nullable', 'array', 'max:50'],
             'sizes.*.id' => ['nullable', 'integer'],
             'sizes.*.size_label' => ['required', 'string', 'max:80', 'distinct:ignore_case'],
@@ -165,25 +219,52 @@ class ProductController extends Controller
             'variants.*.selling_price_override' => ['nullable', 'numeric', 'min:0'],
             'variants.*.is_active' => ['nullable'],
             'variants.*.stock_qty' => ['nullable', 'integer', 'min:0', 'max:4294967295'],
-            'main_image' => ['nullable', 'file'],
-            'new_images' => ['nullable', 'array', 'max:20'],
-            'new_images.*' => ['file'],
-            'images' => ['nullable', 'array'],
-            'images.*.remove' => ['nullable'],
-            'images.*.alt_text' => ['nullable', 'string', 'max:255'],
-            'images.*.colors' => ['nullable', 'array'],
-            'images.*.colors.*' => ['integer'],
-            'main_existing' => ['nullable', 'integer'],
+            'images' => ['nullable', 'array', 'max:30'],
+            'images.*.id' => ['nullable', 'integer'],
+            'images.*.url' => ['nullable', 'string', 'max:2048'],
+            'main_key' => ['nullable', 'integer', 'min:0'],
         ]);
 
         $data['has_variants'] = $hasVariants;
-        $this->checkVariants($data, $hasVariants, $product);
+        $data['draft'] = $draft;
+        if ($draft) {
+            $data['status'] = 'draft';
+        }
+        $this->checkImages($data, $product);
+        if (! $draft) {
+            $this->checkVariants($data, $hasVariants);
+        }
 
         return $data;
     }
 
+    /** New images must be Cloudinary URLs produced by our own upload endpoint; existing ones must belong to this product. */
+    private function checkImages(array &$data, ?Product $product): void
+    {
+        $prefix = 'https://res.cloudinary.com/'.config('cloudinary.cloud_name').'/';
+        $owned = $product ? $product->images()->pluck('id')->all() : [];
+        $clean = [];
+
+        foreach (array_values($data['images'] ?? []) as $e) {
+            $id = (int) ($e['id'] ?? 0);
+            if ($id) {
+                if (! in_array($id, $owned, true)) {
+                    throw ValidationException::withMessages(['images' => 'One of the images no longer belongs to this product. Reload the page.']);
+                }
+                $clean[] = ['id' => $id];
+            } elseif (! empty($e['url'])) {
+                if (! str_starts_with($e['url'], $prefix) || ! filter_var($e['url'], FILTER_VALIDATE_URL)) {
+                    throw ValidationException::withMessages(['images' => 'An image URL was not produced by the uploader. Please upload it again.']);
+                }
+                $clean[] = ['url' => $e['url']];
+            }
+        }
+
+        $data['images'] = $clean;
+    }
+
     /** Cross-field rules the base validator can't express. */
-    private function checkVariants(array $data, bool $hasVariants, ?Product $product): void
+    private function checkVariants(array $data, bool $hasVariants): void
     {
         if (! $hasVariants) {
             return;
@@ -199,7 +280,7 @@ class ProductController extends Controller
             $fail('Add at least one color for this variant scenario.');
         }
         if (in_array($scenario, ['color_size', 'size_only'], true) && ! $sizes) {
-            $fail('Add at least one size for this variant scenario.');
+            $fail('Select at least one size for this variant scenario.');
         }
         if (! $variants) {
             $fail('Enable at least one variant.');
@@ -222,29 +303,16 @@ class ProductController extends Controller
         }
     }
 
-    /** Upload all new files first so a Cloudinary failure aborts before anything is written. */
-    private function uploadImages(Request $request): array
-    {
-        $out = ['main' => null, 'extra' => []];
-        if ($file = $request->file('main_image')) {
-            $out['main'] = $this->upload($file, 'products', 'main_image');
-        }
-        foreach ($request->file('new_images', []) as $file) {
-            $out['extra'][] = $this->upload($file, 'products', 'new_images');
-        }
-
-        return $out;
-    }
-
-    private function persist(Product $product, array $in, Request $request, array $uploads): Product
+    private function persist(Product $product, array $in): Product
     {
         $has = $in['has_variants'];
         $fields = [
             'name' => $in['name'], 'slug' => $this->slugFor('products', $in['slug'] ?? null, $in['name'], $product->id),
             'sku' => $in['sku'] ?? null ?: null, 'category_id' => $in['category_id'], 'subcategory_id' => $in['subcategory_id'] ?? null,
             'brand_id' => $in['brand_id'] ?? null, 'short_description' => $in['short_description'] ?? null, 'description' => $in['description'] ?? null,
-            'price' => $in['price'], 'selling_price' => $in['selling_price'] ?? null, 'has_variants' => $has,
-            'variant_scenario' => $has ? $in['variant_scenario'] : null, 'stock_qty' => $has ? null : $in['stock_qty'],
+            'price' => $in['price'] ?? 0, 'selling_price' => $in['selling_price'] ?? null, 'has_variants' => $has,
+            // The table CHECK requires a scenario for variant products and NULL stock; simple products need stock.
+            'variant_scenario' => $has ? ($in['variant_scenario'] ?? 'color_size') : null, 'stock_qty' => $has ? null : ($in['stock_qty'] ?? 0),
             'availability' => $in['availability'],
             'badge' => ! empty($in['badge_type']) ? ['type' => $in['badge_type'], 'label' => self::BADGES[$in['badge_type']]] : null,
             'preorder_release_date' => $in['preorder_release_date'] ?? null, 'low_stock_threshold' => $in['low_stock_threshold'] ?? null,
@@ -256,27 +324,28 @@ class ProductController extends Controller
         $product->specification()->updateOrCreate([], collect($in['spec'] ?? [])->only(['material', 'fabric', 'dimensions', 'fit', 'pattern', 'care_instructions'])->map(fn ($v) => $v ?: null)->all());
 
         try {
-            $this->syncVariants($product, $in);
+            $colorIds = $this->syncVariants($product, $in);
         } catch (QueryException $e) {
             report($e);
             throw ValidationException::withMessages(['variants' => 'A removed color, size or variant is still in a customer cart. Mark it inactive instead of removing it.']);
         }
 
-        $this->syncImages($product, $in, $request, $uploads);
+        $this->syncImages($product, $in, $colorIds);
 
         return $product;
     }
 
-    private function syncVariants(Product $product, array $in): void
+    /** @return array<int,int> submitted colour index => colour row id */
+    private function syncVariants(Product $product, array $in): array
     {
         $has = $in['has_variants'];
-        $scenario = $in['variant_scenario'] ?? null;
+        $scenario = $in['variant_scenario'] ?? 'color_size';
         $colorsIn = $has && $scenario !== 'size_only' ? array_values($in['colors'] ?? []) : [];
         $sizesIn = $has && $scenario !== 'color_only' ? array_values($in['sizes'] ?? []) : [];
         $variantsIn = $has ? array_values($in['variants'] ?? []) : [];
 
-        $colorIds = $this->syncNamed(ProductColor::class, $product, $colorsIn, 'name', fn ($c, $i) => ['name' => $c['name'], 'hex_code' => $c['hex_code'] ?? null, 'sort_order' => $i + 1], $variantsIn, 'color_id');
-        $sizeIds = $this->syncNamed(ProductSize::class, $product, $sizesIn, 'size_label', fn ($s, $i) => ['size_label' => $s['size_label'], 'sort_order' => $i + 1], $variantsIn, 'size_id');
+        $colorIds = $this->syncNamed(ProductColor::class, $product, $colorsIn, 'name', fn ($c, $i) => ['name' => $c['name'], 'hex_code' => $c['hex_code'] ?? null, 'sort_order' => $i + 1]);
+        $sizeIds = $this->syncNamed(ProductSize::class, $product, $sizesIn, 'size_label', fn ($s, $i) => ['size_label' => $s['size_label'], 'sort_order' => $i + 1]);
 
         $keep = [];
         foreach ($variantsIn as $v) {
@@ -298,10 +367,12 @@ class ProductController extends Controller
         $product->variants()->whereNotIn('id', $keep)->delete();
         $this->deleteStale(ProductColor::class, $product, $colorIds);
         $this->deleteStale(ProductSize::class, $product, $sizeIds);
+
+        return $colorIds;
     }
 
-    /** Upsert colours or sizes by submitted id; returns [submittedIndex => rowId]. */
-    private function syncNamed(string $model, Product $product, array $items, string $nameCol, callable $map, array $variants, string $fk): array
+    /** Upsert colours or sizes by submitted id (or name); returns [submittedIndex => rowId]. */
+    private function syncNamed(string $model, Product $product, array $items, string $nameCol, callable $map): array
     {
         $existing = $model::where('product_id', $product->id)->get()->keyBy('id');
         $ids = [];
@@ -331,41 +402,43 @@ class ProductController extends Controller
         return $candidate;
     }
 
-    private function syncImages(Product $product, array $in, Request $request, array $uploads): void
+    /**
+     * Images arrive in display order. Existing rows are kept (no re-upload, no duplicates), new Cloudinary URLs are inserted,
+     * missing ones are removed, exactly one is main, and per-colour assignments go into product_image_colors.
+     */
+    private function syncImages(Product $product, array $in, array $colorIds): void
     {
-        $submitted = $in['images'] ?? [];
-        $images = $product->images()->get()->keyBy('id');
-        $validColorIds = ProductColor::where('product_id', $product->id)->pluck('id')->all();
+        $existing = $product->images()->get()->keyBy('id');
+        $keyToId = [];
 
-        foreach ($images as $id => $img) {
-            $row = $submitted[$id] ?? null;
-            if ($row && ! empty($row['remove'])) {
-                $img->delete();
-                $images->forget($id);
-
-                continue;
-            }
-            if ($row) {
-                $img->update(['alt_text' => $row['alt_text'] ?? null]);
-                $img->colors()->sync(array_values(array_intersect(array_map('intval', $row['colors'] ?? []), $validColorIds)));
+        foreach (array_values($in['images'] ?? []) as $k => $entry) {
+            if (isset($entry['id'])) {
+                $existing[$entry['id']]->update(['sort_order' => $k]);
+                $keyToId[$k] = $entry['id'];
+            } else {
+                $keyToId[$k] = ProductImage::create(['product_id' => $product->id, 'image_url' => $entry['url'], 'alt_text' => $product->name, 'is_main' => 0, 'sort_order' => $k])->id;
             }
         }
 
-        $order = ($images->max('sort_order') ?? 0);
-        $newMain = null;
-        if ($uploads['main']) {
-            $newMain = ProductImage::create(['product_id' => $product->id, 'image_url' => $uploads['main'], 'alt_text' => $product->name, 'is_main' => 0, 'sort_order' => 0]);
-        }
-        foreach ($uploads['extra'] as $url) {
-            ProductImage::create(['product_id' => $product->id, 'image_url' => $url, 'alt_text' => $product->name, 'is_main' => 0, 'sort_order' => ++$order]);
+        $keep = array_values($keyToId);
+        $product->images()->whereNotIn('id', $keep ?: [0])->delete();
+
+        $mainId = $keyToId[(int) ($in['main_key'] ?? -1)] ?? ($keep[0] ?? null);
+        if ($mainId) {
+            $product->images()->where('id', '!=', $mainId)->update(['is_main' => 0]);
+            $product->images()->where('id', $mainId)->update(['is_main' => 1]);
         }
 
-        // Exactly one main image: a fresh main upload wins, then the radio choice, then the first image.
-        $all = $product->images()->get();
-        $main = $newMain ?? $all->firstWhere('id', (int) ($in['main_existing'] ?? 0)) ?? $all->firstWhere('is_main', 1) ?? $all->first();
-        if ($main) {
-            $product->images()->where('id', '!=', $main->id)->update(['is_main' => 0]);
-            $main->update(['is_main' => 1]);
+        $assign = [];
+        foreach (array_values($in['colors'] ?? []) as $i => $color) {
+            foreach ($color['images'] ?? [] as $k) {
+                if (isset($keyToId[$k], $colorIds[$i])) {
+                    $assign[$keyToId[$k]][] = $colorIds[$i];
+                }
+            }
+        }
+        foreach (ProductImage::whereIn('id', $keep)->get() as $image) {
+            $image->colors()->sync(array_values(array_unique($assign[$image->id] ?? [])));
         }
     }
 }

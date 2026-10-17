@@ -35,15 +35,23 @@ Scratch DB `shaotal_admin_local` (Laragon MySQL, root, no password), built with:
 
 ## Images (Cloudinary)
 
-`App\Services\CloudinaryImageService::upload(UploadedFile, ?folder): string` validates (jpg/png/webp/gif, 5 MB), uploads to `<root>/<folder>` and returns only `secure_url`. Credentials: `CLOUDINARY_CLOUD_NAME/API_KEY/API_SECRET` in `.env`, read only via `config/cloudinary.php`. Controllers call `$this->uploadImage($request, field, folder, $current)`. Existing image URLs are displayed as-is, never re-uploaded.
+`App\Services\CloudinaryImageService::upload(UploadedFile, ?folder): string` validates (jpg/png/webp/gif, 5 MB), uploads to `<root>/<folder>` and returns only `secure_url`. It targets the **installed `cloudinary/cloudinary_php` v1.x** API (`Cloudinary::config()` + `Cloudinary\Uploader::upload()`); the v2 `Cloudinary\Configuration\Configuration` classes do not exist here. The SDK call is injectable (constructor closure) so tests can mock it. Credentials: `CLOUDINARY_CLOUD_NAME/API_KEY/API_SECRET` in `.env`, read only via `config/cloudinary.php`.
+
+Simple forms call `$this->uploadImage($request, field, folder, $current)`. The **product form** uploads each image by AJAX the moment it is picked (`POST products/upload-image`, returns `{url}`), shows a local preview and progress, and submits only Cloudinary URLs (`images[k][url]`, validated server-side to start with `https://res.cloudinary.com/<cloud>/`). Browsers cannot restore `<input type=file>` after a reload, so uploading at selection time is what lets previews/selections survive validation errors. Abandoned uploads stay in Cloudinary (no cleanup job). Existing image URLs are displayed as-is, never re-uploaded.
+
+## Product form
+
+`resources/views/products/form.blade.php` + `public/assets/js/product-form.js` (follows `design/product-edit.html`; the size-measurement card is replaced by a size-guide dropdown that fills the size chips). The slug follows the name until it is edited by hand. **Save Draft** posts `save_draft=1`: it forces `status='draft'` and relaxes price/stock/variant requirements; the storefront lists only `status='active' AND visibility='visible'`, so drafts stay hidden (no schema change). Colour-to-image assignments are stored in `product_image_colors`.
 
 ## Commands
 
-- `php artisan serve`, `php artisan test`, `vendor/bin/pint`.
+- `php artisan test` needs the local MySQL DB `shaotal_admin_test` (built from `sql/ecom.sql` + `sql/ecommerce_sample_data.sql` + one `admin_users` row; `phpunit.xml` points at it; tests roll back). Never point tests at the shared DB.
+- `vendor/bin/pint`.
+- **`.env` may point at the remote shared DB.** To run the admin locally without editing `.env`, use the built-in server so env overrides apply (`php artisan serve` drops `DB_*` overrides): `cd public && DB_HOST=127.0.0.1 DB_DATABASE=shaotal_admin_local DB_USERNAME=root DB_PASSWORD= php -S 127.0.0.1:8001 ../vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php`, and confirm with `php artisan tinker` (same env) that `config('database.connections.mysql.host')` is 127.0.0.1 before logging in or posting anything.
 - Do **not** run `php artisan migrate` or `composer setup` (it migrates).
 
 ## Environment notes
 
-- `.env` (git-ignored) points at the LOCAL scratch DB. The shared remote DB is `hishabiz_ecom`; switch only deliberately and never run seeders or write-heavy tests there. Secrets stay in `.env` only.
+- `.env` (git-ignored) may point at the shared remote DB `hishabiz_ecom` (it did on 2026-10-16). Check `DB_HOST` before running anything that writes; never run seeders or write-heavy tests there. Secrets stay in `.env` only.
 - `.env` has `QUEUE_CONNECTION=database`, `CACHE_STORE=file`, `SESSION_DRIVER=file`; the SQL has no `jobs`/`cache` tables, so don't use queues/database cache.
 - Laravel Boost is not installed; the previous CLAUDE.md/AGENTS.md were only its bootstrap text.

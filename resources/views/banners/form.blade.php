@@ -19,8 +19,8 @@
     <x-admin.image-field name="image" label="Banner Image *" :current="$banner->image_url" />
     <x-admin.field name="image_url" label="Or existing image URL (https)" type="url" :value="$banner->image_url" placeholder="https://res.cloudinary.com/..." />
     <x-admin.image-field name="mobile_image" label="Mobile Image (optional)" :current="$banner->mobile_image_url" />
-    <x-admin.field name="sort_order" label="Display Order" type="number" min="0" :value="$banner->sort_order" required />
     <x-admin.field name="status" label="Status" type="select" :value="$banner->status" :options="['active' => 'Active', 'inactive' => 'Inactive']" required />
+    <div class="fs-9 text-muted">Display order is set by dragging banners on the <a href="{{ route('banners.index') }}">banner list</a>.</div>
   </x-slot:side>
 </x-admin.form-shell>
 @endsection

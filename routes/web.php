@@ -34,6 +34,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/', DashboardController::class)->name('dashboard');
 
+    Route::post('products/upload-image', [ProductController::class, 'storeImage'])->name('products.upload-image');
     Route::resource('products', ProductController::class)->except('show');
     Route::resource('categories', CategoryController::class)->except('show');
     Route::resource('subcategories', SubcategoryController::class)->except('show');
@@ -51,6 +52,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('bulk-orders', BulkOrderController::class)->only(['index', 'show', 'update', 'destroy'])->parameters(['bulk-orders' => 'bulk_order']);
 
     Route::resource('coupons', CouponController::class);
+    Route::post('banners/reorder', [BannerController::class, 'reorder'])->name('banners.reorder');
     Route::resource('banners', BannerController::class);
     Route::resource('reviews', ReviewController::class);
     Route::resource('wishlists', WishlistController::class)->only(['index', 'create', 'store', 'show', 'destroy'])->parameters(['wishlists' => 'wishlist']);
