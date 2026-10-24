@@ -9,6 +9,25 @@
   <x-admin.field name="category_id" label="Parent Category" type="select" :value="$subcategory->category_id" :options="$categories" blank="Select Parent Category" required />
   <x-admin.field name="name" label="Subcategory Name" :value="$subcategory->name" required placeholder="e.g. Dining Tables" />
   <x-admin.field name="slug" label="Slug" :value="$subcategory->slug" placeholder="dining-tables" help="Leave blank to generate from the name." />
+  <x-admin.field name="section" label="Section" :value="$subcategory->section" list="sectionSuggestions" placeholder="e.g. Furniture" help="Type a new section or pick an existing one." />
+  <datalist id="sectionSuggestions"></datalist>
+  <script>
+    (function () {
+      var sectionsByCategory = @json($sections);
+      var categorySelect = document.getElementById('f-category_id');
+      var datalist = document.getElementById('sectionSuggestions');
+
+      function renderSections() {
+        var options = sectionsByCategory[categorySelect.value] || [];
+        datalist.innerHTML = options.map(function (s) {
+          return '<option value="' + s.replace(/"/g, '&quot;') + '"></option>';
+        }).join('');
+      }
+
+      categorySelect.addEventListener('change', renderSections);
+      renderSections();
+    })();
+  </script>
   <x-admin.field name="description" label="Description" type="textarea" :value="$subcategory->description" placeholder="Subcategory details..." />
   <x-slot:side>
     <x-admin.image-field name="image" label="Subcategory Image" :current="$subcategory->image_url" />

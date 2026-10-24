@@ -53,7 +53,7 @@ class SubcategoryController extends Controller
 
     public function create()
     {
-        return view('subcategories.form', ['subcategory' => new Subcategory(['sort_order' => 0, 'status' => 'active']), 'categories' => $this->categories()]);
+        return view('subcategories.form', ['subcategory' => new Subcategory(['sort_order' => 0, 'status' => 'active']), 'categories' => $this->categories(), 'sections' => $this->sections()]);
     }
 
     public function store(Request $request)
@@ -67,7 +67,7 @@ class SubcategoryController extends Controller
 
     public function edit(Subcategory $subcategory)
     {
-        return view('subcategories.form', ['subcategory' => $subcategory, 'categories' => $this->categories()]);
+        return view('subcategories.form', ['subcategory' => $subcategory, 'categories' => $this->categories(), 'sections' => $this->sections()]);
     }
 
     public function update(Request $request, Subcategory $subcategory)
@@ -89,12 +89,21 @@ class SubcategoryController extends Controller
         return Category::orderBy('sort_order')->pluck('name', 'id');
     }
 
+    /** Distinct section names already in use per category, suggested in the form so admins reuse the same spelling. */
+    private function sections()
+    {
+        return Subcategory::whereNotNull('section')->where('section', '!=', '')
+            ->select('category_id', 'section')->distinct()->orderBy('section')->get()
+            ->groupBy('category_id')->map(fn ($rows) => $rows->pluck('section')->values());
+    }
+
     private function validated(Request $request, ?Subcategory $sub = null): array
     {
         $data = $request->validate([
             'category_id' => ['required', 'integer', 'exists:categories,id'],
             'name' => ['required', 'string', 'max:160'],
             'slug' => ['nullable', 'string', 'max:190', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', Rule::unique('subcategories', 'slug')->ignore($sub)],
+            'section' => ['nullable', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:5000'],
             'sort_order' => ['required', 'integer', 'min:0', 'max:100000'],
             'status' => ['required', Rule::in(['active', 'inactive'])],
