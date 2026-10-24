@@ -47,6 +47,10 @@
     </div>
   </div>
 
+  @isset($duplicateOf)
+  <div class="alert alert-info">Duplicated from <strong>{{ $duplicateOf->name }}</strong>. Nothing is saved yet: review the name, slug and SKU, adjust anything else, then save. Variant SKUs are generated automatically if left blank.</div>
+  @endisset
+
   <div class="row g-4">
     <div class="col-12 col-lg-8">
 

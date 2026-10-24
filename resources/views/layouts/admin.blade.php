@@ -91,6 +91,7 @@
         box.src = URL.createObjectURL(f.files[0]); box.classList.remove('d-none');
       });
     </script>
+    <script src="{{ asset('assets/js/slug.js') }}?v={{ filemtime(public_path('assets/js/slug.js')) }}"></script>
     @stack('scripts')
   </body>
 </html>

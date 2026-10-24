@@ -61,7 +61,7 @@
               @else<span class="badge {{ $stock <= 0 ? 'bg-label-danger' : ($low ? 'bg-label-warning' : 'bg-label-success') }}">{{ $stock }} {{ $low && $stock > 0 ? 'left (Low)' : 'in stock' }}</span>@endif
             </td>
             <td><x-admin.badge :status="$p->status" />@if ($p->visibility === 'hidden')<span class="badge bg-label-secondary">Hidden</span>@endif</td>
-            <td class="text-end"><x-admin.row-actions :edit="route('products.edit', $p)" :delete="route('products.destroy', $p)" label="product" /></td>
+            <td class="text-end"><x-admin.row-actions :edit="route('products.edit', $p)" :duplicate="route('products.duplicate', $p)" :delete="route('products.destroy', $p)" label="product" /></td>
           </tr>
         @empty
           <tr><td colspan="7" class="text-center text-muted py-4">No products found.</td></tr>

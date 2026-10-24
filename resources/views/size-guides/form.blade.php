@@ -50,7 +50,7 @@
     state.sizes.forEach(function (s, j) {
       h += '<tr><td><input class="form-control form-control-sm sl" name="sizes[' + j + '][label]" placeholder="e.g. M" value="' + esc(s.label) + '"></td>';
       state.attributes.forEach(function (a, i) {
-        h += '<td><input type="number" step="0.01" min="0" class="form-control form-control-sm sv" name="sizes[' + j + '][values][' + i + ']" value="' + esc((s.values || [])[i]) + '"></td>';
+        h += '<td><input type="text" maxlength="50" class="form-control form-control-sm sv" name="sizes[' + j + '][values][' + i + ']" value="' + esc((s.values || [])[i]) + '"></td>';
       });
       h += '<td><button type="button" class="btn btn-sm btn-outline-danger" data-rm-s="' + j + '" title="Remove">&times;</button></td></tr>';
     });

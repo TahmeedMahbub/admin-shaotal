@@ -58,6 +58,28 @@ class ProductController extends Controller
         return view('products.form', $this->formData($product));
     }
 
+    /** Opens the create form prefilled from an existing product; nothing is saved until the admin submits. */
+    public function duplicate(Product $product)
+    {
+        $data = $this->formData($product);
+        $state = $data['state'];
+
+        // Drop row ids so everything is inserted as new (colour/size/image links are positional, so they survive).
+        $state['images'] = array_map(fn ($i) => ['id' => null] + $i, $state['images']);
+        $state['colors'] = array_map(fn ($c) => ['id' => ''] + $c, $state['colors']);
+        $state['sizes'] = array_map(fn ($z) => ['id' => null] + $z, $state['sizes']);
+        $state['variants'] = array_map(fn ($v) => ['id' => null, 'sku' => ''] + $v, $state['variants']);
+        $state['slugManual'] = false;
+
+        // Unique fields (slug, SKU) are left blank; the name and SEO title must not repeat the original.
+        $copy = $product->replicate(['slug', 'sku', 'seo_title', 'created_by', 'updated_by']);
+        $copy->name = Str::limit($product->name, 200, '').' (Copy)';
+        $copy->status = 'draft';
+        $copy->setRelation('specification', $product->specification);
+
+        return view('products.form', array_merge($data, ['product' => $copy, 'state' => $state, 'duplicateOf' => $product]));
+    }
+
     public function store(Request $request)
     {
         $input = $this->validated($request);

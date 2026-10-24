@@ -7,9 +7,9 @@
     </div>
   </td>
   <td><span class="badge bg-label-secondary">{{ $s->category->name ?? '—' }}</span></td>
+  <td>{{ $s->section ?: '—' }}</td>
   <td><code>{{ $s->slug }}</code></td>
   <td><span class="fw-bold text-dark">{{ $s->products_count }}</span></td>
-  <td class="subcategory-order">{{ $s->sort_order }}</td>
   <td><x-admin.badge :status="$s->status" /></td>
   <td class="text-end"><x-admin.row-actions :edit="route('subcategories.edit', $s)" :delete="route('subcategories.destroy', $s)" label="subcategory" /></td>
 </tr>

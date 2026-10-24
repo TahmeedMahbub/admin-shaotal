@@ -35,6 +35,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/', DashboardController::class)->name('dashboard');
 
     Route::post('products/upload-image', [ProductController::class, 'storeImage'])->name('products.upload-image');
+    Route::get('products/{product}/duplicate', [ProductController::class, 'duplicate'])->name('products.duplicate');
     Route::resource('products', ProductController::class)->except('show');
     Route::post('categories/reorder', [CategoryController::class, 'reorder'])->name('categories.reorder');
     Route::resource('categories', CategoryController::class)->except('show');

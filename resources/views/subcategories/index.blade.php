@@ -12,6 +12,10 @@
     <option value="">All parent categories</option>
     @foreach ($categories as $id => $name)<option value="{{ $id }}" @selected((string) request('category_id') === (string) $id)>{{ $name }}</option>@endforeach
   </select>
+  <select name="section" class="form-select" style="max-width: 220px;" onchange="this.form.submit()">
+    <option value="">All sections</option>
+    @foreach ($sectionOptions as $sec)<option value="{{ $sec }}" @selected(request('section') === $sec)>{{ $sec }}</option>@endforeach
+  </select>
 </x-admin.filters>
 
 @if ($canReorder)
@@ -23,7 +27,7 @@
 <div class="card">
   <div class="table-responsive">
     <table class="table table-hover align-middle mb-0">
-      <thead><tr>@if ($canReorder)<th style="width:32px;"></th>@endif<th>Subcategory</th><th>Parent Category</th><th>Slug</th><th>Products</th><th>Sort Order</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
+      <thead><tr>@if ($canReorder)<th style="width:32px;"></th>@endif<th>Subcategory</th><th>Parent Category</th><th>Section</th><th>Slug</th><th>Products</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       @if ($canReorder)
         @forelse (collect($rows->items())->groupBy('category_id') as $categoryId => $items)
           <tbody class="subcategory-sortable" data-category-id="{{ $categoryId }}">
@@ -103,7 +107,6 @@
         if (!r.ok) throw new Error();
         groups.forEach(function (g) {
           var tb = document.querySelector('tbody.subcategory-sortable[data-category-id="' + g.category_id + '"]');
-          tb.querySelectorAll('tr[data-id] .subcategory-order').forEach(function (el, i) { el.textContent = i + 1; });
           lastOrders[g.category_id] = g.ids;
         });
       }).catch(function () {

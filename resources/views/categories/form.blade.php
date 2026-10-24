@@ -7,7 +7,7 @@
   :action="$category->exists ? route('categories.update', $category) : route('categories.store')" :back="route('categories.index')"
   :editing="$category->exists" main-title="Category Details" side-title="Category Image &amp; Settings" submit="Save Category">
   <x-admin.field name="name" label="Category Name" :value="$category->name" required placeholder="e.g. Lighting & Fixtures" />
-  <x-admin.field name="slug" label="Slug" :value="$category->slug" placeholder="lighting-fixtures" help="Leave blank to generate from the name." />
+  <x-admin.field name="slug" label="Slug" :value="$category->slug" placeholder="lighting-fixtures" help="Auto-generated from the name; edit it if you want a custom one." />
   <x-admin.field name="description" label="Description" type="textarea" :value="$category->description" placeholder="Category description for catalog overview..." />
   <x-slot:side>
     <x-admin.image-field name="image" label="Category Image" :current="$category->image_url" />

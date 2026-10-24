@@ -15,19 +15,20 @@ class SubcategoryController extends Controller
 
     public function index(Request $request)
     {
-        $filtered = $request->filled('q') || $request->filled('status');
+        $filtered = $request->filled('q') || $request->filled('status') || $request->filled('section');
 
         $rows = Subcategory::query()->with('category:id,name')->withCount('products')
             ->when($request->q, fn ($q, $v) => $q->where(fn ($w) => $w->where('name', 'like', "%$v%")->orWhere('slug', 'like', "%$v%")))
             ->when($request->status, fn ($q, $v) => $q->where('status', $v))
             ->when($request->category_id, fn ($q, $v) => $q->where('category_id', $v))
+            ->when($request->section, fn ($q, $v) => $q->where('section', $v))
             ->orderBy('category_id')->orderBy('sort_order')->paginate(self::REORDER_PER_PAGE)->withQueryString();
 
         // Dragging only makes sense over the full, unfiltered, single-page list; otherwise order is ambiguous.
         // Sort order is scoped per parent category, so the list is dragged as independent per-category groups.
         $canReorder = ! $filtered && ! $rows->hasPages();
 
-        return view('subcategories.index', ['rows' => $rows, 'categories' => $this->categories(), 'canReorder' => $canReorder]);
+        return view('subcategories.index', ['rows' => $rows, 'categories' => $this->categories(), 'canReorder' => $canReorder, 'sectionOptions' => $this->sectionOptions($request->category_id)]);
     }
 
     /** Persist the drag-and-drop order from the list page, one or more per-category groups at once. */
@@ -95,6 +96,13 @@ class SubcategoryController extends Controller
         return Subcategory::whereNotNull('section')->where('section', '!=', '')
             ->select('category_id', 'section')->distinct()->orderBy('section')->get()
             ->groupBy('category_id')->map(fn ($rows) => $rows->pluck('section')->values());
+    }
+
+    private function sectionOptions($categoryId)
+    {
+        return Subcategory::whereNotNull('section')->where('section', '!=', '')
+            ->when($categoryId, fn ($q, $v) => $q->where('category_id', $v))
+            ->distinct()->orderBy('section')->pluck('section');
     }
 
     private function validated(Request $request, ?Subcategory $sub = null): array

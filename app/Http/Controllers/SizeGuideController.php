@@ -108,10 +108,10 @@ class SizeGuideController extends Controller
             'sizes' => ['required', 'array', 'min:1', 'max:60'],
             'sizes.*.label' => ['required', 'string', 'max:80'],
             'sizes.*.values' => ['required', 'array'],
-            'sizes.*.values.*' => ['required', 'numeric', 'min:0', 'max:99999999'],
+            'sizes.*.values.*' => ['required', 'string', 'max:50'],
         ], [
             'sizes.*.values.*.required' => 'Every size needs a measurement for every attribute.',
-            'sizes.*.values.*.numeric' => 'Measurements must be numbers.',
+            'sizes.*.values.*.string' => 'Measurements must be text, e.g. 38 or 38-40.',
         ]);
 
         $attrs = array_values($in['attributes']);

@@ -167,3 +167,11 @@ INSERT INTO site_settings (setting_key, setting_value, description) VALUES
  ('home_announcement_text', JSON_QUOTE(''), 'Homepage: announcement bar message'),
  ('home_featured_title', JSON_QUOTE(''), 'Homepage: featured products section title')
 ON DUPLICATE KEY UPDATE setting_key = VALUES(setting_key);
+
+
+/* ==========================================================================================
+ SIZE GUIDE MEASUREMENTS AS TEXT
+ Purpose   : size guide cells must accept text such as '38-40' or 'M/L', not only numbers.
+ Storefront: Catalog.php (~line 236) casts measurement_value with (float); change that to a plain string.
+========================================================================================== */
+ALTER TABLE size_guide_values MODIFY measurement_value VARCHAR(50) NOT NULL;

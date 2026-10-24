@@ -8,7 +8,7 @@
   :editing="$subcategory->exists" main-title="Subcategory Details" side-title="Settings" submit="Save Subcategory">
   <x-admin.field name="category_id" label="Parent Category" type="select" :value="$subcategory->category_id" :options="$categories" blank="Select Parent Category" required />
   <x-admin.field name="name" label="Subcategory Name" :value="$subcategory->name" required placeholder="e.g. Dining Tables" />
-  <x-admin.field name="slug" label="Slug" :value="$subcategory->slug" placeholder="dining-tables" help="Leave blank to generate from the name." />
+  <x-admin.field name="slug" label="Slug" :value="$subcategory->slug" placeholder="dining-tables" help="Auto-generated from the name; edit it if you want a custom one." />
   <x-admin.field name="section" label="Section" :value="$subcategory->section" list="sectionSuggestions" placeholder="e.g. Furniture" help="Type a new section or pick an existing one." />
   <datalist id="sectionSuggestions"></datalist>
   <script>

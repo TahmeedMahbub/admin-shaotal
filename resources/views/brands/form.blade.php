@@ -7,7 +7,7 @@
   :action="$brand->exists ? route('brands.update', $brand) : route('brands.store')" :back="route('brands.index')"
   :editing="$brand->exists" main-title="Brand Details" side-title="Brand Logo &amp; Status" submit="Save Brand">
   <x-admin.field name="name" label="Brand Name" :value="$brand->name" required placeholder="e.g. Heritage Craft Works" />
-  <x-admin.field name="slug" label="Slug" :value="$brand->slug" placeholder="heritage-craft-works" help="Leave blank to generate from the name." />
+  <x-admin.field name="slug" label="Slug" :value="$brand->slug" placeholder="heritage-craft-works" help="Auto-generated from the name; edit it if you want a custom one." />
   <x-admin.field name="origin_country" label="Origin Country" :value="$brand->origin_country" />
   <x-admin.field name="description" label="Description" type="textarea" :value="$brand->description" placeholder="Brand story and background..." />
   <x-slot:side>
