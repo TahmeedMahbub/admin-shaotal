@@ -164,6 +164,21 @@ class ProductController extends Controller
     }
 
     /** True when the stored/submitted slug differs from what the name would generate, i.e. it was edited by hand. */
+    /** Description comes from the WYSIWYG editor: keep only basic formatting tags and drop all attributes except safe link hrefs. */
+    private function cleanHtml(?string $html): ?string
+    {
+        $html = trim(strip_tags((string) $html, '<p><br><strong><b><em><i><u><ul><ol><li><h2><h3><blockquote><a>'));
+        $html = preg_replace_callback('/<(\w+)\s+([^>]*)>/', function ($m) {
+            if (strtolower($m[1]) === 'a' && preg_match('/href\s*=\s*"((?:https?:\/\/|mailto:|\/)[^"]*)"/i', $m[2], $h)) {
+                return '<a href="'.e(html_entity_decode($h[1])).'" target="_blank" rel="noopener noreferrer">';
+            }
+
+            return '<'.$m[1].'>';
+        }, $html);
+
+        return $html === '' ? null : $html;
+    }
+
     private function slugWasEdited(?string $slug, ?string $name): bool
     {
         return filled($slug) && $slug !== Str::slug((string) $name);
@@ -309,7 +324,7 @@ class ProductController extends Controller
         $fields = [
             'name' => $in['name'], 'slug' => $this->slugFor('products', $in['slug'] ?? null, $in['name'], $product->id),
             'sku' => $in['sku'] ?? null ?: null, 'category_id' => $in['category_id'], 'subcategory_id' => $in['subcategory_id'] ?? null,
-            'brand_id' => $in['brand_id'] ?? null, 'short_description' => $in['short_description'] ?? null, 'description' => $in['description'] ?? null,
+            'brand_id' => $in['brand_id'] ?? null, 'short_description' => $in['short_description'] ?? null, 'description' => $this->cleanHtml($in['description'] ?? null),
             'price' => $in['price'] ?? 0, 'selling_price' => $in['selling_price'] ?? null, 'has_variants' => $has,
             // The table CHECK requires a scenario for variant products and NULL stock; simple products need stock.
             'variant_scenario' => $has ? ($in['variant_scenario'] ?? 'color_size') : null, 'stock_qty' => $has ? null : ($in['stock_qty'] ?? 0),

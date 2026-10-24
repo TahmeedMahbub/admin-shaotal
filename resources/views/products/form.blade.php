@@ -3,6 +3,8 @@
 @section('section', 'Catalog')
 
 @push('styles')
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/quill/typography.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/quill/editor.css') }}" />
 <style>
   .upload-overlay { position: absolute; inset: 0; border-radius: 6px; background: rgba(255,255,255,.82); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; padding: 4px; text-align: center; }
   .upload-overlay .progress { width: 90%; height: 5px; }
@@ -64,7 +66,12 @@
             <x-admin.field col="col-12 col-md-4" name="brand_id" label="Brand" type="select" :value="$v('brand_id')" :options="$brands" blank="Select Brand" />
           </div>
           <x-admin.field name="short_description" label="Short Description" type="textarea" rows="2" :value="$v('short_description')" placeholder="Brief 1-2 sentence overview shown in product summary..." />
-          <x-admin.field name="description" label="Full Description" type="textarea" rows="5" :value="$v('description')" placeholder="Detailed product story, craftsmanship, and specs..." />
+          <div class="mb-3">
+            <label class="form-label fw-bold fs-8">Full Description</label>
+            <div id="descEditor" class="bg-white" style="min-height:180px"></div>
+            <input type="hidden" name="description" id="f-description" value="{{ old('description', $v('description')) }}">
+            @error('description')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
+          </div>
         </div>
       </div>
 
@@ -256,6 +263,21 @@
     csrf: @json(csrf_token()),
     maxMb: {{ config('cloudinary.max_kb') / 1024 }},
   };
+</script>
+<script src="{{ asset('assets/vendor/libs/quill/quill.js') }}"></script>
+<script>
+  (function () {
+    var input = document.getElementById('f-description');
+    var quill = new Quill('#descEditor', {
+      theme: 'snow',
+      placeholder: 'Detailed product story, craftsmanship, and specs...',
+      modules: { toolbar: [[{ header: [2, 3, false] }], ['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], ['link', 'blockquote'], ['clean']] }
+    });
+    if (input.value) quill.clipboard.dangerouslyPasteHTML(input.value);
+    document.getElementById('productForm').addEventListener('submit', function () {
+      input.value = quill.getText().trim() === '' ? '' : quill.root.innerHTML;
+    });
+  })();
 </script>
 <script src="{{ asset('assets/js/product-form.js') }}?v={{ filemtime(public_path('assets/js/product-form.js')) }}"></script>
 @endpush
