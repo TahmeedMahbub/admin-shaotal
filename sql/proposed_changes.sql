@@ -175,3 +175,72 @@ ON DUPLICATE KEY UPDATE setting_key = VALUES(setting_key);
  Storefront: Catalog.php (~line 236) casts measurement_value with (float); change that to a plain string.
 ========================================================================================== */
 ALTER TABLE size_guide_values MODIFY measurement_value VARCHAR(50) NOT NULL;
+
+
+/* ==========================================================================================
+ URL-TO-DRAFT PRODUCT IMPORTER (Phase 1: submit URLs, de-duplicate, fetch and extract)
+ Purpose   : stage externally sourced products for review before they become draft products.
+ Flow      : an admin pastes URLs -> one product_import_items row per unique normalized URL (queued) ->
+             `php artisan product-imports:process` (or the "Fetch now" button) fetches and extracts it
+             -> raw_data/source_images hold the extraction; draft_data / generated_images are filled by
+             later phases (AI structuring, image processing). product_id is set only when a draft is saved.
+ Duplicates: url_hash = SHA-256 of the normalized URL (tracking params, www, fragment, trailing slash removed).
+             The UNIQUE key makes a URL importable once, even across batches or under concurrent submits.
+ Statuses  : queued/processing = extraction; needs_review = extracted, awaiting edits; ready = approved by an admin;
+             draft_saved = product created with status 'draft'; published = product made active; duplicate = a product
+             with the same name/SKU already exists (blocked until the name/SKU is changed); failed = extraction gave up.
+ Retries   : attempts / next_attempt_at / last_error back automatic retries (max 3, exponential backoff);
+             locked_at lets a crashed run be picked up again. No Laravel queue tables are needed.
+ Safety    : products are never touched here; product_id is SET NULL if a product is later deleted.
+========================================================================================== */
+CREATE TABLE product_import_batches (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ name VARCHAR(190) NULL,
+ created_by BIGINT UNSIGNED NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY(created_by) REFERENCES admin_users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE product_import_items (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ batch_id BIGINT UNSIGNED NOT NULL,
+ source_url VARCHAR(2048) NOT NULL,
+ normalized_url VARCHAR(2048) NOT NULL,
+ url_hash CHAR(64) NOT NULL,
+ status ENUM('queued','processing','needs_review','ready','draft_saved','published','duplicate','failed') NOT NULL DEFAULT 'queued',
+ attempts TINYINT UNSIGNED NOT NULL DEFAULT 0,
+ next_attempt_at DATETIME NULL,
+ locked_at DATETIME NULL,
+ last_error VARCHAR(500) NULL,
+ raw_data JSON NULL,
+ draft_data JSON NULL,
+ source_images JSON NULL,
+ generated_images JSON NULL,
+ product_id BIGINT UNSIGNED NULL,
+ created_by BIGINT UNSIGNED NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ UNIQUE KEY uq_import_url_hash (url_hash),
+ INDEX(batch_id,status),
+ INDEX(status,next_attempt_at),
+ FOREIGN KEY(batch_id) REFERENCES product_import_batches(id) ON DELETE CASCADE,
+ FOREIGN KEY(product_id) REFERENCES products(id) ON DELETE SET NULL,
+ FOREIGN KEY(created_by) REFERENCES admin_users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+/* ==========================================================================================
+ URL-TO-DRAFT IMPORTER: UPGRADE for a database that already ran the first (Phase 1) version of the section above
+ Purpose   : the review/approve/draft/publish workflow needs the new status list. Run ONLY where product_import_items
+             already exists with the old ENUM('queued','processing','extracted','imaged','ready','saved','failed').
+             A database created from the current CREATE TABLE above does not need this.
+ Data      : rows extracted by the first version hold inaccurate Fabrilife data, so they are re-queued and will be
+             re-extracted by the new extractor (the URL and its duplicate hash are kept).
+========================================================================================== */
+UPDATE product_import_items
+   SET status = 'queued', attempts = 0, next_attempt_at = NULL, locked_at = NULL, last_error = NULL,
+       raw_data = NULL, draft_data = NULL, source_images = NULL, generated_images = NULL
+ WHERE status IN ('extracted','imaged','ready','saved') AND product_id IS NULL;
+
+ALTER TABLE product_import_items
+  MODIFY status ENUM('queued','processing','needs_review','ready','draft_saved','published','duplicate','failed') NOT NULL DEFAULT 'queued';

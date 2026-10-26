@@ -16,6 +16,8 @@ use App\Http\Controllers\OfferController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductImportController;
+use App\Http\Controllers\ProductImportImageController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SiteContentController;
 use App\Http\Controllers\SizeGuideController;
@@ -34,6 +36,18 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/', DashboardController::class)->name('dashboard');
 
+    Route::get('product-imports', [ProductImportController::class, 'index'])->name('product-imports.index');
+    Route::get('product-imports/create', [ProductImportController::class, 'create'])->name('product-imports.create');
+    Route::post('product-imports', [ProductImportController::class, 'store'])->name('product-imports.store');
+    Route::get('product-imports/items/{item}', [ProductImportController::class, 'item'])->name('product-imports.item');
+    Route::get('product-imports/items/{item}/review', [ProductImportController::class, 'review'])->name('product-imports.review');
+    Route::post('product-imports/items/{item}/save', [ProductImportController::class, 'save'])->name('product-imports.save');
+    Route::post('product-imports/items/{item}/images/original', [ProductImportImageController::class, 'original'])->name('product-imports.images.original');
+    Route::post('product-imports/items/{item}/images/generate', [ProductImportImageController::class, 'generate'])->name('product-imports.images.generate');
+    Route::post('product-imports/items/{item}/images/approve', [ProductImportImageController::class, 'approve'])->name('product-imports.images.approve');
+    Route::get('product-imports/items/{item}/images/preview/{id}', [ProductImportImageController::class, 'preview'])->name('product-imports.images.preview');
+    Route::post('product-imports/items/{item}/run', [ProductImportController::class, 'run'])->name('product-imports.run');
+    Route::get('product-imports/{batch}', [ProductImportController::class, 'show'])->name('product-imports.show');
     Route::post('products/upload-image', [ProductController::class, 'storeImage'])->name('products.upload-image');
     Route::get('products/{product}/duplicate', [ProductController::class, 'duplicate'])->name('products.duplicate');
     Route::resource('products', ProductController::class)->except('show');

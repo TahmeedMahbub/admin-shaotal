@@ -2,7 +2,7 @@
   $menu = [
     ['Dashboard', 'mdi-view-dashboard-outline', 'dashboard', null],
     ['Catalog', 'mdi-package-variant-closed', null, [
-      ['Products', 'products.*', 'products.index'], ['Categories', 'categories.*', 'categories.index'],
+      ['Products', 'products.*', 'products.index'], ['Import Products', 'product-imports.*', 'product-imports.index'], ['Categories', 'categories.*', 'categories.index'],
       ['Subcategories', 'subcategories.*', 'subcategories.index'], ['Brands', 'brands.*', 'brands.index'],
       ['Size Guides', 'size-guides.*', 'size-guides.index']]],
     ['Sales', 'mdi-cart-outline', null, [

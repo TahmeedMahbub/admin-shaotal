@@ -13,10 +13,10 @@ class Fmt
     public static function badge(?string $status): string
     {
         return match (strtolower((string) $status)) {
-            'active', 'paid', 'delivered', 'approved', 'resolved', 'completed', 'accepted', 'subscribed', 'in_stock', 'converted', 'visible', 'clicked' => 'bg-label-success',
-            'pending', 'new', 'draft', 'quoted', 'in_progress', 'reviewing', 'processing', 'authorized', 'preorder', 'coming_soon', 'sent', 'not_sent' => 'bg-label-warning',
-            'confirmed', 'shipped' => 'bg-label-info',
-            'cancelled', 'rejected', 'failed', 'blocked', 'spam', 'returned', 'out_of_stock', 'expired', 'abandoned' => 'bg-label-danger',
+            'active', 'paid', 'delivered', 'approved', 'resolved', 'completed', 'accepted', 'subscribed', 'in_stock', 'converted', 'visible', 'clicked', 'ready', 'published' => 'bg-label-success',
+            'pending', 'new', 'draft', 'quoted', 'in_progress', 'reviewing', 'processing', 'authorized', 'preorder', 'coming_soon', 'sent', 'not_sent', 'needs_review' => 'bg-label-warning',
+            'confirmed', 'shipped', 'draft_saved' => 'bg-label-info',
+            'cancelled', 'rejected', 'failed', 'blocked', 'spam', 'returned', 'out_of_stock', 'expired', 'abandoned', 'duplicate' => 'bg-label-danger',
             default => 'bg-label-secondary',
         };
     }

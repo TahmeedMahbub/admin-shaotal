@@ -232,11 +232,23 @@
   }
   $('btnAddCustomSize').onclick = addCustomSize;
   $('customSizeInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); addCustomSize(); } });
+  var prevGuide = guideSel.value;
   guideSel.addEventListener('change', function () {
-    // Drop sizes that an earlier guide added and the admin never ticked, then offer (and tick) this guide's sizes.
-    chips = chips.filter(function (c) { return !(c.guide && !c.id && !c.checked); });
     var g = guides[guideSel.value];
-    if (g) g.sizes.forEach(function (l) { chip(l, true, '', true); });
+    if (g) {
+      // The guide's sizes replace the ticked sizes. Saved sizes (they own variants) stay listed but unticked.
+      var keep = {}; g.sizes.forEach(function (l) { keep[l.toLowerCase()] = true; });
+      var dropped = chips.filter(function (c) { return c.checked && c.id && !keep[c.label.toLowerCase()]; });
+      if (dropped.length && !confirm('Switching to this size guide removes ' + dropped.map(function (c) { return c.label; }).join(', ') + ' and their variants when you save. Continue?')) {
+        guideSel.value = prevGuide; return;
+      }
+      chips.forEach(function (c) { c.checked = !!keep[c.label.toLowerCase()]; });
+      chips = chips.filter(function (c) { return c.checked || c.id || !c.guide; });
+      g.sizes.forEach(function (l) { chip(l, true, '', true); });
+    } else {
+      chips = chips.filter(function (c) { return !(c.guide && !c.id && !c.checked); });
+    }
+    prevGuide = guideSel.value;
     renderChips(); renderMatrix();
   });
   $('btnClearSizeGuide').onclick = function () { guideSel.value = ''; guideSel.dispatchEvent(new Event('change')); };
@@ -341,6 +353,15 @@
     guideSel.disabled = guideHidden; if (guideHidden && guideSel.value) add('size_guide_id', guideSel.value);
     box.innerHTML = html.join('');
   });
+
+  // Lets the import review panel add an already-uploaded (Cloudinary) image to the gallery.
+  window.ProductFormApi = {
+    addUploadedImage: function (url) {
+      if (images.some(function (i) { return i.url === url; })) return false;
+      images.push({ u: uid++, id: null, url: url, preview: url, main: !images.some(function (i) { return i.main; }), status: 'ready', progress: 100, error: '' });
+      renderAll(); return true;
+    }
+  };
 
   fillSubs(); renderChips(); renderAll(); updatePanels();
 })();

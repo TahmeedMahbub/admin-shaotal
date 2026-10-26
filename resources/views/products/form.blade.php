@@ -25,25 +25,32 @@
   $subsByCategory = $subcategories->groupBy('category_id')->map(fn ($g) => $g->map(fn ($s) => ['id' => $s->id, 'name' => $s->name])->values());
   $saleOn = old('selling_price', $product->selling_price) !== null && old('selling_price', $product->selling_price) !== '';
   $draftCta = $product->exists && $product->status === 'draft';
+  $importMode = isset($import);
 @endphp
 
-<form method="POST" id="productForm" action="{{ $product->exists ? route('products.update', $product) : route('products.store') }}" novalidate>
+<form method="POST" id="productForm" action="{{ $importMode ? route('product-imports.save', $import) : ($product->exists ? route('products.update', $product) : route('products.store')) }}" novalidate>
   @csrf
-  @if ($product->exists) @method('PUT') @endif
+  @if ($product->exists && ! $importMode) @method('PUT') @endif
   <div id="dynamicFields"></div>
 
   <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4">
     <div>
-      <h4 class="fw-bold mb-1" style="color: var(--beige-text-dark);">{{ $product->exists ? 'Edit Product: '.$product->name : 'Create New Product' }}</h4>
+      <h4 class="fw-bold mb-1" style="color: var(--beige-text-dark);">{{ $importMode ? 'Review Import: '.($v('name') ?: 'Untitled') : ($product->exists ? 'Edit Product: '.$product->name : 'Create New Product') }}</h4>
       <p class="text-muted mb-0 fs-7">
-        @if ($product->exists)SKU: <span class="fw-bold text-dark">{{ $product->sku ?: '—' }}</span> &bull; Status: <x-admin.badge :status="$product->status" />
+        @if ($importMode)Import item #{{ $import->id }} &bull; Status: <x-admin.badge :status="$import->status" />@if ($importProduct) &bull; <a href="{{ route('products.edit', $importProduct) }}">Product #{{ $importProduct->id }}</a>@endif
+        @elseif ($product->exists)SKU: <span class="fw-bold text-dark">{{ $product->sku ?: '—' }}</span> &bull; Status: <x-admin.badge :status="$product->status" />
         @else Configure product details, media, pricing, colors, sizes, and variants. @endif
       </p>
     </div>
-    <div class="d-flex align-items-center gap-2">
+    <div class="d-flex align-items-center gap-2 flex-wrap">
+      @if ($importMode)
+        <a href="{{ route('product-imports.show', $import->batch_id) }}" class="btn btn-outline-secondary">Back to batch</a>
+        @include('product-imports._actions', ['compact' => true])
+      @else
       <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">Cancel</a>
       <button type="submit" name="save_draft" value="1" class="btn btn-outline-beige" title="Saves as a draft; hidden from the storefront"><i class="mdi mdi-file-document-edit-outline me-1"></i> Save Draft</button>
       <button type="submit" class="btn btn-beige js-save"><i class="mdi mdi-check me-1"></i> {{ $product->exists ? 'Update Product' : 'Save Product' }}</button>
+      @endif
     </div>
   </div>
 
@@ -53,6 +60,9 @@
 
   <div class="row g-4">
     <div class="col-12 col-lg-8">
+      @if ($importMode)
+        @include('product-imports._panel')
+      @endif
 
       {{-- 1. Basic information --}}
       <div class="card mb-4">
@@ -245,9 +255,14 @@
           <x-admin.field name="status" label="Status" type="select" :value="$v('status')" :options="['active' => 'Active (Published)', 'draft' => 'Draft (Hidden)', 'inactive' => 'Inactive', 'archived' => 'Archived']" required />
           <x-admin.field name="visibility" label="Visibility" type="select" :value="$v('visibility')" :options="['visible' => 'Visible', 'hidden' => 'Hidden']" required />
           <x-admin.field name="badge_type" label="Badge" type="select" :value="$badgeType" :options="$badges" blank="No badge" />
+          @if ($importMode)
+            @include('product-imports._actions', ['compact' => false])
+            <div class="fs-9 text-muted mt-2">Save Draft keeps the product hidden. Publish makes it Active and Visible on the storefront and is never done automatically.</div>
+          @else
           <button type="submit" class="btn btn-beige w-100 mb-2 js-save"><i class="mdi mdi-content-save me-1"></i> {{ $product->exists ? 'Update Product' : 'Save Product' }}</button>
           <button type="submit" name="save_draft" value="1" class="btn btn-outline-beige w-100"><i class="mdi mdi-file-document-edit-outline me-1"></i> Save Draft</button>
           <div class="fs-9 text-muted mt-2">Drafts are hidden from the storefront until the status is set to Active and visibility to Visible.</div>
+          @endif
         </div>
       </div>
     </div>
@@ -284,4 +299,16 @@
   })();
 </script>
 <script src="{{ asset('assets/js/product-form.js') }}?v={{ filemtime(public_path('assets/js/product-form.js')) }}"></script>
+@if ($importMode)
+<script>
+  window.IMPORT_REVIEW = {
+    csrf: @json(csrf_token()),
+    original: @json(route('product-imports.images.original', $import)),
+    generate: @json(route('product-imports.images.generate', $import)),
+    approve: @json(route('product-imports.images.approve', $import)),
+    manual: @json(array_keys($manualFields)),
+  };
+</script>
+<script src="{{ asset('assets/js/import-review.js') }}?v={{ filemtime(public_path('assets/js/import-review.js')) }}"></script>
+@endif
 @endpush
