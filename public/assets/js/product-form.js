@@ -326,6 +326,24 @@
     Array.prototype.forEach.call(document.querySelectorAll('.sale-price-field'), function (el) { el.style.display = sale.checked ? '' : 'none'; });
     var sp = $('f-selling_price'); if (sp) sp.disabled = !sale.checked;
   }
+  /* Discount % <-> sale price (the % input has no name, so only the sale price is submitted). */
+  (function () {
+    var price = $('f-price'), sp = $('f-selling_price'), pct = $('f-discount_pct');
+    if (!price || !sp || !pct) return;
+    function fromPrice() {
+      var p = parseFloat(price.value), s = parseFloat(sp.value);
+      pct.value = p > 0 && !isNaN(s) && s <= p ? (Math.round((1 - s / p) * 10000) / 100) : '';
+    }
+    pct.addEventListener('input', function () {
+      var p = parseFloat(price.value), d = parseFloat(pct.value);
+      if (!(p > 0) || isNaN(d)) { if (pct.value === '') sp.value = ''; return; }
+      sp.value = (p * (1 - Math.min(Math.max(d, 0), 100) / 100)).toFixed(2);
+    });
+    sp.addEventListener('input', fromPrice);
+    price.addEventListener('input', fromPrice);
+    fromPrice();
+  })();
+
   function refresh() { updatePanels(); renderMatrix(); }
   has.addEventListener('change', refresh); sale.addEventListener('change', refresh);
   Array.prototype.forEach.call(document.querySelectorAll('input[name=variant_scenario]'), function (r) { r.addEventListener('change', refresh); });

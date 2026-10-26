@@ -229,7 +229,13 @@
         <div class="card-body pt-3">
           <div class="alert alert-secondary py-2 px-3 fs-9 mb-3" style="background-color: var(--beige-bg-alt); border: 1px solid var(--beige-border-subtle);"><i class="mdi mdi-information-outline text-primary me-1"></i> Variants inherit these prices unless overridden in the matrix.</div>
           <x-admin.field name="price" label="Regular Price (A$)" type="number" step="0.01" min="0" :value="$v('price')" required />
-          <div class="sale-price-field"><x-admin.field name="selling_price" label="Sale / Offer Price (A$)" type="number" step="0.01" min="0" :value="$v('selling_price')" help="Must not exceed the regular price." /></div>
+          <div class="sale-price-field row g-2">
+            <div class="col-8"><x-admin.field name="selling_price" label="Sale / Offer Price (A$)" type="number" step="0.01" min="0" :value="$v('selling_price')" /></div>
+            <div class="col-4">
+              <label class="form-label fw-bold fs-8" for="f-discount_pct">Discount (%)</label>
+              <input id="f-discount_pct" type="number" step="0.01" min="0" max="100" class="form-control" placeholder="0">
+            </div>
+          </div>
         </div>
       </div>
 

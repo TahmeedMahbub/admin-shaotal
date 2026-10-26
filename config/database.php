@@ -61,6 +61,8 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 Mysql::ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                // The DB is remote: reusing the connection skips a ~0.5 s handshake per request.
+                \PDO::ATTR_PERSISTENT => env('DB_PERSISTENT', false),
             ]) : [],
         ],
 
