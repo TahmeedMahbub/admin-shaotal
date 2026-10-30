@@ -305,6 +305,35 @@
   })();
 </script>
 <script src="{{ asset('assets/js/product-form.js') }}?v={{ filemtime(public_path('assets/js/product-form.js')) }}"></script>
+<script>
+  /* Save buttons stay disabled until the user changes something; leaving with unsaved changes asks first.
+     Only trusted (real user) events count, so the script-driven setup of the form is not a change. */
+  (function () {
+    var form = document.getElementById('productForm');
+    var saves = document.querySelectorAll('.js-save');
+    var dirty = false, submitting = false;
+    function setDirty() {
+      if (dirty) return;
+      dirty = true;
+      saves.forEach(function (b) { b.disabled = false; });
+    }
+    if (@json($errors->any())) dirty = true;
+    else saves.forEach(function (b) { b.disabled = true; });
+    ['input', 'change', 'drop'].forEach(function (t) {
+      form.addEventListener(t, function (e) { if (e.isTrusted) setDirty(); }, true);
+    });
+    form.addEventListener('click', function (e) {
+      var b = e.target.closest('button, .btn');
+      if (e.isTrusted && b && b.type !== 'submit' && b.tagName !== 'A') setDirty();
+    }, true);
+    form.addEventListener('submit', function (e) { submitting = !e.defaultPrevented; });
+    window.addEventListener('beforeunload', function (e) {
+      if (!dirty || submitting) return;
+      e.preventDefault();
+      e.returnValue = '';
+    });
+  })();
+</script>
 @if ($importMode)
 <script>
   window.IMPORT_REVIEW = {
