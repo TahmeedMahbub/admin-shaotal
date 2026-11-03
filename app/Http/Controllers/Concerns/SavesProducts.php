@@ -121,6 +121,7 @@ trait SavesProducts
             'badge_type' => ['nullable', Rule::in(array_keys(self::BADGES))],
             'preorder_release_date' => ['nullable', 'date'],
             'low_stock_threshold' => ['nullable', 'integer', 'min:0', 'max:1000000'],
+            'source_url' => ['nullable', 'url', 'max:255'],
             'size_guide_id' => ['nullable', 'integer', Rule::in(array_column($lookups['guides'], 'id'))],
             'visibility' => ['required', Rule::in(['visible', 'hidden'])],
             'status' => ['required', Rule::in(['draft', 'active', 'inactive', 'archived'])],
@@ -247,6 +248,7 @@ trait SavesProducts
             'price' => $in['price'] ?? 0, 'selling_price' => $in['selling_price'] ?? null, 'has_variants' => $has,
             // The table CHECK requires a scenario for variant products and NULL stock; simple products need stock.
             'variant_scenario' => $has ? ($in['variant_scenario'] ?? 'color_size') : null, 'stock_qty' => $has ? null : ($in['stock_qty'] ?? 0),
+            'source_url' => $in['source_url'] ?? null ?: null,
             'availability' => $in['availability'],
             'badge' => ! empty($in['badge_type']) ? ['type' => $in['badge_type'], 'label' => self::BADGES[$in['badge_type']]] : null,
             'preorder_release_date' => $in['preorder_release_date'] ?? null, 'low_stock_threshold' => $in['low_stock_threshold'] ?? null,

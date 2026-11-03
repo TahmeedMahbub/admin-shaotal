@@ -35,6 +35,7 @@ class DraftBuilder
             'category_id' => $categoryId ?? '', 'subcategory_id' => $subcategoryId ?? '', 'brand_id' => self::brand($raw['brand'] ?? null) ?? '',
             'short_description' => '', 'description' => self::description($raw),
             'price' => '', 'selling_price' => '', 'stock_qty' => '', 'low_stock_threshold' => '',
+            'source_url' => mb_substr((string) ($raw['source_url'] ?? ''), 0, 255),
             'has_variants' => $scenario ? 1 : 0, 'variant_scenario' => $scenario ?? 'color_size',
             'availability' => 'in_stock', 'visibility' => 'visible', 'status' => 'draft', 'size_guide_id' => '',
             'spec' => [

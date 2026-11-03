@@ -69,7 +69,7 @@
         <div class="card-header border-bottom py-3"><h5 class="card-title mb-0 fs-6"><i class="mdi mdi-information-outline me-2 text-primary"></i> Basic Information</h5></div>
         <div class="card-body pt-3">
           <x-admin.field name="name" label="Product Name" :value="$v('name')" required placeholder="e.g. Minimalist Oak Dining Table" />
-          <x-admin.field name="slug" label="Slug" :value="$v('slug')" placeholder="auto-generated-from-name" help="Generated from the name until you edit it; you can change it any time." />
+          <x-admin.field name="slug" label="Slug" :value="$v('slug')" placeholder="auto-generated-from-name" />
           <div class="row g-3 mb-3">
             <x-admin.field col="col-12 col-md-4" name="category_id" label="Category" type="select" :value="$v('category_id')" :options="$categories" blank="Select Category" required />
             <div class="col-12 col-md-4">
@@ -242,13 +242,18 @@
       <div class="card mb-4" id="cardStock">
         <div class="card-header border-bottom py-3"><h5 class="card-title mb-0 fs-6"><i class="mdi mdi-clipboard-text-outline me-2 text-primary"></i> Inventory &amp; SKU</h5></div>
         <div class="card-body pt-3">
-          <x-admin.field name="sku" label="Base SKU" :value="$v('sku')" help="Prefix for generated variant SKUs; the product SKU when there are no variants." />
+          <x-admin.field name="sku" label="Base SKU" :value="$v('sku')" />
           <div id="variantStockSummary" class="p-3 rounded mb-3" style="background-color: var(--beige-bg-alt); border: 1px solid var(--beige-border-subtle);">
             <div class="fs-8 fw-semibold text-dark"><i class="mdi mdi-layers-outline text-primary me-1"></i> Variant Inventory</div>
             <div class="fs-7 fw-bold text-dark my-1">Total Stock: <span id="sidebarTotalStock">0</span> units</div>
             <small class="text-muted fs-9">Calculated from the matrix.</small>
           </div>
           <div id="simpleStock"><x-admin.field name="stock_qty" label="Base Stock Quantity" type="number" min="0" :value="$v('stock_qty')" help="Product-level inventory for products without variants." /></div>
+          @php $sourceUrl = old('source_url', $product->source_url ?? ($importMode ? mb_substr($import->source_url, 0, 255) : null)); @endphp
+          <x-admin.field name="source_url" label="Source URL" type="url" :value="$sourceUrl" />
+          @if (preg_match('#^https?://#i', (string) $sourceUrl))
+            <div class="mb-3 fs-9"><a href="{{ $sourceUrl }}" target="_blank" rel="noopener noreferrer"><i class="mdi mdi-open-in-new me-1"></i>Open source page</a></div>
+          @endif
           <x-admin.field name="availability" label="Stock Availability Status" type="select" :value="$v('availability')" :options="['in_stock' => 'In Stock', 'out_of_stock' => 'Out of Stock', 'preorder' => 'Pre-order', 'coming_soon' => 'Coming Soon']" required />
           <x-admin.field name="preorder_release_date" label="Estimated Dispatch / Release Date" type="date" :value="optional($product->preorder_release_date)->format('Y-m-d') ?? old('preorder_release_date')" />
           <x-admin.field name="low_stock_threshold" label="Low Stock Threshold" type="number" min="0" :value="$v('low_stock_threshold')" />
@@ -266,8 +271,8 @@
             <div class="fs-9 text-muted mt-2">Save Draft keeps the product hidden. Publish makes it Active and Visible on the storefront and is never done automatically.</div>
           @else
           <button type="submit" class="btn btn-beige w-100 mb-2 js-save"><i class="mdi mdi-content-save me-1"></i> {{ $product->exists ? 'Update Product' : 'Save Product' }}</button>
-          <button type="submit" name="save_draft" value="1" class="btn btn-outline-beige w-100"><i class="mdi mdi-file-document-edit-outline me-1"></i> Save Draft</button>
-          <div class="fs-9 text-muted mt-2">Drafts are hidden from the storefront until the status is set to Active and visibility to Visible.</div>
+          {{-- <button type="submit" name="save_draft" value="1" class="btn btn-outline-beige w-100"><i class="mdi mdi-file-document-edit-outline me-1"></i> Save Draft</button> --}}
+          {{-- <div class="fs-9 text-muted mt-2">Drafts are hidden from the storefront until the status is set to Active and visibility to Visible.</div> --}}
           @endif
         </div>
       </div>
