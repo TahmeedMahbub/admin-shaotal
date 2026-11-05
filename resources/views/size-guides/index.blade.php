@@ -17,7 +17,7 @@
         @forelse ($rows as $g)
           <tr data-row-href="{{ route('size-guides.edit', $g) }}">
             <td><a href="{{ route('size-guides.show', $g) }}" class="fw-bold text-dark fs-8">{{ $g->title }}</a><div><code>{{ $g->key }}</code></div></td>
-            <td>@foreach ($g->sizeAttributes as $a)<span class="badge bg-label-secondary me-1">{{ $a->attribute_name }} ({{ $a->unit }})</span>@endforeach</td>
+            <td>@foreach ($g->sizeAttributes as $a)<span class="badge bg-label-secondary me-1">{{ $a->attribute_name }} ({{ $g->attributeUnit($a) }})</span>@endforeach</td>
             <td>{{ $g->size_count }} sizes</td>
             <td><span class="fw-bold text-dark">{{ $g->products_count }} Products</span></td>
             <td><x-admin.badge :status="$g->status" /></td>

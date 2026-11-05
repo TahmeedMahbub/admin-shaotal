@@ -11,13 +11,13 @@
 <div class="row g-4">
   <div class="col-12 col-lg-8">
     <div class="card mb-4">
-      <div class="card-header border-bottom py-3 d-flex justify-content-between"><h5 class="card-title mb-0 fs-6">Measurement Chart</h5><x-admin.badge :status="$guide->status" /></div>
+      <div class="card-header border-bottom py-3 d-flex justify-content-between"><h5 class="card-title mb-0 fs-6">Measurement Chart</h5><div class="btn-group btn-group-sm">@foreach (['in' => 'Inch', 'cm' => 'CM'] as $u => $l)<a href="{{ route('size-guides.show', [$guide, 'unit' => $u]) }}" class="btn btn-outline-secondary {{ $viewUnit === $u ? 'active' : '' }}">{{ $l }}</a>@endforeach</div><x-admin.badge :status="$guide->status" /></div>
       <div class="table-responsive">
         <table class="table table-bordered align-middle mb-0 text-center">
-          <thead><tr><th>Size</th>@foreach ($guide->sizeAttributes as $a)<th>{{ $a->attribute_name }} ({{ $a->unit }})</th>@endforeach</tr></thead>
+          <thead><tr><th>Size</th>@foreach ($guide->sizeAttributes as $a)<th>{{ $a->attribute_name }} ({{ $viewUnit }})</th>@endforeach</tr></thead>
           <tbody>
             @foreach ($guide->sizeValues->groupBy('size_label') as $label => $vals)
-              <tr><td class="fw-bold">{{ $label }}</td>@foreach ($guide->sizeAttributes as $a)<td>{{ rtrim(rtrim((string) ($vals->firstWhere('attribute_id', $a->id)->measurement_value ?? ''), '0'), '.') }}</td>@endforeach</tr>
+              <tr><td class="fw-bold">{{ $label }}</td>@foreach ($guide->sizeAttributes as $a)<td>{{ $cell((string) ($vals->firstWhere('attribute_id', $a->id)->measurement_value ?? ''), $a) }}</td>@endforeach</tr>
             @endforeach
           </tbody>
         </table>
